@@ -28,6 +28,7 @@ Thomas Kipf, [Graph Convolutional Networks](http://tkipf.github.io/graph-convolu
 ## Installation
 
 ```bash
+cd gae
 python setup.py install
 ```
 
@@ -38,10 +39,11 @@ python setup.py install
 * scikit-learn
 * scipy
 
-## Run the demo
+## Run the notebook
 
 ```bash
-python train.py
+jupyter notebook
+[launch facebook-vae.ipynb]
 ```
 
 ## Data
@@ -56,9 +58,3 @@ In this forked repository, we load social network data (Facebook). The original 
 can be found here: https://snap.stanford.edu/data/egonets-Facebook.html.
 
 The original GAE code also loads citation network data (Cora, Citeseer or Pubmed). The original datasets can be found here: http://linqs.cs.umd.edu/projects/projects/lbc/ and here (in a different format): https://github.com/kimiyoung/planetoid
-
-## Models
-
-You can choose between the following models: 
-* `gcn_ae`: Graph Auto-Encoder (with GCN encoder)
-* `gcn_vae`: Variational Graph Auto-Encoder (with GCN encoder)
