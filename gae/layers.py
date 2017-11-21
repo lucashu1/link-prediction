@@ -74,6 +74,8 @@ class GraphConvolution(Layer):
         self.adj = adj
         self.act = act
 
+    # Apply Graph Convolution operation:
+        # H_1 = activation(Ã * X * W)
     def _call(self, inputs):
         x = inputs
         x = tf.nn.dropout(x, 1-self.dropout)
@@ -95,6 +97,8 @@ class GraphConvolutionSparse(Layer):
         self.issparse = True
         self.features_nonzero = features_nonzero
 
+    # Apply Graph Convolution operation:
+        # H_1 = activation(Ã * X * W)
     def _call(self, inputs):
         x = inputs
         x = dropout_sparse(x, 1-self.dropout, self.features_nonzero)
@@ -111,6 +115,9 @@ class InnerProductDecoder(Layer):
         self.dropout = dropout
         self.act = act
 
+    # Reconstruct adjacency matrix from node embeddings:
+        # A_pred = activation(Z*Z^T)
+        # Simple inner product
     def _call(self, inputs):
         inputs = tf.nn.dropout(inputs, 1-self.dropout)
         x = tf.transpose(inputs)

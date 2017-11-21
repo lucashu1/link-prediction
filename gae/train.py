@@ -61,30 +61,38 @@ placeholders = {
     'dropout': tf.placeholder_with_default(0., shape=())
 }
 
+# Graph attributes
 num_nodes = adj.shape[0]
-
 features = sparse_to_tuple(features.tocoo())
 num_features = features[2][1]
 features_nonzero = features[1].shape[0]
 
 # Create model
 model = None
-if model_str == 'gcn_ae':
+if model_str == 'gcn_ae': # Graph Auto-Encoder
     model = GCNModelAE(placeholders, num_features, features_nonzero)
-elif model_str == 'gcn_vae':
+elif model_str == 'gcn_vae': # Graph Variational Auto-Encoder
     model = GCNModelVAE(placeholders, num_features, num_nodes, features_nonzero)
 
+# How much to weigh positive examples (true edges) in cost print_function
+  # Want to weigh less-frequent classes higher, so as to prevent model output bias
+  # pos_weight = (num. negative samples / (num. positive samples)
 pos_weight = float(adj.shape[0] * adj.shape[0] - adj.sum()) / adj.sum()
+
+# normalize (scale) average weighted cost
 norm = adj.shape[0] * adj.shape[0] / float((adj.shape[0] * adj.shape[0] - adj.sum()) * 2)
 
 # Optimizer
 with tf.name_scope('optimizer'):
+    # Graph Auto-Encoder: use weighted_binary_crossentropy
     if model_str == 'gcn_ae':
         opt = OptimizerAE(preds=model.reconstructions,
                           labels=tf.reshape(tf.sparse_tensor_to_dense(placeholders['adj_orig'],
                                                                       validate_indices=False), [-1]),
                           pos_weight=pos_weight,
                           norm=norm)
+
+    # Graph Variational Auto-Encoder: use weighted_binary_crossentropy + KL Divergence
     elif model_str == 'gcn_vae':
         opt = OptimizerVAE(preds=model.reconstructions,
                            labels=tf.reshape(tf.sparse_tensor_to_dense(placeholders['adj_orig'],
@@ -100,7 +108,7 @@ sess.run(tf.global_variables_initializer())
 cost_val = []
 acc_val = []
 
-
+# Calculate ROC AUC
 def get_roc_score(edges_pos, edges_neg, emb=None):
     if emb is None:
         feed_dict.update({placeholders['dropout']: 0})
@@ -135,6 +143,7 @@ cost_val = []
 acc_val = []
 val_roc_score = []
 
+# Add in diagonals
 adj_label = adj_train + sp.eye(adj_train.shape[0])
 adj_label = sparse_to_tuple(adj_label)
 
@@ -152,9 +161,11 @@ for epoch in range(FLAGS.epochs):
     avg_cost = outs[1]
     avg_accuracy = outs[2]
 
+    # Evaluate predictions
     roc_curr, ap_curr = get_roc_score(val_edges, val_edges_false)
     val_roc_score.append(roc_curr)
 
+    # Print results for this epoch
     print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost),
           "train_acc=", "{:.5f}".format(avg_accuracy), "val_roc=", "{:.5f}".format(val_roc_score[-1]),
           "val_ap=", "{:.5f}".format(ap_curr),
@@ -162,6 +173,7 @@ for epoch in range(FLAGS.epochs):
 
 print("Optimization Finished!")
 
+# Print final results
 roc_score, ap_score = get_roc_score(test_edges, test_edges_false)
 print('Test ROC score: ' + str(roc_score))
 print('Test AP score: ' + str(ap_score))

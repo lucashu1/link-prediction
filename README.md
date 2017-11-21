@@ -3,7 +3,7 @@ Social Network VAE
 
 This is a TensorFlow implementation of the (Variational) Graph Auto-Encoder model as described in Thomas Kipf's paper:
  
-T. N. Kipf, M. Welling, [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308), NIPS Workshop on Bayesian Deep Learning (2016)
+T. N. Kipf, M. Welling, [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308) (2016)
 
 **In this forked repository, we are interested in applying GAEs to social networks,
 primarily for the task of link prediction.**
@@ -58,14 +58,6 @@ In this forked repository, we load social network data (Facebook). The original 
 can be found here: https://snap.stanford.edu/data/egonets-Facebook.html.
 
 The original GAE code also loads citation network data (Cora, Citeseer or Pubmed). The original datasets can be found here: http://linqs.cs.umd.edu/projects/projects/lbc/ and here (in a different format): https://github.com/kimiyoung/planetoid
-
-You can specify one of the original datasets as follows:
-
-```bash
-python train.py --dataset citeseer
-```
-
-(or by editing `train.py`)
 
 ## Models
 

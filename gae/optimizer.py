@@ -3,7 +3,7 @@ import tensorflow as tf
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 
-
+# Graph AE: use Weighted-cross-entropy loss
 class OptimizerAE(object):
     def __init__(self, preds, labels, pos_weight, norm):
         preds_sub = preds
@@ -20,6 +20,7 @@ class OptimizerAE(object):
         self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
 
+# Graph VAE: use weighted-cross-entropy loss + KL Divergence
 class OptimizerVAE(object):
     def __init__(self, preds, labels, model, num_nodes, pos_weight, norm):
         preds_sub = preds

@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.sparse as sp
 
-
+# Convert sparse matrix to tuple
 def sparse_to_tuple(sparse_mx):
     if not sp.isspmatrix_coo(sparse_mx):
         sparse_mx = sparse_mx.tocoo()
@@ -10,7 +10,7 @@ def sparse_to_tuple(sparse_mx):
     shape = sparse_mx.shape
     return coords, values, shape
 
-
+# Get normalized adjacency matrix, Ã
 def preprocess_graph(adj):
     adj = sp.coo_matrix(adj)
     adj_ = adj + sp.eye(adj.shape[0])
@@ -19,7 +19,7 @@ def preprocess_graph(adj):
     adj_normalized = adj_.dot(degree_mat_inv_sqrt).transpose().dot(degree_mat_inv_sqrt).tocoo()
     return sparse_to_tuple(adj_normalized)
 
-
+# Prepare feed-dict for Tensorflow session
 def construct_feed_dict(adj_normalized, adj, features, placeholders):
     # construct feed dictionary
     feed_dict = dict()
@@ -28,7 +28,9 @@ def construct_feed_dict(adj_normalized, adj, features, placeholders):
     feed_dict.update({placeholders['adj_orig']: adj})
     return feed_dict
 
-
+# Build test set with 10% positive links
+    # Returns: adj_train, train_edges, val_edges, val_edges_false, 
+        # test_edges, test_edges_false
 def mask_test_edges(adj):
     # Function to build test set with 10% positive links
     # NOTE: Splits are randomized and results might slightly deviate from reported numbers in the paper.
