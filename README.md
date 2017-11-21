@@ -38,6 +38,7 @@ python setup.py install
 * networkx
 * scikit-learn
 * scipy
+* jupyter notebook
 
 ## Run the notebook
 
