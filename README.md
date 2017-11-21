@@ -1,9 +1,7 @@
 Social Network VAE
 ============
 
-This is a TensorFlow implementation of the (Variational) Graph Auto-Encoder model as described in Thomas Kipf's paper:
- 
-T. N. Kipf, M. Welling, [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308) (2016)
+This is a TensorFlow implementation of the (Variational) Graph Auto-Encoder model as described in Thomas Kipf's paper: T. N. Kipf, M. Welling, [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308) (2016)
 
 **In this forked repository, we are interested in applying GAEs to social networks,
 primarily for the task of link prediction.**
@@ -21,7 +19,7 @@ GAEs are based on Graph Convolutional Networks (GCNs), a recent class of models 
 
 T. N. Kipf, M. Welling, [Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/abs/1609.02907), ICLR (2017). 
 
-A high-level introduction is given in Kipf's blog post:
+A high-level introduction is given in Thomas Kipf's blog post:
 
 Thomas Kipf, [Graph Convolutional Networks](http://tkipf.github.io/graph-convolutional-networks/) (2016)
 
