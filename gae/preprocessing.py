@@ -10,7 +10,7 @@ def sparse_to_tuple(sparse_mx):
     shape = sparse_mx.shape
     return coords, values, shape
 
-# Get normalized adjacency matrix, Ã
+# Get normalized adjacency matrix: A_norm
 def preprocess_graph(adj):
     adj = sp.coo_matrix(adj)
     adj_ = adj + sp.eye(adj.shape[0])

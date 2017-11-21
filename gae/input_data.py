@@ -11,6 +11,11 @@ def parse_index_file(filename):
     return index
 
 
+# Documentation: https://github.com/kimiyoung/planetoid
+    # x: the feature vectors of the labeled training instances
+    # tx: the feature vectors of the test instances
+    # allx: the feature vectors of both labeled and unlabeled training instances (a superset of x)
+    # graph: a dict in the format {index: [index_of_neighbor_nodes]}
 def load_data(dataset):
     # load the data: x, tx, allx, graph
     names = ['x', 'tx', 'allx', 'graph']
@@ -18,6 +23,7 @@ def load_data(dataset):
     for i in range(len(names)):
         objects.append(pkl.load(open("data/ind.{}.{}".format(dataset, names[i]))))
     x, tx, allx, graph = tuple(objects)
+
     test_idx_reorder = parse_index_file("data/ind.{}.test.index".format(dataset))
     test_idx_range = np.sort(test_idx_reorder)
 

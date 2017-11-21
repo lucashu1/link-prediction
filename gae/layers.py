@@ -75,7 +75,7 @@ class GraphConvolution(Layer):
         self.act = act
 
     # Apply Graph Convolution operation:
-        # H_1 = activation(Ã * X * W)
+        # H_1 = activation(A_norm * X * W)
     def _call(self, inputs):
         x = inputs
         x = tf.nn.dropout(x, 1-self.dropout)
@@ -98,7 +98,7 @@ class GraphConvolutionSparse(Layer):
         self.features_nonzero = features_nonzero
 
     # Apply Graph Convolution operation:
-        # H_1 = activation(Ã * X * W)
+        # H_1 = activation(A_norm * X * W)
     def _call(self, inputs):
         x = inputs
         x = dropout_sparse(x, 1-self.dropout, self.features_nonzero)
