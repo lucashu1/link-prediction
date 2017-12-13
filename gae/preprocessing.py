@@ -28,10 +28,10 @@ def construct_feed_dict(adj_normalized, adj, features, placeholders):
     feed_dict.update({placeholders['adj_orig']: adj})
     return feed_dict
 
-# Build test set with 10% positive links
+# Perform train-test split
     # Returns: adj_train, train_edges, val_edges, val_edges_false, 
         # test_edges, test_edges_false
-def mask_test_edges(adj):
+def mask_test_edges(adj, test_frac=.1, val_frac=.05):
     # Function to build test set with 10% positive links
     # NOTE: Splits are randomized and results might slightly deviate from reported numbers in the paper.
     # TODO: Clean up.
@@ -46,8 +46,8 @@ def mask_test_edges(adj):
     adj_tuple = sparse_to_tuple(adj_triu)
     edges = adj_tuple[0]
     edges_all = sparse_to_tuple(adj)[0]
-    num_test = int(np.floor(edges.shape[0] / 10.))
-    num_val = int(np.floor(edges.shape[0] / 20.))
+    num_test = int(np.floor(edges.shape[0] * test_frac)) # controls how large the test set should be
+    num_val = int(np.floor(edges.shape[0] * val_frac)) # controls how alrge the validation set should be
 
     all_edge_idx = range(edges.shape[0])
     np.random.shuffle(all_edge_idx)
