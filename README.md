@@ -3,17 +3,14 @@ Social Network VAE
 
 This is a TensorFlow implementation of the (Variational) Graph Auto-Encoder model as described in Thomas Kipf's paper: T. N. Kipf, M. Welling, [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308) (2016)
 
-**In this forked repository, we are interested in applying GAEs to social networks,
-primarily for the task of link prediction.**
+**In this repository, we are interested in applying GAEs to social networks,
+primarily for the task of link prediction.** We compare the Graph Auto-Encoder link prediction results to those of existing methods: baseline indexes (Adamic-Adar, Jaccard Coefficient, Preferential Attachment), spectral clustering, and [node2vec](http://snap.stanford.edu/node2vec/).
+
+### Background:
 
 Graph Auto-Encoders (GAEs) are end-to-end trainable neural network models for unsupervised learning, clustering and link prediction on graphs. 
 
 ![(Variational) Graph Auto-Encoder](figure.png)
-
-GAEs have successfully been used for:
-* Link prediction in large-scale relational data: M. Schlichtkrull & T. N. Kipf et al., [Modeling Relational Data with Graph Convolutional Networks](https://arxiv.org/abs/1703.06103) (2017),
-* Matrix completion / recommendation with side information: R. Berg et al., [Graph Convolutional Matrix Completion](https://arxiv.org/abs/1706.02263) (2017).
-
 
 GAEs are based on Graph Convolutional Networks (GCNs), a recent class of models for end-to-end (semi-)supervised learning on graphs:
 
@@ -36,15 +33,16 @@ python setup.py install
 * TensorFlow (1.0 or later)
 * python 2.7
 * networkx
+* [gensim](https://radimrehurek.com/gensim/install.html)
 * scikit-learn
 * scipy
 * jupyter notebook
 
-## Run the notebook
+## Run the Graph-VAE notebook
 
 ```bash
 jupyter notebook
-[launch facebook-vae.ipynb]
+[launch graph-vae.ipynb]
 ```
 
 ## Data
