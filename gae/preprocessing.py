@@ -1,5 +1,6 @@
 import numpy as np
 import scipy.sparse as sp
+import networkx as nx
 
 # Convert sparse matrix to tuple
 def sparse_to_tuple(sparse_mx):
@@ -29,10 +30,10 @@ def construct_feed_dict(adj_normalized, adj, features, placeholders):
     return feed_dict
 
 # Perform train-test split
+    # Takes in adjacency matrix in sparse format
     # Returns: adj_train, train_edges, val_edges, val_edges_false, 
         # test_edges, test_edges_false
-def mask_test_edges(adj, test_frac=.1, val_frac=.05):
-    # Function to build test set with 10% positive links
+def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
     # NOTE: Splits are randomized and results might slightly deviate from reported numbers in the paper.
     # TODO: Clean up.
 
@@ -42,20 +43,76 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05):
     # Check that diag is zero:
     assert np.diag(adj.todense()).sum() == 0
 
-    adj_triu = sp.triu(adj)
-    adj_tuple = sparse_to_tuple(adj_triu)
-    edges = adj_tuple[0]
-    edges_all = sparse_to_tuple(adj)[0]
+    g = nx.from_scipy_sparse_matrix(adj)
+
+    if prevent_isolates:
+        assert len(list(nx.isolates(g))) == 0 # no isolates in graph
+
+    adj_triu = sp.triu(adj) # upper triangular portion of adj matrix
+    adj_tuple = sparse_to_tuple(adj_triu) # (coords, values, shape), edges only 1 way
+    edges = adj_tuple[0] # all edges, listed only once (not 2 ways)
+    edges_all = sparse_to_tuple(adj)[0] # ALL edges (includes both ways)
     num_test = int(np.floor(edges.shape[0] * test_frac)) # controls how large the test set should be
     num_val = int(np.floor(edges.shape[0] * val_frac)) # controls how alrge the validation set should be
 
     all_edge_idx = range(edges.shape[0])
     np.random.shuffle(all_edge_idx)
-    val_edge_idx = all_edge_idx[:num_val]
-    test_edge_idx = all_edge_idx[num_val:(num_val + num_test)]
-    test_edges = edges[test_edge_idx]
-    val_edges = edges[val_edge_idx]
+
+    test_edges = []
+    val_edges = []
+    test_edge_idx = []
+    val_edge_idx = []
+
+    # Iterate over shuffled edges, add to train/val sets
+    for edge_ind in all_edge_idx:
+        edge = edges[edge_ind]
+        # print edge
+        node1 = edge[0]
+        node2 = edge[1]
+
+        # If removing edge would create an isolate, move on
+        g_test = g.copy()
+        g_test.remove_edge(node1, node2)
+        if len(nx.isolates(g_test)) > 0:
+            if prevent_isolates:
+                continue
+
+        # Fill test_edges first
+        elif len(test_edges) < num_test:
+            test_edges.append(edge)
+            test_edge_idx.append(edge_ind)
+            g.remove_edge(node1, node2)
+
+        # Then, fill val_edges
+        elif len(val_edges) < num_val:
+            val_edges.append(edge)
+            val_edge_idx.append(edge_ind)
+            g.remove_edge(node1, node2)
+
+        # Both edge lists full --> break loop
+        elif len(test_edges) == num_test and len(val_edges) == num_val:
+            break
+
+    if (len(val_edges) < num_val or len(test_edges) < num_test):
+        print "WARNING: not enough removable edges to perform full train-test split!"
+        print "Num. (test, val) edges requested: (", num_test, ", ", num_val, ")"
+        print "Num. (test, val) edges returned: (", len(test_edges), ", ", len(val_edges), ")"
+
+    if prevent_isolates:
+        assert len(list(nx.isolates(g))) == 0 # no isolates in graph
+
+    # val_edge_idx = all_edge_idx[:num_val]
+    # test_edge_idx = all_edge_idx[num_val:(num_val + num_test)]
+    # test_edges = edges[test_edge_idx]
+    # val_edges = edges[val_edge_idx]
+
+    test_edges = np.array(test_edges)
+    val_edges = np.array(val_edges)
+    test_edge_idx = np.array(test_edge_idx)
+    val_edge_idx = np.array(val_edge_idx)
+
     train_edges = np.delete(edges, np.hstack([test_edge_idx, val_edge_idx]), axis=0)
+
 
     def ismember(a, b, tol=5):
         rows_close = np.all(np.round(a - b[:, None], tol) == 0, axis=-1)
