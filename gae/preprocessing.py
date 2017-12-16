@@ -99,7 +99,7 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
         print "Num. (test, val) edges returned: (", len(test_edges), ", ", len(val_edges), ")"
 
     if prevent_isolates:
-        assert len(list(nx.isolates(g))) == 0 # no isolates in graph
+        assert len(list(nx.isolates(g))) == 0 # still no isolates in graph
 
     # val_edge_idx = all_edge_idx[:num_val]
     # test_edge_idx = all_edge_idx[num_val:(num_val + num_test)]
@@ -155,8 +155,34 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
                 continue
         val_edges_false.append([idx_i, idx_j])
 
-    assert ~ismember(test_edges_false, edges_all)
-    assert ~ismember(val_edges_false, edges_all)
+    train_edges_false = []
+    while len(train_edges_false) < len(train_edges):
+        idx_i = np.random.randint(0, adj.shape[0])
+        idx_j = np.random.randint(0, adj.shape[0])
+        if idx_i == idx_j:
+            continue
+        if ismember([idx_i, idx_j], edges_all):
+            continue
+        if ismember([idx_i, idx_j], np.array(val_edges_false)):
+            continue
+        if ismember([idx_j, idx_i], np.array(val_edges_false)):
+            continue
+        if ismember([idx_i, idx_j], np.array(test_edges_false)):
+            continue
+        if ismember([idx_j, idx_i], np.array(test_edges_false)):
+            continue
+        if train_edges_false:
+            if ismember([idx_j, idx_i], np.array(train_edges_false)):
+                continue
+            if ismember([idx_i, idx_j], np.array(train_edges_false)):
+                continue
+        train_edges_false.append([idx_i, idx_j])
+
+
+    assert ~ismember(np.array(test_edges_false), edges_all)
+    assert ~ismember(np.array(val_edges_false), edges_all)
+    assert ~ismember(np.array(val_edges_false), np.array(train_edges_false))
+    assert ~ismember(np.array(test_edges_false), np.array(train_edges_false))
     assert ~ismember(val_edges, train_edges)
     assert ~ismember(test_edges, train_edges)
     assert ~ismember(val_edges, test_edges)
@@ -168,6 +194,7 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
     adj_train = adj_train + adj_train.T
 
     # NOTE: these edge lists only contain single direction of edge!
-    return adj_train, train_edges, val_edges, val_edges_false, test_edges, test_edges_false
+    return adj_train, train_edges, train_edges_false, \
+        val_edges, val_edges_false, test_edges, test_edges_false
 
 
