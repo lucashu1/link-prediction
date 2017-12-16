@@ -45,7 +45,7 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
 
     g = nx.from_scipy_sparse_matrix(adj)
 
-    if prevent_isolates:
+    if prevent_isolates == True:
         assert len(list(nx.isolates(g))) == 0 # no isolates in graph
 
     adj_triu = sp.triu(adj) # upper triangular portion of adj matrix
@@ -70,24 +70,22 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
         node1 = edge[0]
         node2 = edge[1]
 
-        # If removing edge would create an isolate, move on
-        g_test = g.copy()
-        g_test.remove_edge(node1, node2)
-        if len(nx.isolates(g_test)) > 0:
-            if prevent_isolates:
+        # If removing edge would create an isolate, backtrack and move on
+        if prevent_isolates == True:
+            g.remove_edge(node1, node2)
+            if len(nx.isolates(g)) > 0:
+                g.add_edge(node1, node2)
                 continue
 
         # Fill test_edges first
-        elif len(test_edges) < num_test:
+        if len(test_edges) < num_test:
             test_edges.append(edge)
             test_edge_idx.append(edge_ind)
-            g.remove_edge(node1, node2)
 
         # Then, fill val_edges
         elif len(val_edges) < num_val:
             val_edges.append(edge)
             val_edge_idx.append(edge_ind)
-            g.remove_edge(node1, node2)
 
         # Both edge lists full --> break loop
         elif len(test_edges) == num_test and len(val_edges) == num_val:
@@ -98,7 +96,7 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
         print "Num. (test, val) edges requested: (", num_test, ", ", num_val, ")"
         print "Num. (test, val) edges returned: (", len(test_edges), ", ", len(val_edges), ")"
 
-    if prevent_isolates:
+    if prevent_isolates == True:
         assert len(list(nx.isolates(g))) == 0 # still no isolates in graph
 
     # val_edge_idx = all_edge_idx[:num_val]
