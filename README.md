@@ -40,13 +40,13 @@ python setup.py install
 ## Included Files
 
 ### Annotated IPython Notebooks
-* link-prediction-baselines.ipynb: Adamic-Adar, Jaccard Coefficient, Preferential Attachment
-* spectral-clustering.ipynb: Using spectral embeddings for link prediction
-* node2vec.ipynb: skip-gram based representation learning for node/edge embeddings
-* graph-vae.ipynb: (variational) graph autoencoder, learns node embeddings
+* `link-prediction-baselines.ipynb`: Adamic-Adar, Jaccard Coefficient, Preferential Attachment
+* `spectral-clustering.ipynb`: Using spectral embeddings for link prediction
+* `node2vec.ipynb`: skip-gram based representation learning for node/edge embeddings
+* `graph-vae.ipynb`: (variational) graph autoencoder, learns node embeddings
 
 ### Link Prediction Experiment Scripts
-* link_prediction_scores.py: various functions for running link prediction tests
+* `link_prediction_scores.py`: various functions for running link prediction tests
 
 ## Data
 
