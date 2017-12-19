@@ -32,7 +32,6 @@ Thomas Kipf, [Graph Convolutional Networks](http://tkipf.github.io/graph-convolu
 ## Pre-Use Installation
 
 ```bash
-cd gae
 python setup.py install
 ```
 
@@ -43,10 +42,10 @@ python setup.py install
 * `link-prediction-baselines.ipynb`: Adamic-Adar, Jaccard Coefficient, Preferential Attachment
 * `spectral-clustering.ipynb`: Using spectral embeddings for link prediction
 * `node2vec.ipynb`: skip-gram based representation learning for node/edge embeddings
-* `graph-vae.ipynb`: (variational) graph autoencoder, learns node embeddings
+* `graph-vae.ipynb`: (variational) graph autoencoder, learns node embeddings to recreate adjacency matrix
 
 ### Link Prediction Experiment Scripts
-* `link_prediction_scores.py`: various functions for running link prediction tests
+* `link_prediction_scores.py`: utility functions for running various link prediction tests
 
 ## Data
 
