@@ -20,30 +20,33 @@ A high-level introduction is given in Thomas Kipf's blog post:
 
 Thomas Kipf, [Graph Convolutional Networks](http://tkipf.github.io/graph-convolutional-networks/) (2016)
 
+## Requirements
+* python 2.7
+* [TensorFlow](https://www.tensorflow.org/install/) (1.0 or later)
+* [networkx](https://networkx.github.io/)
+* [gensim](https://radimrehurek.com/gensim/install.html)
+* [scikit-learn](http://scikit-learn.org/stable/)
+* [scipy](https://www.scipy.org/_)
+* [jupyter notebook](http://jupyter.org/install.html)
 
-
-## Installation
+## Pre-Use Installation
 
 ```bash
 cd gae
 python setup.py install
 ```
 
-## Requirements
-* TensorFlow (1.0 or later)
-* python 2.7
-* networkx
-* [gensim](https://radimrehurek.com/gensim/install.html)
-* scikit-learn
-* scipy
-* jupyter notebook
 
-## Run the Graph-VAE notebook
+## Included Files
 
-```bash
-jupyter notebook
-[launch graph-vae.ipynb]
-```
+### Annotated IPython Notebooks
+* link-prediction-baselines.ipynb: Adamic-Adar, Jaccard Coefficient, Preferential Attachment
+* spectral-clustering.ipynb: Using spectral embeddings for link prediction
+* node2vec.ipynb: skip-gram based representation learning for node/edge embeddings
+* graph-vae.ipynb: (variational) graph autoencoder, learns node embeddings
+
+### Link Prediction Experiment Scripts
+* link_prediction_scores.py: various functions for running link prediction tests
 
 ## Data
 
@@ -51,7 +54,7 @@ In order to use your own data, you have to provide
 * an N by N adjacency matrix (N is the number of nodes), and
 * an N by D feature matrix (D is the number of features per node) -- optional
 
-Have a look at the `load_data()` function in `input_data.py` for an example.
+Have a look at the included notebooks/scripts for usage examples.
 
 In this forked repository, we load social network data (Facebook). The original dataset
 can be found here: https://snap.stanford.edu/data/egonets-Facebook.html.
