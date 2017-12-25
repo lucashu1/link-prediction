@@ -111,14 +111,21 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
 
     train_edges = np.delete(edges, np.hstack([test_edge_idx, val_edge_idx]), axis=0)
 
-
+    # Takes in numpy arrays
+    # Returns whether or not anything in a is in b
     def ismember(a, b, tol=5):
+        # a is empty --> return true automatically
+        if type(a) is not np.ndarray and len(a) == 0:
+            return True
+        elif type(a) is np.ndarray and a.size == 0:
+            return True
+
         rows_close = np.all(np.round(a - b[:, None], tol) == 0, axis=-1)
         return (np.all(np.any(rows_close, axis=-1), axis=-1) and
                 np.all(np.any(rows_close, axis=0), axis=0))
 
     test_edges_false = []
-    while len(test_edges_false) < len(test_edges):
+    while len(test_edges_false) < num_test:
         idx_i = np.random.randint(0, adj.shape[0])
         idx_j = np.random.randint(0, adj.shape[0])
         if idx_i == idx_j:
@@ -133,7 +140,7 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_isolates=True):
         test_edges_false.append([idx_i, idx_j])
 
     val_edges_false = []
-    while len(val_edges_false) < len(val_edges):
+    while len(val_edges_false) < num_val:
         idx_i = np.random.randint(0, adj.shape[0])
         idx_j = np.random.randint(0, adj.shape[0])
         if idx_i == idx_j:

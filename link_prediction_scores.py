@@ -115,14 +115,14 @@ def preferential_attachment_scores(g_train, train_test_split):
 
 # Input: train_test_split (from mask_test_edges)
 # Output: dictionary of ROC, AP scores
-def spectral_clustering_scores(train_test_split):
+def spectral_clustering_scores(train_test_split, random_state=0):
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack input
 
     sc_scores = {}
 
     # Perform spectral clustering link prediction
-    spectral_emb = spectral_embedding(adj_train, n_components=16, random_state=0)
+    spectral_emb = spectral_embedding(adj_train, n_components=16, random_state=random_state)
     sc_score_matrix = np.dot(spectral_emb, spectral_emb.T)
     sc_test_roc, sc_test_ap = get_roc_score(test_edges, test_edges_false, sc_score_matrix, apply_sigmoid=True)
     sc_val_roc, sc_val_ap = get_roc_score(val_edges, val_edges_false, sc_score_matrix, apply_sigmoid=True)
@@ -147,7 +147,7 @@ def node2vec_scores(
     DIRECTED = False, # Graph directed/undirected
     WORKERS = 8, # Num. parallel workers
     ITER = 1, # SGD epochs
-    verbose=1
+    verbose=1,
     ):
 
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
@@ -334,7 +334,7 @@ def gae_scores(
         feed_dict.update({placeholders['dropout']: 0})
         gae_emb = sess.run(model.z_mean, feed_dict=feed_dict)
         gae_score_matrix = np.dot(gae_emb, gae_emb.T)
-        roc_curr, ap_curr = get_roc_score(val_edges, val_edges_false, gae_score_matrix)
+        roc_curr, ap_curr = get_roc_score(val_edges, val_edges_false, gae_score_matrix, apply_sigmoid=True)
         val_roc_score.append(roc_curr)
 
         # Print results for this epoch
@@ -371,8 +371,9 @@ def gae_scores(
     # Verbose: 0 - print nothing, 1 - print scores, 2 - print scores + GAE training progress
 # Returns: Dictionary of scores (ROC AUC, AP) for each link prediction method
 def calculate_all_scores(adj_sparse, features_matrix=None, \
-        test_frac=.3, val_frac=.1, verbose=1):
-    np.random.seed(0) # Guarantee consistent train/test split
+        test_frac=.3, val_frac=.1, random_state=0, verbose=1):
+    np.random.seed(random_state) # Guarantee consistent train/test split
+    tf.set_random_seed(random_state) # Consistent GAE training
 
     # Prepare LP scores dictionary
     lp_scores = {}
