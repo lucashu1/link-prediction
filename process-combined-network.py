@@ -8,6 +8,7 @@ import glob
 import os, os.path
 import math
 import pickle
+import scipy.sparse as sp
 
 pathhack = os.path.dirname(os.path.realpath(__file__))
 
@@ -182,9 +183,9 @@ if __name__ == '__main__':
     print "Saving network..."
     adj = nx.adjacency_matrix(network)
     features = feature_matrix()
-    network_tuple = (adj, features)
+    network_tuple = (adj, sp.csr_matrix(features))
 
-    with open("fb-processed/combined-adj-feat.pkl", "wb") as f:
+    with open("fb-processed/combined-adj-sparsefeat.pkl", "wb") as f:
         pickle.dump(network_tuple, f)
 
     print "Network saved!"
