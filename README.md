@@ -40,8 +40,9 @@ python setup.py install
 
 ### Network Data
 * `facebook/`: Original [Facebook ego networks](https://snap.stanford.edu/data/egonets-Facebook.html) dataset, including .allfeats files (with both ego and alter features)
-* `fb-processed/`: Pickle dumps of (adjacency_matrix, feature_matrix) tuples for each ego network
+* `fb-processed/`: Pickle dumps of (adjacency_matrix, feature_matrix) tuples for each ego network, and for combined network
 * `process-ego-networks.py`: Script used to process raw Facebook data and generate pickle dumps
+* `process-combined-network.py`: Script used to combine Facebook ego networks and generate complete network pickle dump
 
 ### Annotated IPython Notebooks
 * `link-prediction-baselines.ipynb`: Adamic-Adar, Jaccard Coefficient, Preferential Attachment
