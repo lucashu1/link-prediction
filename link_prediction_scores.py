@@ -241,11 +241,11 @@ def gae_scores(
     adj_sparse,
     train_test_split,
     features_matrix=None,
-    LEARNING_RATE = 0.005,
-    EPOCHS = 300,
+    LEARNING_RATE = 0.01,
+    EPOCHS = 200,
     HIDDEN1_DIM = 32,
     HIDDEN2_DIM = 16,
-    DROPOUT = 0.1,
+    DROPOUT = 0,
     verbose=1
     ):
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
@@ -463,11 +463,11 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
 
     ### ---------- (VARIATIONAL) GRAPH AUTOENCODER ---------- ###
     # GAE hyperparameters
-    LEARNING_RATE = 0.005
-    EPOCHS = 300
+    LEARNING_RATE = 0.01
+    EPOCHS = 200
     HIDDEN1_DIM = 32
     HIDDEN2_DIM = 16
-    DROPOUT = 0.1
+    DROPOUT = 0
 
     gae_scores_results = gae_scores(adj_sparse, train_test_split, features_matrix,
         LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
