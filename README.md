@@ -38,24 +38,20 @@ python setup.py install
 
 ## Included Files
 
+### Network Data
+* `facebook/`: Original [Facebook ego networks](https://snap.stanford.edu/data/egonets-Facebook.html) dataset, including .allfeats files (with both ego and alter features)
+* `fb-processed/`: Pickle dumps of (adjacency_matrix, feature_matrix) tuples for each ego network
+* `process-ego-networks.py`: Script used to process raw Facebook data and generate pickle dumps
+
 ### Annotated IPython Notebooks
 * `link-prediction-baselines.ipynb`: Adamic-Adar, Jaccard Coefficient, Preferential Attachment
 * `spectral-clustering.ipynb`: Using spectral embeddings for link prediction
 * `node2vec.ipynb`: Skip-gram based representation learning for node/edge embeddings
 * `graph-vae.ipynb`: (Variational) Graph Autoencoder, learns node embeddings to recreate adjacency matrix
 
-### Link Prediction Experiment Scripts
-* `link_prediction_scores.py`: utility functions for running various link prediction tests
+### Link Prediction Helper Scripts
+* `link_prediction_scores.py`: Utility functions for running various link prediction tests
 
-## Data
-
-In order to use your own data, you have to provide 
-* an N by N adjacency matrix (N is the number of nodes), and
-* an N by D feature matrix (D is the number of features per node) -- optional
-
-Have a look at the included notebooks/scripts for usage examples.
-
-In this forked repository, we load social network data (Facebook). The original dataset
-can be found here: https://snap.stanford.edu/data/egonets-Facebook.html.
-
-The original GAE code also loads citation network data (Cora, Citeseer or Pubmed). The original datasets can be found here: http://linqs.cs.umd.edu/projects/projects/lbc/ and here (in a different format): https://github.com/kimiyoung/planetoid
+### Full Link Prediction Experiments
+* `nx-graph-experiments.ipynb`: Run all link prediction tests on various types of random networks (Erdos-Renyi, Barabasi-Albert, etc.)
+* `fb-graph-experiments.ipynb`: Run all link prediction tests on each Facebook ego network
