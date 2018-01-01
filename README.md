@@ -1,7 +1,9 @@
 Link Prediction Experiments
 ============
 
-**This repository contains a series of machine learning experiments for [link prediction](https://www.cs.cornell.edu/home/kleinber/link-pred.pdf) within social networks.** We first implement and apply a variety of link prediction methods to each of the ego networks contained within the [SNAP Facebook dataset](https://snap.stanford.edu/data/egonets-Facebook.html) and to various [random networks](https://networkx.github.io/documentation/networkx-1.10/reference/generators.html) generated using [networkx](https://networkx.github.io/), and then calculate and compare the ROC AUC and Average Precision scores of each method.
+**This repository contains a series of machine learning experiments for [link prediction](https://www.cs.cornell.edu/home/kleinber/link-pred.pdf) within social networks.** 
+
+We first implement and apply a variety of link prediction methods to each of the ego networks contained within the [SNAP Facebook dataset](https://snap.stanford.edu/data/egonets-Facebook.html) and to various [random networks](https://networkx.github.io/documentation/networkx-1.10/reference/generators.html) generated using [networkx](https://networkx.github.io/), and then calculate and compare the ROC AUC and Average Precision scores of each method.
 
 ### Link Prediction Methods Tested:
 * [(Variational) Graph Auto-Encoders](https://arxiv.org/abs/1611.07308): An end-to-end trainable convolutional neural network model for unsupervised learning on graphs
