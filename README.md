@@ -1,24 +1,14 @@
-Social Network VAE
+Link Prediction Experiments
 ============
 
-This is a TensorFlow implementation of the (Variational) Graph Auto-Encoder model as described in Thomas Kipf's paper: T. N. Kipf, M. Welling, [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308) (2016)
+**This repository contains a series of machine learning experiments for [link prediction](https://www.cs.cornell.edu/home/kleinber/link-pred.pdf) within social networks.** We first implement and apply a variety of link prediction methods to each of the ego networks contained within the [SNAP Facebook dataset](https://snap.stanford.edu/data/egonets-Facebook.html) and to various [random networks](https://networkx.github.io/documentation/networkx-1.10/reference/generators.html) generated using [networkx](https://networkx.github.io/), and then calculate and compare the ROC AUC and Average Precision scores of each method.
 
-**In this repository, we are interested in applying GAEs to social networks,
-primarily for the task of link prediction.** We compare the Graph Auto-Encoder link prediction results to those of existing methods: baseline indexes (Adamic-Adar, Jaccard Coefficient, Preferential Attachment), spectral clustering, and [node2vec](http://snap.stanford.edu/node2vec/).
+### Link Prediction Methods Tested:
+* [(Variational) Graph Auto-Encoders](https://arxiv.org/abs/1611.07308): An end-to-end trainable convolutional neural network model for unsupervised learning on graphs
+* [Node2Vec/DeepWalk](http://snap.stanford.edu/node2vec/): A skip-gram based approach to learning node embeddings from random walks within a given graph
+* [Spectral Clustering](http://scikit-learn.org/stable/modules/generated/sklearn.manifold.SpectralEmbedding.html): Using spectral embeddings to create node representations from an adjacency matrix
+* [Baseline Indexes](https://networkx.github.io/documentation/networkx-1.10/reference/algorithms.link_prediction.html): Adamic-Adar, Jaccard Coefficient, Preferential Attachment
 
-### Background:
-
-Graph Auto-Encoders (GAEs) are end-to-end trainable neural network models for unsupervised learning, clustering and link prediction on graphs. 
-
-![(Variational) Graph Auto-Encoder](figure.png)
-
-GAEs are based on Graph Convolutional Networks (GCNs), a recent class of models for end-to-end (semi-)supervised learning on graphs:
-
-T. N. Kipf, M. Welling, [Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/abs/1609.02907), ICLR (2017). 
-
-A high-level introduction is given in Thomas Kipf's blog post:
-
-Thomas Kipf, [Graph Convolutional Networks](http://tkipf.github.io/graph-convolutional-networks/) (2016)
 
 ## Requirements
 * python 2.7
@@ -39,7 +29,7 @@ python setup.py install
 ## Included Files
 
 ### Network Data
-* `facebook/`: Original [Facebook ego networks](https://snap.stanford.edu/data/egonets-Facebook.html) dataset, including .allfeats files (with both ego and alter features)
+* `facebook/`: Original [Facebook ego networks](https://snap.stanford.edu/data/egonets-Facebook.html) dataset, with added .allfeats files (with both ego and alter features)
 * `fb-processed/`: Pickle dumps of (adjacency_matrix, feature_matrix) tuples for each ego network, and for combined network
 * `process-ego-networks.py`: Script used to process raw Facebook data and generate pickle dumps
 * `process-combined-network.py`: Script used to combine Facebook ego networks and generate complete network pickle dump
