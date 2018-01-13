@@ -1,0 +1,3 @@
+S'./network-statistics/ws-small-statistics.pkl'
+p0
+.

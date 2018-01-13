@@ -36,7 +36,7 @@ python setup.py install
 * `process-ego-networks.py`: Script used to process raw Facebook data and generate pickle dumps
 * `process-combined-network.py`: Script used to combine Facebook ego networks and generate complete network pickle dump
 
-### Annotated IPython Notebooks
+### Annotated Link Prediction IPython Notebooks
 * `link-prediction-baselines.ipynb`: Adamic-Adar, Jaccard Coefficient, Preferential Attachment
 * `spectral-clustering.ipynb`: Using spectral embeddings for link prediction
 * `node2vec.ipynb`: Skip-gram based representation learning for node/edge embeddings
@@ -48,3 +48,6 @@ python setup.py install
 ### Full Link Prediction Experiments
 * `nx-graph-experiments.ipynb`: Run all link prediction tests on various types of random networks (Erdos-Renyi, Barabasi-Albert, etc.)
 * `fb-graph-experiments.ipynb`: Run all link prediction tests on each Facebook ego network
+
+### Exploratory Analysis
+* `network-visualizations.ipynb`: Generate .pdf visualizations for each network, in addition to calculating and storing a variety of network metrics (e.g. transtivity, avg. clustering coefficient, etc.)

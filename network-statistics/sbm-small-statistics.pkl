@@ -1,0 +1,3 @@
+S'./network-statistics/sbm-small-statistics.pkl'
+p0
+.
