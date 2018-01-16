@@ -15,6 +15,7 @@ import tensorflow as tf
 from gae.optimizer import OptimizerAE, OptimizerVAE
 from gae.model import GCNModelAE, GCNModelVAE
 from gae.preprocessing import preprocess_graph, construct_feed_dict, sparse_to_tuple, mask_test_edges
+import pickle
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
@@ -22,6 +23,10 @@ def sigmoid(x):
 # Input: positive test/val edges, negative test/val edges, edge score matrix
 # Output: ROC AUC score, ROC Curve (FPR, TPR, Thresholds), AP score
 def get_roc_score(edges_pos, edges_neg, score_matrix, apply_sigmoid=False):
+
+    # Edge case
+    if len(edges_pos) == 0 or len(edges_neg) == 0:
+        return (None, None, None)
 
     # Store positive edge predictions, actual values
     preds_pos = []
@@ -47,10 +52,10 @@ def get_roc_score(edges_pos, edges_neg, score_matrix, apply_sigmoid=False):
     preds_all = np.hstack([preds_pos, preds_neg])
     labels_all = np.hstack([np.ones(len(preds_pos)), np.zeros(len(preds_neg))])
     roc_score = roc_auc_score(labels_all, preds_all)
-    roc_curve = roc_curve(labels_all, preds_all)
+    roc_curve_tuple = roc_curve(labels_all, preds_all)
     ap_score = average_precision_score(labels_all, preds_all)
     
-    return roc_score, roc_curve, ap_score
+    return roc_score, roc_curve_tuple, ap_score
 
 # Input: NetworkX training graph, train_test_split (from mask_test_edges)
 # Output: dictionary with ROC AUC, ROC Curve, AP, Runtime
@@ -59,6 +64,7 @@ def adamic_adar_scores(g_train, train_test_split):
         test_edges, test_edges_false = train_test_split # Unpack input
 
     start_time = time.time()
+    
     aa_scores = {}
 
     # Calculate scores
@@ -230,10 +236,11 @@ def node2vec_scores(
         train_edge_labels = np.concatenate([np.ones(len(train_edges)), np.zeros(len(train_edges_false))])
 
         # Val-set edge embeddings, labels
-        pos_val_edge_embs = get_edge_embeddings(val_edges)
-        neg_val_edge_embs = get_edge_embeddings(val_edges_false)
-        val_edge_embs = np.concatenate([pos_val_edge_embs, neg_val_edge_embs])
-        val_edge_labels = np.concatenate([np.ones(len(val_edges)), np.zeros(len(val_edges_false))])
+        if len(val_edges) > 0 and len(val_edges_false) > 0:
+            pos_val_edge_embs = get_edge_embeddings(val_edges)
+            neg_val_edge_embs = get_edge_embeddings(val_edges_false)
+            val_edge_embs = np.concatenate([pos_val_edge_embs, neg_val_edge_embs])
+            val_edge_labels = np.concatenate([np.ones(len(val_edges)), np.zeros(len(val_edges_false))])
 
         # Test-set edge embeddings, labels
         pos_test_edge_embs = get_edge_embeddings(test_edges)
@@ -248,15 +255,21 @@ def node2vec_scores(
         edge_classifier.fit(train_edge_embs, train_edge_labels)
 
         # Predicted edge scores: probability of being of class "1" (real edge)
-        val_preds = edge_classifier.predict_proba(val_edge_embs)[:, 1]
+        if len(val_edges) > 0 and len(val_edges_false) > 0:
+            val_preds = edge_classifier.predict_proba(val_edge_embs)[:, 1]
         test_preds = edge_classifier.predict_proba(test_edge_embs)[:, 1]
 
         runtime = time.time() - start_time
 
         # Calculate scores
-        n2v_val_roc = roc_auc_score(val_edge_labels, val_preds)
-        n2v_val_roc_curve = roc_curve(val_edge_labels, val_preds)
-        n2v_val_ap = average_precision_score(val_edge_labels, val_preds)
+        if len(val_edges) > 0 and len(val_edges_false) > 0:
+            n2v_val_roc = roc_auc_score(val_edge_labels, val_preds)
+            n2v_val_roc_curve = roc_curve(val_edge_labels, val_preds)
+            n2v_val_ap = average_precision_score(val_edge_labels, val_preds)
+        else:
+            n2v_val_roc = None
+            n2v_val_roc_curve = None
+            n2v_val_ap = None
         
         n2v_test_roc = roc_auc_score(test_edge_labels, test_preds)
         n2v_test_roc_curve = roc_curve(test_edge_labels, test_preds)
@@ -267,8 +280,20 @@ def node2vec_scores(
     elif edge_score_mode == "dot-product":
         score_matrix = np.dot(emb_matrix, emb_matrix.T)
         runtime = time.time() - start_time
-        n2v_val_roc, n2v_val_roc_curve, n2v_val_ap = get_roc_score(val_edges, val_edges_false, score_matrix, apply_sigmoid=True)
+
+        # Val set scores
+        if len(val_edges) > 0:
+            n2v_val_roc, n2v_val_roc_curve, n2v_val_ap = get_roc_score(val_edges, val_edges_false, score_matrix, apply_sigmoid=True)
+        else:
+            n2v_val_roc = None
+            n2v_val_roc_curve = None
+            n2v_val_ap = None
+        
+        # Test set scores
         n2v_test_roc, n2v_test_roc_curve, n2v_test_ap = get_roc_score(test_edges, test_edges_false, score_matrix, apply_sigmoid=True)
+
+    else:
+        print "Invalid edge_score_mode! Either use edge-emb or dot-product."
 
     # Record scores
     n2v_scores = {}
@@ -432,7 +457,8 @@ def gae_scores(
     # Verbose: 0 - print nothing, 1 - print scores, 2 - print scores + GAE training progress
 # Returns: Dictionary of results (ROC AUC, ROC Curve, AP, Runtime) for each link prediction method
 def calculate_all_scores(adj_sparse, features_matrix=None, \
-        test_frac=.3, val_frac=.1, random_state=0, verbose=1):
+        test_frac=.3, val_frac=.1, random_state=0, verbose=1, \
+        train_test_split_file=None):
     np.random.seed(random_state) # Guarantee consistent train/test split
     tf.set_random_seed(random_state) # Consistent GAE training
 
@@ -440,7 +466,15 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
     lp_scores = {}
 
     ### ---------- PREPROCESSING ---------- ###
-    train_test_split = mask_test_edges(adj_sparse, test_frac=test_frac, val_frac=val_frac)
+    train_test_split = None
+    try: # If found existing train-test split, use that file
+        with open(train_test_split_file, 'rb') as f:
+            train_test_split = pickle.load(f)
+            print 'Found existing train-test split!'
+    except: # Else, generate train-test split on the fly
+        print 'Generating train-test split...'
+        train_test_split = mask_test_edges(adj_sparse, test_frac=test_frac, val_frac=val_frac)
+    
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack tuple
     g_train = nx.from_scipy_sparse_matrix(adj_train) # new graph object with only non-hidden edges
@@ -512,7 +546,7 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
     # Using bootstrapped edge embeddings + logistic regression
     n2v_edge_emb_scores = node2vec_scores(g_train, train_test_split,
         P, Q, WINDOW_SIZE, NUM_WALKS, WALK_LENGTH, DIMENSIONS, DIRECTED, WORKERS, ITER,
-        "edge_emb",
+        "edge-emb",
         verbose)
     lp_scores['n2v_edge_emb'] = n2v_edge_emb_scores
 
