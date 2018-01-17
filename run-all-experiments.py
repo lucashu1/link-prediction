@@ -63,48 +63,48 @@ for g_name, nx_g in nx_graphs.iteritems():
 ### ---------- Run Link Prediction Tests ---------- ###
 for i in range(NUM_REPEATS):
 
-    ### ---------- FACEBOOK ---------- ###
-    # fb_results = {}
+    ## ---------- FACEBOOK ---------- ###
+    fb_results = {}
 
-    # # Check existing experiment results, increment file number by 1
-    # past_results = os.listdir('./results/')
-    # experiment_num = 0
-    # experiment_file_name = 'fb-experiment-{}-results.pkl'.format(experiment_num)
-    # while (experiment_file_name in past_results):
-    #     experiment_num += 1
-    #     experiment_file_name = 'fb-experiment-{}-results.pkl'.format(experiment_num)
+    # Check existing experiment results, increment file number by 1
+    past_results = os.listdir('./results/')
+    experiment_num = 0
+    experiment_file_name = 'fb-experiment-{}-results.pkl'.format(experiment_num)
+    while (experiment_file_name in past_results):
+        experiment_num += 1
+        experiment_file_name = 'fb-experiment-{}-results.pkl'.format(experiment_num)
 
-    # FB_RESULTS_DIR = './results/' + experiment_file_name
-    # TRAIN_TEST_SPLITS_FOLDER = './train-test-splits/'
+    FB_RESULTS_DIR = './results/' + experiment_file_name
+    TRAIN_TEST_SPLITS_FOLDER = './train-test-splits/'
 
-    # # Iterate over fractions of edges to hide
-    # for frac_hidden in FRAC_EDGES_HIDDEN:
-    #     val_frac = 0.1
-    #     test_frac = frac_hidden - val_frac
+    # Iterate over fractions of edges to hide
+    for frac_hidden in FRAC_EDGES_HIDDEN:
+        val_frac = 0.1
+        test_frac = frac_hidden - val_frac
         
-    #     # Iterate over each graph
-    #     for g_name, graph_tuple in fb_graphs.iteritems():
-    #         adj = graph_tuple[0]
-    #         feat = graph_tuple[1]
+        # Iterate over each graph
+        for g_name, graph_tuple in fb_graphs.iteritems():
+            adj = graph_tuple[0]
+            feat = graph_tuple[1]
             
-    #         experiment_name = 'fb-{}-{}-hidden'.format(g_name, frac_hidden)
-    #         print "Current experiment: ", experiment_name
+            experiment_name = 'fb-{}-{}-hidden'.format(g_name, frac_hidden)
+            print "Current experiment: ", experiment_name
 
-    #         train_test_split_file = TRAIN_TEST_SPLITS_FOLDER + experiment_name + '.pkl'
+            train_test_split_file = TRAIN_TEST_SPLITS_FOLDER + experiment_name + '.pkl'
             
-    #         # Run all link prediction methods on current graph, store results
-    #         fb_results[experiment_name] = lp.calculate_all_scores(adj, feat, \
-    #                                                      test_frac=test_frac, val_frac=val_frac, \
-    #                                                      random_state=RANDOM_SEED, verbose=0,
-    #                                                      train_test_split_file=train_test_split_file)
+            # Run all link prediction methods on current graph, store results
+            fb_results[experiment_name] = lp.calculate_all_scores(adj, feat, \
+                                                         test_frac=test_frac, val_frac=val_frac, \
+                                                         random_state=RANDOM_SEED, verbose=0,
+                                                         train_test_split_file=train_test_split_file)
 
-    #         # Save experiment results at each iteration
-    #         with open(FB_RESULTS_DIR, 'wb') as f:
-    #             pickle.dump(fb_results, f, protocol=2)
+            # Save experiment results at each iteration
+            with open(FB_RESULTS_DIR, 'wb') as f:
+                pickle.dump(fb_results, f, protocol=2)
             
-    # # Save final experiment results
-    # with open(FB_RESULTS_DIR, 'wb') as f:
-    #     pickle.dump(fb_results, f, protocol=2)
+    # Save final experiment results
+    with open(FB_RESULTS_DIR, 'wb') as f:
+        pickle.dump(fb_results, f, protocol=2)
 
 
 

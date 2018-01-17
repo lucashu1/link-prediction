@@ -322,6 +322,7 @@ def gae_scores(
     HIDDEN1_DIM = 32,
     HIDDEN2_DIM = 16,
     DROPOUT = 0,
+    edge_score_mode="dot-product",
     verbose=1
     ):
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
@@ -428,13 +429,78 @@ def gae_scores(
     # Print final results
     feed_dict.update({placeholders['dropout']: 0})
     gae_emb = sess.run(model.z_mean, feed_dict=feed_dict)
-    gae_score_matrix = np.dot(gae_emb, gae_emb.T)
 
-    runtime = time.time() - start_time
+    # Dot product edge scores (default)
+    if edge_score_mode == "dot-product":
+        gae_score_matrix = np.dot(gae_emb, gae_emb.T)
 
-    # Calculate final scores
-    gae_val_roc, gae_val_roc_curve, gae_val_ap = get_roc_score(val_edges, val_edges_false, gae_score_matrix)
-    gae_test_roc, gae_test_roc_curve, gae_test_ap = get_roc_score(test_edges, test_edges_false, gae_score_matrix)
+        runtime = time.time() - start_time
+
+        # Calculate final scores
+        gae_val_roc, gae_val_roc_curve, gae_val_ap = get_roc_score(val_edges, val_edges_false, gae_score_matrix)
+        gae_test_roc, gae_test_roc_curve, gae_test_ap = get_roc_score(test_edges, test_edges_false, gae_score_matrix)
+    
+    # Take bootstrapped edge embeddings (via hadamard product)
+    elif edge_score_mode == "edge-emb":
+        def get_edge_embeddings(edge_list):
+            embs = []
+            for edge in edge_list:
+                node1 = edge[0]
+                node2 = edge[1]
+                emb1 = gae_emb[node1]
+                emb2 = gae_emb[node2]
+                edge_emb = np.multiply(emb1, emb2)
+                embs.append(edge_emb)
+            embs = np.array(embs)
+            return embs
+
+        # Train-set edge embeddings
+        pos_train_edge_embs = get_edge_embeddings(train_edges)
+        neg_train_edge_embs = get_edge_embeddings(train_edges_false)
+        train_edge_embs = np.concatenate([pos_train_edge_embs, neg_train_edge_embs])
+
+        # Create train-set edge labels: 1 = real edge, 0 = false edge
+        train_edge_labels = np.concatenate([np.ones(len(train_edges)), np.zeros(len(train_edges_false))])
+
+        # Val-set edge embeddings, labels
+        if len(val_edges) > 0 and len(val_edges_false) > 0:
+            pos_val_edge_embs = get_edge_embeddings(val_edges)
+            neg_val_edge_embs = get_edge_embeddings(val_edges_false)
+            val_edge_embs = np.concatenate([pos_val_edge_embs, neg_val_edge_embs])
+            val_edge_labels = np.concatenate([np.ones(len(val_edges)), np.zeros(len(val_edges_false))])
+
+        # Test-set edge embeddings, labels
+        pos_test_edge_embs = get_edge_embeddings(test_edges)
+        neg_test_edge_embs = get_edge_embeddings(test_edges_false)
+        test_edge_embs = np.concatenate([pos_test_edge_embs, neg_test_edge_embs])
+
+        # Create val-set edge labels: 1 = real edge, 0 = false edge
+        test_edge_labels = np.concatenate([np.ones(len(test_edges)), np.zeros(len(test_edges_false))])
+
+        # Train logistic regression classifier on train-set edge embeddings
+        edge_classifier = LogisticRegression(random_state=0)
+        edge_classifier.fit(train_edge_embs, train_edge_labels)
+
+        # Predicted edge scores: probability of being of class "1" (real edge)
+        if len(val_edges) > 0 and len(val_edges_false) > 0:
+            val_preds = edge_classifier.predict_proba(val_edge_embs)[:, 1]
+        test_preds = edge_classifier.predict_proba(test_edge_embs)[:, 1]
+
+        runtime = time.time() - start_time
+
+        # Calculate scores
+        if len(val_edges) > 0 and len(val_edges_false) > 0:
+            gae_val_roc = roc_auc_score(val_edge_labels, val_preds)
+            gae_val_roc_curve = roc_curve(val_edge_labels, val_preds)
+            gae_val_ap = average_precision_score(val_edge_labels, val_preds)
+        else:
+            gae_val_roc = None
+            gae_val_roc_curve = None
+            gae_val_ap = None
+        
+        gae_test_roc = roc_auc_score(test_edge_labels, test_preds)
+        gae_test_roc_curve = roc_curve(test_edge_labels, test_preds)
+        gae_test_ap = average_precision_score(test_edge_labels, test_preds)
 
     # Record scores
     gae_scores = {}
@@ -580,17 +646,34 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
     HIDDEN2_DIM = 16
     DROPOUT = 0
 
-    gae_scores_results = gae_scores(adj_sparse, train_test_split, features_matrix,
+    # Use dot product
+    gae_results = gae_scores(adj_sparse, train_test_split, features_matrix,
         LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
+        "dot-product",
         verbose)
-    lp_scores['gae'] = gae_scores_results
+    lp_scores['gae_dot_prod'] = gae_results
 
     if verbose >= 1:
         print ''
-        print 'GAE Validation ROC score: ', str(gae_scores_results['val_roc'])
-        print 'GAE Validation AP score: ', str(gae_scores_results['val_ap'])
-        print 'GAE Test ROC score: ', str(gae_scores_results['test_roc'])
-        print 'GAE Test AP score: ', str(gae_scores_results['test_ap'])
+        print 'GAE (Dot Product) Validation ROC score: ', str(gae_results['val_roc'])
+        print 'GAE (Dot Product) Validation AP score: ', str(gae_results['val_ap'])
+        print 'GAE (Dot Product) Test ROC score: ', str(gae_results['test_roc'])
+        print 'GAE (Dot Product) Test AP score: ', str(gae_results['test_ap'])
+
+
+    # Use edge embeddings
+    gae_edge_emb_results = gae_scores(adj_sparse, train_test_split, features_matrix,
+        LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
+        "edge-emb",
+        verbose)
+    lp_scores['gae_edge_emb'] = gae_edge_emb_results
+
+    if verbose >= 1:
+        print ''
+        print 'GAE (Edge Embeddings) Validation ROC score: ', str(gae_edge_emb_results['val_roc'])
+        print 'GAE (Edge Embeddings) Validation AP score: ', str(gae_edge_emb_results['val_ap'])
+        print 'GAE (Edge Embeddings) Test ROC score: ', str(gae_edge_emb_results['test_roc'])
+        print 'GAE (Edge Embeddings) Test AP score: ', str(gae_edge_emb_results['test_ap'])
 
 
     ### ---------- RETURN RESULTS ---------- ###
