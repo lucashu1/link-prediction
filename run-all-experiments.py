@@ -90,12 +90,18 @@ for i in range(NUM_REPEATS):
             experiment_name = 'fb-{}-{}-hidden'.format(g_name, frac_hidden)
             print "Current experiment: ", experiment_name
 
+            # # TODO: remove this!
+            # if experiment_name !='fb-combined-0.25-hidden' and \
+            #     experiment_name != 'fb-combined-0.5-hidden' and \
+            #     experiment_name != 'fb-combined-0.75-hidden':
+            #     continue
+
             train_test_split_file = TRAIN_TEST_SPLITS_FOLDER + experiment_name + '.pkl'
             
             # Run all link prediction methods on current graph, store results
             fb_results[experiment_name] = lp.calculate_all_scores(adj, feat, \
                                                          test_frac=test_frac, val_frac=val_frac, \
-                                                         random_state=RANDOM_SEED, verbose=0,
+                                                         random_state=RANDOM_SEED, verbose=2,
                                                          train_test_split_file=train_test_split_file)
 
             # Save experiment results at each iteration

@@ -16,6 +16,7 @@ from gae.optimizer import OptimizerAE, OptimizerVAE
 from gae.model import GCNModelAE, GCNModelVAE
 from gae.preprocessing import preprocess_graph, construct_feed_dict, sparse_to_tuple, mask_test_edges
 import pickle
+from copy import deepcopy
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
@@ -348,7 +349,7 @@ def gae_scores(
     features_nonzero = features_tuple[1].shape[0] # number of non-zero entries in features matrix (or length of values list)
 
     # Store original adjacency matrix (without diagonal entries) for later
-    adj_orig = adj_sparse
+    adj_orig = deepcopy(adj_sparse)
     adj_orig = adj_orig - sp.dia_matrix((adj_orig.diagonal()[np.newaxis, :], [0]), shape=adj_orig.shape)
     adj_orig.eliminate_zeros()
 
@@ -391,6 +392,8 @@ def gae_scores(
     acc_val = []
     val_roc_score = []
 
+    prev_embs = []
+
     # Initialize session
     sess = tf.Session()
     sess.run(tf.global_variables_initializer())
@@ -412,7 +415,28 @@ def gae_scores(
         # Evaluate predictions
         feed_dict.update({placeholders['dropout']: 0})
         gae_emb = sess.run(model.z_mean, feed_dict=feed_dict)
+
+        prev_embs.append(gae_emb)
+
         gae_score_matrix = np.dot(gae_emb, gae_emb.T)
+
+        # # TODO: remove this (debugging)
+        # if not np.isfinite(gae_score_matrix).all():
+        #     print 'Found non-finite value in GAE score matrix! Epoch: {}'.format(epoch)
+        #     with open('numpy-nan-debugging.pkl', 'wb') as f:
+        #         dump_info = {}
+        #         dump_info['gae_emb'] = gae_emb
+        #         dump_info['epoch'] = epoch
+        #         dump_info['gae_score_matrix'] = gae_score_matrix
+        #         dump_info['adj_norm'] = adj_norm
+        #         dump_info['adj_label'] = adj_label
+        #         dump_info['features_tuple'] = features_tuple
+        #         # dump_info['feed_dict'] = feed_dict
+        #         dump_info['prev_embs'] = prev_embs
+        #         pickle.dump(dump_info, f, protocol=2)
+        # # END TODO
+
+
         roc_curr, roc_curve_curr, ap_curr = get_roc_score(val_edges, val_edges_false, gae_score_matrix, apply_sigmoid=True)
         val_roc_score.append(roc_curr)
 
@@ -640,13 +664,14 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
 
     ### ---------- (VARIATIONAL) GRAPH AUTOENCODER ---------- ###
     # GAE hyperparameters
-    LEARNING_RATE = 0.01
+    LEARNING_RATE = 0.003 # Default: 0.01
     EPOCHS = 200
     HIDDEN1_DIM = 32
     HIDDEN2_DIM = 16
     DROPOUT = 0
 
     # Use dot product
+    tf.set_random_seed(random_state) # Consistent GAE training
     gae_results = gae_scores(adj_sparse, train_test_split, features_matrix,
         LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
         "dot-product",
@@ -662,6 +687,7 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
 
 
     # Use edge embeddings
+    tf.set_random_seed(random_state) # Consistent GAE training
     gae_edge_emb_results = gae_scores(adj_sparse, train_test_split, features_matrix,
         LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
         "edge-emb",
