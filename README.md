@@ -60,4 +60,4 @@ python setup.py install
 ### Results
 * `results/`: Pickle dumps of experiment results, with results (ROC AUC, ROC Curve, Avg. Precision, Runtime) stored for each link prediction method in Python dictionary form
 * `investigate-results.ipynb`: Generate bar plots/ROC curve plots for each method and graph type
-* `result-plots/`: Bar plots for the results of each experiment, in .pdf form
+* `result-plots/`: Bar plots for the results of each experiment (ROC AUC, AP, Minimum Runtime), in .pdf form

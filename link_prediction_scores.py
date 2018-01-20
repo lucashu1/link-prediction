@@ -664,7 +664,7 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
 
     ### ---------- (VARIATIONAL) GRAPH AUTOENCODER ---------- ###
     # GAE hyperparameters
-    LEARNING_RATE = 0.003 # Default: 0.01
+    LEARNING_RATE = 0.01 # Default: 0.01
     EPOCHS = 200
     HIDDEN1_DIM = 32
     HIDDEN2_DIM = 16
@@ -676,7 +676,7 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
         LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
         "dot-product",
         verbose)
-    lp_scores['gae_dot_prod'] = gae_results
+    lp_scores['gae'] = gae_results
 
     if verbose >= 1:
         print ''
@@ -686,20 +686,20 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
         print 'GAE (Dot Product) Test AP score: ', str(gae_results['test_ap'])
 
 
-    # Use edge embeddings
-    tf.set_random_seed(random_state) # Consistent GAE training
-    gae_edge_emb_results = gae_scores(adj_sparse, train_test_split, features_matrix,
-        LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
-        "edge-emb",
-        verbose)
-    lp_scores['gae_edge_emb'] = gae_edge_emb_results
+    # # Use edge embeddings
+    # tf.set_random_seed(random_state) # Consistent GAE training
+    # gae_edge_emb_results = gae_scores(adj_sparse, train_test_split, features_matrix,
+    #     LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
+    #     "edge-emb",
+    #     verbose)
+    # lp_scores['gae_edge_emb'] = gae_edge_emb_results
 
-    if verbose >= 1:
-        print ''
-        print 'GAE (Edge Embeddings) Validation ROC score: ', str(gae_edge_emb_results['val_roc'])
-        print 'GAE (Edge Embeddings) Validation AP score: ', str(gae_edge_emb_results['val_ap'])
-        print 'GAE (Edge Embeddings) Test ROC score: ', str(gae_edge_emb_results['test_roc'])
-        print 'GAE (Edge Embeddings) Test AP score: ', str(gae_edge_emb_results['test_ap'])
+    # if verbose >= 1:
+    #     print ''
+    #     print 'GAE (Edge Embeddings) Validation ROC score: ', str(gae_edge_emb_results['val_roc'])
+    #     print 'GAE (Edge Embeddings) Validation AP score: ', str(gae_edge_emb_results['val_ap'])
+    #     print 'GAE (Edge Embeddings) Test ROC score: ', str(gae_edge_emb_results['test_roc'])
+    #     print 'GAE (Edge Embeddings) Test AP score: ', str(gae_edge_emb_results['test_ap'])
 
 
     ### ---------- RETURN RESULTS ---------- ###
