@@ -1,0 +1,8 @@
+diameter: 195
+density: 0.002002002002
+avg_degree: 2.0
+num_edges: 1000
+num_nodes: 1000
+avg_clustering_coef: 0.0
+num_connected_components: 1
+transitivity: 0.0

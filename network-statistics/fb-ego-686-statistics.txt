@@ -1,0 +1,8 @@
+diameter: 2
+density: 0.125627794978
+avg_degree: 21.3567251462
+num_edges: 1826
+num_nodes: 171
+avg_clustering_coef: 0.623010296603
+num_connected_components: 1
+transitivity: 0.410135558467
