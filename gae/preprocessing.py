@@ -204,4 +204,149 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_disconnect=True, ve
     return adj_train, train_edges, train_edges_false, \
         val_edges, val_edges_false, test_edges, test_edges_false
 
+# Perform train-test split
+    # Takes in adjacency matrix in sparse format (from a directed graph)
+    # Returns: adj_train, train_edges, val_edges, val_edges_false, 
+        # test_edges, test_edges_false
+def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect=True, verbose=False):
+    if verbose == True:
+        print 'preprocessing...'
 
+    # Remove diagonal elements
+    adj = adj - sp.dia_matrix((adj.diagonal()[np.newaxis, :], [0]), shape=adj.shape)
+    adj.eliminate_zeros()
+    # Check that diag is zero:
+    assert np.diag(adj.todense()).sum() == 0
+
+    # Convert to networkx graph to calc num. weakly connected components
+    g = nx.from_scipy_sparse_matrix(adj, create_using=nx.DiGraph())
+    orig_num_wcc = nx.number_weakly_connected_components(g)
+
+    adj_tuple = sparse_to_tuple(adj) # (coords, values, shape)
+    edges = adj_tuple[0] # List of ALL edges (either direction)
+    edge_pairs = [(edge[0], edge[1]) for edge in edges] # store edges as list of tuples (from_node, to_node)
+
+    num_test = int(np.floor(edges.shape[0] * test_frac)) # controls how large the test set should be
+    num_val = int(np.floor(edges.shape[0] * val_frac)) # controls how alrge the validation set should be
+    num_train = len(edge_pairs) - num_test - num_val # num train edges
+
+    all_edge_set = set(edge_pairs)
+    train_edges = set(edge_pairs) # init train_edges to have all edges
+    test_edges = set() # init test_edges as empty set
+    val_edges = set() # init val edges as empty set
+
+    ### ---------- TRUE EDGES ---------- ###
+    if verbose:
+        print('creating true edges...')
+
+    # Shuffle and iterate over all edges
+    np.random.shuffle(edge_pairs)
+    for edge in edge_pairs:
+        node1, node2 = edge[0], edge[1]
+
+        # If removing edge would disconnect the graph, backtrack and move on
+        g.remove_edge(node1, node2)
+        if prevent_disconnect == True:
+            if not nx.is_weakly_connected(g):
+                g.add_edge(node1, node2)
+                continue
+
+        # Fill test_edges first
+        if len(test_edges) < num_test:
+            test_edges.add(edge)
+            train_edges.remove(edge)
+
+        # Then, fill val_edges
+        elif len(val_edges) < num_val:
+            val_edges.add(edge)
+            train_edges.remove(edge)
+
+        # Both edge lists full --> break loop
+        elif len(test_edges) == num_test and len(val_edges) == num_val:
+            break
+
+    # Check that enough test/val edges were found
+    if (len(val_edges) < num_val or len(test_edges) < num_test):
+        print "WARNING: not enough removable edges to perform full train-test split!"
+        print "Num. (test, val) edges requested: (", num_test, ", ", num_val, ")"
+        print "Num. (test, val) edges returned: (", len(test_edges), ", ", len(val_edges), ")"
+
+    if prevent_disconnect == True:
+        assert nx.weakly_number_connected_components(g) == orig_num_cc
+
+    ### ---------- FALSE EDGES ---------- ###
+    if verbose == True:
+        print 'creating false edges...'
+
+    # Sample false edges from G-complement, instead of randomly generating edges
+    g_complement = nx.complement(g)
+    adj_complement = nx.adjacency_matrix(g_complement)
+    edges_false = sparse_to_tuple(adj_complement)[0]
+    edge_pairs_false = [(edge[0], edge[1]) for false_edge in edges_false]
+
+    # Initialize empty sets
+    train_edges_false = set()
+    test_edges_false = set()
+    val_edges_false = set()
+
+    # Shuffle and iterate over false edges
+    np.random.shuffle(edge_pairs_false)
+    for false_edge in edge_pairs_false:
+        # Fill train_edges_false first
+        if len(train_edges_false) < len(train_edges):
+            train_edges_false.add(false_edge)
+
+        # Fill test_edges_false next
+        elif len(test_edges_false) < len(test_edges):
+            test_edges_false.add(false_edge)
+
+        # Fill val_edges_false last
+        elif len(val_edges_false) < len(val_edges):
+            val_edges_false.add(false_edge)
+
+        # All sets filled --> break
+        elif len(train_edges_false) == len(train_edges) and \
+            len(test_edges_false) == len(test_edges) and \
+            len(val_edges_false) == len(val_edges):
+            break
+
+    ### ---------- FINAL DISJOINTNESS CHECKS ---------- ###
+    if verbose == True:
+        print 'final checks for disjointness...'
+
+    # assert: false_edges are actually false (not in all_edge_tuples)
+    assert test_edges_false.isdisjoint(all_edge_tuples)
+    assert val_edges_false.isdisjoint(all_edge_tuples)
+    assert train_edges_false.isdisjoint(all_edge_tuples)
+
+    # assert: test, val, train false edges disjoint
+    assert test_edges_false.isdisjoint(val_edges_false)
+    assert test_edges_false.isdisjoint(train_edges_false)
+    assert val_edges_false.isdisjoint(train_edges_false)
+
+    # assert: test, val, train positive edges disjoint
+    assert val_edges.isdisjoint(train_edges)
+    assert test_edges.isdisjoint(train_edges)
+    assert val_edges.isdisjoint(test_edges)
+
+    if verbose == True:
+        print 'creating adj_train...'
+
+    # Re-build adj matrix using remaining graph
+    adj_train = nx.adjacency_matrix(g)
+
+    # Convert edge-lists to numpy arrays
+    train_edges = np.array([list(edge_tuple) for edge_tuple in train_edges])
+    train_edges_false = np.array([list(edge_tuple) for edge_tuple in train_edges_false])
+    val_edges = np.array([list(edge_tuple) for edge_tuple in val_edges])
+    val_edges_false = np.array([list(edge_tuple) for edge_tuple in val_edges_false])
+    test_edges = np.array([list(edge_tuple) for edge_tuple in test_edges])
+    test_edges_false = np.array([list(edge_tuple) for edge_tuple in test_edges_false])
+
+    if verbose == True:
+        print 'Done with train-test split!'
+        print ''
+
+    # Return final edge lists (edges can go either direction!)
+    return adj_train, train_edges, train_edges_false, \
+        val_edges, val_edges_false, test_edges, test_edges_false

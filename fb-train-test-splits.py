@@ -56,7 +56,7 @@ for frac_hidden in FRAC_EDGES_HIDDEN:
 
         file_name = TRAIN_TEST_SPLITS_FOLDER + current_graph + '.pkl'
 
-        # Save experiment results at each iteration
+        # Save split
         with open(file_name, 'wb') as f:
             pickle.dump(train_test_split, f, protocol=2)
 
