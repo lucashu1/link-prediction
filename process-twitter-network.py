@@ -24,11 +24,11 @@ print('Num. weakly connected components: ', nx.number_weakly_connected_component
 # print('Saving adjacency matrix')
 
 # Get adjacency matrix
-# adj = nx.adjacency_matrix(twitter_g)
+adj = nx.adjacency_matrix(twitter_g)
 
 # Save adjacency matrix
-# with open('./twitter-processed/twitter-combined-adj.pkl', 'wb') as f:
-#     pickle.dump(adj, f)
+with open('./twitter/twitter-combined-adj.pkl', 'wb') as f:
+    pickle.dump(adj, f)
 
 
 
@@ -84,4 +84,4 @@ print('Generating network visualization')
 # save_visualization(g=twitter_g, file_name='./visualizations/twitter-combined-visualization.pdf', title='Twitter Combined Network')
 
 print('Calculating and saving network statistics')
-save_network_statistics(twitter_g)
+# save_network_statistics(twitter_g)

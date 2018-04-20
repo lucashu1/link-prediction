@@ -6,7 +6,7 @@ from gae.preprocessing import mask_test_edges_directed
 
 RANDOM_SEED = 0
 
-twitter_adj = pickle.load(open('./twitter-processed/twitter-combined-adj.pkl', 'rb'))
+twitter_adj = pickle.load(open('./twitter/twitter-combined-adj.pkl', 'rb'))
 
 FRAC_EDGES_HIDDEN = [0.25, 0.5, 0.75]
 TRAIN_TEST_SPLIT_DIR = './train-test-splits/'
