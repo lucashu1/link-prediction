@@ -249,7 +249,7 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
         node1, node2 = edge[0], edge[1]
 
         # Don't sample bridge edges to increase likelihood of staying connected
-        if [node1, node2] in bridge_edges or [node2, node1] in bridge_edges: 
+        if (node1, node2) in bridge_edges or (node2, node1) in bridge_edges: 
             continue
 
         # If removing edge would disconnect the graph, backtrack and move on
