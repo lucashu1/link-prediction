@@ -456,7 +456,7 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
             num_train_edges += 1
             if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set:
                 num_wcc_contained_train_edges += 1
-        frac_in_wcc = num_wcc_contained_train_edges / num_train_edges = 0.0
+        frac_in_wcc = num_wcc_contained_train_edges / num_train_edges
         return frac_in_wcc
 
     # Check what percentage of edges have both endpoints in largest WCC
