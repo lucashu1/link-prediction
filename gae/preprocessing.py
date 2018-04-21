@@ -207,7 +207,8 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_disconnect=True, ve
     # Takes in adjacency matrix in sparse format (from a directed graph)
     # Returns: adj_train, train_edges, val_edges, val_edges_false, 
         # test_edges, test_edges_false
-def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect=True, verbose=False):
+def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, 
+    prevent_disconnect=True, verbose=False, false_edge_sampling='iterative'):
     if verbose == True:
         print 'preprocessing...'
 
@@ -240,8 +241,16 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect
 
     # Shuffle and iterate over all edges
     np.random.shuffle(edge_pairs)
+
+    # get initial bridge edges
+    bridge_edges = set(nx.bridges(nx.to_undirected())) 
+
     for edge in edge_pairs:
         node1, node2 = edge[0], edge[1]
+
+        # Don't sample bridge edges to increase likelihood of staying connected
+        if [node1, node2] in bridge_edges or [node2, node1] in bridge_edges: 
+            continue
 
         # If removing edge would disconnect the graph, backtrack and move on
         g.remove_edge(node1, node2)
@@ -288,50 +297,131 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect
 
 
     ### ---------- FALSE EDGES ---------- ###
-    if verbose == True:
-        print 'preparing complement adjacency matrix...'
-
-    # Sample false edges from G-complement, instead of randomly generating edges
-    # g_complement = nx.complement(g)
-    adj_complement = 1 - adj.todense() # flip 0's, 1's in adjacency matrix
-    np.fill_diagonal(adj_complement, val=0) # set diagonals to 0
-    idx1, idx2 = np.where(adj_complement == 1) # 2 numpy arrays indicating x, y coords in adj_complement
-    edges_false = np.stack((idx1, idx2), axis=-1) # stack arrays into coord pairs
-    edge_pairs_false = [(edge[0], edge[1]) for false_edge in edges_false]
 
     # Initialize empty sets
     train_edges_false = set()
     test_edges_false = set()
     val_edges_false = set()
 
-    # Shuffle and iterate over false edges
-    np.random.shuffle(edge_pairs_false)
-    if verbose == True:
-        print 'adding candidate false edges to false edge sets...'
-    for false_edge in edge_pairs_false:
-        # Fill train_edges_false first
-        if len(train_edges_false) < len(train_edges):
-            train_edges_false.add(false_edge)
-            if len(train_edges_false) % 10000 == 0 and verbose == True:
-                print 'Current num false train edges: ', len(train_edges_false)
+    # Generate candidate false edges (from g-complement) and iterate through them
+    if false_edge_sampling == 'iterative':
+        if verbose == True:
+            print 'preparing complement adjacency matrix...'
 
-        # Fill test_edges_false next
-        elif len(test_edges_false) < len(test_edges):
+        # Sample false edges from G-complement, instead of randomly generating edges
+        # g_complement = nx.complement(g)
+        adj_complement = 1 - adj.toarray() # flip 0's, 1's in adjacency matrix
+        np.fill_diagonal(adj_complement, val=0) # set diagonals to 0
+
+        # 2 numpy arrays indicating x, y coords in adj_complement
+            # WARNING: This line can use up a lot of RAM depending on 'adj' size
+        idx1, idx2 = np.where(adj_complement == 1) 
+            
+        edges_false = np.stack((idx1, idx2), axis=-1) # stack arrays into coord pairs.
+        edge_pairs_false = [(edge[0], edge[1]) for false_edge in edges_false]
+
+        # Shuffle and iterate over false edges
+        np.random.shuffle(edge_pairs_false)
+        if verbose == True:
+            print 'adding candidate false edges to false edge sets...'
+        for false_edge in edge_pairs_false:
+            # Fill train_edges_false first
+            if len(train_edges_false) < len(train_edges):
+                train_edges_false.add(false_edge)
+                if len(train_edges_false) % 10000 == 0 and verbose == True:
+                    print 'Current num false train edges: ', len(train_edges_false)
+
+            # Fill test_edges_false next
+            elif len(test_edges_false) < len(test_edges):
+                test_edges_false.add(false_edge)
+                if len(test_edges_false) % 10000 == 0 and verbose == True:
+                    print 'Current num false test edges: ', len(test_edges_false)
+
+            # Fill val_edges_false last
+            elif len(val_edges_false) < len(val_edges):
+                val_edges_false.add(false_edge)
+                if len(val_edges_false) % 10000 == 0 and verbose == True:
+                    print 'Current num false val edges: ', len(val_edges_false)
+
+            # All sets filled --> break
+            elif len(train_edges_false) == len(train_edges) and \
+                len(test_edges_false) == len(test_edges) and \
+                len(val_edges_false) == len(val_edges):
+                break
+
+    # Randomly generate false edges (idx_i, idx_j) 1 at a time to save memory
+    elif false_edge_sampling == 'random':
+        if verbose == True:
+            print 'creating false test edges...'
+
+        # FALSE TEST EDGES
+        while len(test_edges_false) < num_test:
+            idx_i = np.random.randint(0, adj.shape[0])
+            idx_j = np.random.randint(0, adj.shape[0])
+            if idx_i == idx_j:
+                continue
+
+            false_edge = (idx_i, idx_j)
+
+            # Make sure false_edge not an actual edge, and not a repeat
+            if false_edge in all_edge_set:
+                continue
+            if false_edge in test_edges_false:
+                continue
+
             test_edges_false.add(false_edge)
+
             if len(test_edges_false) % 10000 == 0 and verbose == True:
                 print 'Current num false test edges: ', len(test_edges_false)
 
-        # Fill val_edges_false last
-        elif len(val_edges_false) < len(val_edges):
+        # FALSE VAL EDGES
+        if verbose == True:
+            print 'creating false val edges...'
+
+        while len(val_edges_false) < num_val:
+            idx_i = np.random.randint(0, adj.shape[0])
+            idx_j = np.random.randint(0, adj.shape[0])
+            if idx_i == idx_j:
+                continue
+
+            false_edge = (idx_i, idx_j)
+
+            # Make sure false_edge in not an actual edge, not in test_edges_false, not a repeat
+            if false_edge in all_edge_set or \
+                false_edge in test_edges_false or \
+                false_edge in val_edges_false:
+                continue
+                
             val_edges_false.add(false_edge)
+
             if len(val_edges_false) % 10000 == 0 and verbose == True:
                 print 'Current num false val edges: ', len(val_edges_false)
 
-        # All sets filled --> break
-        elif len(train_edges_false) == len(train_edges) and \
-            len(test_edges_false) == len(test_edges) and \
-            len(val_edges_false) == len(val_edges):
-            break
+        # FALSE TRAIN EDGES
+        if verbose == True:
+            print 'creating false train edges...'
+
+        while len(train_edges_false) < len(train_edges):
+            idx_i = np.random.randint(0, adj.shape[0])
+            idx_j = np.random.randint(0, adj.shape[0])
+            if idx_i == idx_j:
+                continue
+
+            false_edge = (idx_i, idx_j)
+
+            # Make sure false_edge in not an actual edge, not in test_edges_false, 
+                # not in val_edges_false, not a repeat
+            if false_edge in all_edge_set or \
+                false_edge in test_edges_false or \
+                false_edge in val_edges_false or \
+                false_edge in train_edges_false:
+                continue
+
+            train_edges_false.add(false_edge)
+
+            if len(train_edges_false) % 10000 == 0 and verbose == True:
+                print 'Current num false train edges: ', len(train_edges_false)
+
 
     ### ---------- FINAL DISJOINTNESS CHECKS ---------- ###
     if verbose == True:
