@@ -448,6 +448,25 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
     # Re-build adj matrix using remaining graph
     adj_train = nx.adjacency_matrix(g)
 
+    # Fraction of edges with both endpoints in largest WCC
+    def frac_edges_in_wcc(edge_set):
+        num_wcc_contained_edges = 0.0
+        num_total_edges = 0.0
+        for edge in edge_set:
+            num_train_edges += 1
+            if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set:
+                num_wcc_contained_train_edges += 1
+        frac_in_wcc = num_wcc_contained_train_edges / num_train_edges = 0.0
+        return frac_in_wcc
+
+    # Check what percentage of edges have both endpoints in largest WCC
+    print 'Fraction of train edges with both endpoints in L-WCC: ', frac_edges_in_wcc(train_edges)
+    print 'Fraction of test edges with both endpoints in L-WCC: ', frac_edges_in_wcc(test_edges)
+    print 'Fraction of val edges with both endpoints in L-WCC: ', frac_edges_in_wcc(val_edges)
+    print 'Fraction of false train edges with both endpoints in L-WCC: ', frac_edges_in_wcc(train_edges_false)
+    print 'Fraction of false test edges with both endpoints in L-WCC: ', frac_edges_in_wcc(test_edges_false)
+    print 'Fraction of false val edges with both endpoints in L-WCC: ', frac_edges_in_wcc(val_edges_false)
+
     # Convert edge-lists to numpy arrays
     train_edges = np.array([list(edge_tuple) for edge_tuple in train_edges])
     train_edges_false = np.array([list(edge_tuple) for edge_tuple in train_edges_false])
