@@ -243,7 +243,7 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
     np.random.shuffle(edge_pairs)
 
     # get initial bridge edges
-    bridge_edges = set(nx.bridges(nx.to_undirected())) 
+    bridge_edges = set(nx.bridges(nx.to_undirected(g))) 
 
     for edge in edge_pairs:
         node1, node2 = edge[0], edge[1]
