@@ -236,14 +236,14 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
     val_edges = set() # init val edges as empty set
 
     ### ---------- TRUE EDGES ---------- ###
-    if verbose:
-        print('creating true edges...')
-
     # Shuffle and iterate over all edges
     np.random.shuffle(edge_pairs)
 
     # get initial bridge edges
     bridge_edges = set(nx.bridges(nx.to_undirected(g))) 
+
+    if verbose:
+        print('creating true edges...')
 
     for edge in edge_pairs:
         node1, node2 = edge[0], edge[1]
@@ -453,10 +453,10 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
         num_wcc_contained_edges = 0.0
         num_total_edges = 0.0
         for edge in edge_set:
-            num_train_edges += 1
+            num_total_edges += 1
             if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set:
-                num_wcc_contained_train_edges += 1
-        frac_in_wcc = num_wcc_contained_train_edges / num_train_edges
+                num_wcc_contained_edges += 1
+        frac_in_wcc = num_wcc_contained_edges / num_total_edges
         return frac_in_wcc
 
     # Check what percentage of edges have both endpoints in largest WCC
