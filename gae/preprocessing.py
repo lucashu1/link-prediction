@@ -101,7 +101,6 @@ def mask_test_edges(adj, test_frac=.1, val_frac=.05, prevent_disconnect=True, ve
     if prevent_disconnect == True:
         assert nx.number_connected_components(g) == orig_num_cc
 
-
     if verbose == True:
         print 'creating false test edges...'
 
@@ -255,15 +254,21 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect
         if len(test_edges) < num_test:
             test_edges.add(edge)
             train_edges.remove(edge)
+            if len(test_edges) % 10000 == 0 and verbose == True:
+                print 'Current num test edges: ', len(test_edges)
 
         # Then, fill val_edges
         elif len(val_edges) < num_val:
             val_edges.add(edge)
             train_edges.remove(edge)
+            if len(val_edges) % 10000 == 0 and verbose == True:
+                print 'Current num val edges: ', len(val_edges)
 
         # Both edge lists full --> break loop
         elif len(test_edges) == num_test and len(val_edges) == num_val:
             break
+
+
 
     # Check that enough test/val edges were found
     if (len(val_edges) < num_val or len(test_edges) < num_test):
@@ -271,17 +276,27 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect
         print "Num. (test, val) edges requested: (", num_test, ", ", num_val, ")"
         print "Num. (test, val) edges returned: (", len(test_edges), ", ", len(val_edges), ")"
 
+    # Print stats for largest remaining WCC
+    print 'Num WCC: ', nx.number_weakly_connected_components(g)
+    largest_wcc_set = max(nx.weakly_connected_components(g), key=len)
+    largest_wcc = g.subgraph(largest_wcc_set)
+    print 'Largest WCC num nodes: ', largest_wcc.number_of_nodes()
+    print 'Largest WCC num edges: ', largest_wcc.number_of_edges()
+
     if prevent_disconnect == True:
-        assert nx.weakly_number_connected_components(g) == orig_num_cc
+        assert nx.number_weakly_connected_components(g) == orig_num_cc
+
 
     ### ---------- FALSE EDGES ---------- ###
     if verbose == True:
-        print 'creating false edges...'
+        print 'preparing complement adjacency matrix...'
 
     # Sample false edges from G-complement, instead of randomly generating edges
-    g_complement = nx.complement(g)
-    adj_complement = nx.adjacency_matrix(g_complement)
-    edges_false = sparse_to_tuple(adj_complement)[0]
+    # g_complement = nx.complement(g)
+    adj_complement = 1 - adj.todense() # flip 0's, 1's in adjacency matrix
+    np.fill_diagonal(adj_complement, val=0) # set diagonals to 0
+    idx1, idx2 = np.where(adj_complement == 1) # 2 numpy arrays indicating x, y coords in adj_complement
+    edges_false = np.stack((idx1, idx2), axis=-1) # stack arrays into coord pairs
     edge_pairs_false = [(edge[0], edge[1]) for false_edge in edges_false]
 
     # Initialize empty sets
@@ -291,18 +306,26 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect
 
     # Shuffle and iterate over false edges
     np.random.shuffle(edge_pairs_false)
+    if verbose == True:
+        print 'adding candidate false edges to false edge sets...'
     for false_edge in edge_pairs_false:
         # Fill train_edges_false first
         if len(train_edges_false) < len(train_edges):
             train_edges_false.add(false_edge)
+            if len(train_edges_false) % 10000 == 0 and verbose == True:
+                print 'Current num false train edges: ', len(train_edges_false)
 
         # Fill test_edges_false next
         elif len(test_edges_false) < len(test_edges):
             test_edges_false.add(false_edge)
+            if len(test_edges_false) % 10000 == 0 and verbose == True:
+                print 'Current num false test edges: ', len(test_edges_false)
 
         # Fill val_edges_false last
         elif len(val_edges_false) < len(val_edges):
             val_edges_false.add(false_edge)
+            if len(val_edges_false) % 10000 == 0 and verbose == True:
+                print 'Current num false val edges: ', len(val_edges_false)
 
         # All sets filled --> break
         elif len(train_edges_false) == len(train_edges) and \
@@ -315,9 +338,9 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05, prevent_disconnect
         print 'final checks for disjointness...'
 
     # assert: false_edges are actually false (not in all_edge_tuples)
-    assert test_edges_false.isdisjoint(all_edge_tuples)
-    assert val_edges_false.isdisjoint(all_edge_tuples)
-    assert train_edges_false.isdisjoint(all_edge_tuples)
+    assert test_edges_false.isdisjoint(all_edge_set)
+    assert val_edges_false.isdisjoint(all_edge_set)
+    assert train_edges_false.isdisjoint(all_edge_set)
 
     # assert: test, val, train false edges disjoint
     assert test_edges_false.isdisjoint(val_edges_false)
