@@ -581,7 +581,12 @@ def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
     
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack tuple
-    g_train = nx.from_scipy_sparse_matrix(adj_train) # new graph object with only non-hidden edges
+
+    # g_train: new graph object with only non-hidden edges
+    if directed == True:
+        g_train = nx.DiGraph(adj_train)
+    else:
+        g_train = nx.Graph(adj_train)
 
     # Inspect train/test split
     if verbose >= 1:
