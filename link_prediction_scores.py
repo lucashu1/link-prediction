@@ -557,7 +557,7 @@ def gae_scores(
 # Input: adjacency matrix (in sparse format), features_matrix (normal format), test_frac, val_frac, verbose
     # Verbose: 0 - print nothing, 1 - print scores, 2 - print scores + GAE training progress
 # Returns: Dictionary of results (ROC AUC, ROC Curve, AP, Runtime) for each link prediction method
-def calculate_all_scores(adj_sparse, features_matrix=None, directed=False \
+def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
         test_frac=.3, val_frac=.1, random_state=0, verbose=1, \
         train_test_split_file=None):
     np.random.seed(random_state) # Guarantee consistent train/test split
