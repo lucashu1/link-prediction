@@ -245,8 +245,12 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
     if verbose:
         print('creating true edges...')
 
-    for edge in edge_pairs:
+    for ind, edge in enumerate(edge_pairs):
         node1, node2 = edge[0], edge[1]
+
+        # Recalculate bridges every ____ iterations to relatively recent
+        if ind % 1000 == 0:
+            bridge_edges = set(nx.bridges(nx.to_undirected(g))) 
 
         # Don't sample bridge edges to increase likelihood of staying connected
         if (node1, node2) in bridge_edges or (node2, node1) in bridge_edges: 
