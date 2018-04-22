@@ -295,6 +295,28 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
     if prevent_disconnect == True:
         assert nx.number_weakly_connected_components(g) == orig_num_cc
 
+    # Fraction of edges with both endpoints in largest WCC
+    def frac_edges_in_wcc(edge_set):
+        num_wcc_contained_edges = 0.0
+        num_total_edges = 0.0
+        for edge in edge_set:
+            num_total_edges += 1
+            if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set:
+                num_wcc_contained_edges += 1
+        frac_in_wcc = num_wcc_contained_edges / num_total_edges
+        return frac_in_wcc
+
+    # Check what percentage of edges have both endpoints in largest WCC
+    print 'Fraction of train edges with both endpoints in L-WCC: ', frac_edges_in_wcc(train_edges)
+    print 'Fraction of test edges with both endpoints in L-WCC: ', frac_edges_in_wcc(test_edges)
+    print 'Fraction of val edges with both endpoints in L-WCC: ', frac_edges_in_wcc(val_edges)
+
+    # Ignore edges with endpoint not in largest WCC
+    print 'Removing edges with either endpoint not in L-WCC from train-test split...'
+    train_edges = {edge for edge in train_edges if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set}
+    test_edges = {edge for edge in test_edges if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set}
+    val_edges = {edge for edge in val_edges if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set}
+
 
     ### ---------- FALSE EDGES ---------- ###
 
@@ -358,7 +380,11 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
         while len(test_edges_false) < num_test:
             idx_i = np.random.randint(0, adj.shape[0])
             idx_j = np.random.randint(0, adj.shape[0])
-            if idx_i == idx_j:
+            if idx_i == idx_j: # no self-loops
+                continue
+
+            # Ensure both endpoints are in largest WCC
+            if idx_i not in largest_wcc_set or idx_j not in largest_wcc_set:
                 continue
 
             false_edge = (idx_i, idx_j)
@@ -448,25 +474,6 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
     # Re-build adj matrix using remaining graph
     adj_train = nx.adjacency_matrix(g)
 
-    # Fraction of edges with both endpoints in largest WCC
-    def frac_edges_in_wcc(edge_set):
-        num_wcc_contained_edges = 0.0
-        num_total_edges = 0.0
-        for edge in edge_set:
-            num_total_edges += 1
-            if edge[0] in largest_wcc_set and edge[1] in largest_wcc_set:
-                num_wcc_contained_edges += 1
-        frac_in_wcc = num_wcc_contained_edges / num_total_edges
-        return frac_in_wcc
-
-    # Check what percentage of edges have both endpoints in largest WCC
-    print 'Fraction of train edges with both endpoints in L-WCC: ', frac_edges_in_wcc(train_edges)
-    print 'Fraction of test edges with both endpoints in L-WCC: ', frac_edges_in_wcc(test_edges)
-    print 'Fraction of val edges with both endpoints in L-WCC: ', frac_edges_in_wcc(val_edges)
-    print 'Fraction of false train edges with both endpoints in L-WCC: ', frac_edges_in_wcc(train_edges_false)
-    print 'Fraction of false test edges with both endpoints in L-WCC: ', frac_edges_in_wcc(test_edges_false)
-    print 'Fraction of false val edges with both endpoints in L-WCC: ', frac_edges_in_wcc(val_edges_false)
-
     # Convert edge-lists to numpy arrays
     train_edges = np.array([list(edge_tuple) for edge_tuple in train_edges])
     train_edges_false = np.array([list(edge_tuple) for edge_tuple in train_edges_false])
@@ -477,6 +484,9 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
 
     if verbose == True:
         print 'Done with train-test split!'
+        print 'Num train edges (true, false): (', train_edges.shape[0], ', ', train_edges_false.shape[0], ')'
+        print 'Num test edges (true, false): (', test_edges.shape[0], ', ', test_edges_false.shape[0], ')'
+        print 'Num val edges (true, false): (', val_edges.shape[0], ', ', val_edges_false.shape[0], ')'
         print ''
 
     # Return final edge lists (edges can go either direction!)
