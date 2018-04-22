@@ -26,6 +26,6 @@ for frac_hidden in FRAC_EDGES_HIDDEN:
         verbose=True, prevent_disconnect=False, false_edge_sampling='random')
 
     # Save split
-    file_name = TRAIN_TEST_SPLIT_DIR + 'twitter-combined-{}-hidden'.format(frac_hidden)
+    file_name = TRAIN_TEST_SPLIT_DIR + 'twitter-combined-{}-hidden.pkl'.format(frac_hidden)
     with open(file_name, 'wb') as f:
         pickle.dump(train_test_split, f, protocol=2)
