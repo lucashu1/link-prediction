@@ -354,19 +354,19 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
             # Fill train_edges_false first
             if len(train_edges_false) < len(train_edges):
                 train_edges_false.add(false_edge)
-                if len(train_edges_false) % 10000 == 0 and verbose == True:
+                if len(train_edges_false) % 100000 == 0 and verbose == True:
                     print 'Current num false train edges: ', len(train_edges_false)
 
             # Fill test_edges_false next
             elif len(test_edges_false) < len(test_edges):
                 test_edges_false.add(false_edge)
-                if len(test_edges_false) % 10000 == 0 and verbose == True:
+                if len(test_edges_false) % 100000 == 0 and verbose == True:
                     print 'Current num false test edges: ', len(test_edges_false)
 
             # Fill val_edges_false last
             elif len(val_edges_false) < len(val_edges):
                 val_edges_false.add(false_edge)
-                if len(val_edges_false) % 10000 == 0 and verbose == True:
+                if len(val_edges_false) % 100000 == 0 and verbose == True:
                     print 'Current num false val edges: ', len(val_edges_false)
 
             # All sets filled --> break
@@ -381,7 +381,7 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
             print 'creating false test edges...'
 
         # FALSE TEST EDGES
-        while len(test_edges_false) < num_test:
+        while len(test_edges_false) < len(train_edges):
             idx_i = np.random.randint(0, adj.shape[0])
             idx_j = np.random.randint(0, adj.shape[0])
             if idx_i == idx_j: # no self-loops
@@ -401,14 +401,14 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
 
             test_edges_false.add(false_edge)
 
-            if len(test_edges_false) % 10000 == 0 and verbose == True:
+            if len(test_edges_false) % 100000 == 0 and verbose == True:
                 print 'Current num false test edges: ', len(test_edges_false)
 
         # FALSE VAL EDGES
         if verbose == True:
             print 'creating false val edges...'
 
-        while len(val_edges_false) < num_val:
+        while len(val_edges_false) < len(val_edges):
             idx_i = np.random.randint(0, adj.shape[0])
             idx_j = np.random.randint(0, adj.shape[0])
             if idx_i == idx_j:
@@ -424,7 +424,7 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
                 
             val_edges_false.add(false_edge)
 
-            if len(val_edges_false) % 10000 == 0 and verbose == True:
+            if len(val_edges_false) % 100000 == 0 and verbose == True:
                 print 'Current num false val edges: ', len(val_edges_false)
 
         # FALSE TRAIN EDGES
@@ -449,7 +449,7 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
 
             train_edges_false.add(false_edge)
 
-            if len(train_edges_false) % 10000 == 0 and verbose == True:
+            if len(train_edges_false) % 100000 == 0 and verbose == True:
                 print 'Current num false train edges: ', len(train_edges_false)
 
 
