@@ -61,6 +61,9 @@ def get_roc_score(edges_pos, edges_neg, score_matrix, apply_sigmoid=False):
 # Input: NetworkX training graph, train_test_split (from mask_test_edges)
 # Output: dictionary with ROC AUC, ROC Curve, AP, Runtime
 def adamic_adar_scores(g_train, train_test_split):
+    if g_train.is_directed(): # Only works for undirected graphs
+        g_train = g_train.to_undirected()
+
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack input
 
@@ -88,6 +91,9 @@ def adamic_adar_scores(g_train, train_test_split):
 # Input: NetworkX training graph, train_test_split (from mask_test_edges)
 # Output: dictionary with ROC AUC, ROC Curve, AP, Runtime
 def jaccard_coefficient_scores(g_train, train_test_split):
+    if g_train.is_directed(): # Jaccard coef only works for undirected graphs
+        g_train = g_train.to_undirected()
+
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack input
 
@@ -114,6 +120,9 @@ def jaccard_coefficient_scores(g_train, train_test_split):
 # Input: NetworkX training graph, train_test_split (from mask_test_edges)
 # Output: dictionary with ROC AUC, ROC Curve, AP, Runtime
 def preferential_attachment_scores(g_train, train_test_split):
+    if g_train.is_directed(): # Only defined for undirected graphs
+        g_train = g_train.to_undirected()
+
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack input
 
@@ -183,6 +192,8 @@ def node2vec_scores(
         # or simple dot-product (like in GAE paper) for edge scoring
     verbose=1,
     ):
+    if g_train.is_directed():
+        DIRECTED = True
 
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack train-test split
@@ -546,7 +557,7 @@ def gae_scores(
 # Input: adjacency matrix (in sparse format), features_matrix (normal format), test_frac, val_frac, verbose
     # Verbose: 0 - print nothing, 1 - print scores, 2 - print scores + GAE training progress
 # Returns: Dictionary of results (ROC AUC, ROC Curve, AP, Runtime) for each link prediction method
-def calculate_all_scores(adj_sparse, features_matrix=None, \
+def calculate_all_scores(adj_sparse, features_matrix=None, directed=False \
         test_frac=.3, val_frac=.1, random_state=0, verbose=1, \
         train_test_split_file=None):
     np.random.seed(random_state) # Guarantee consistent train/test split
@@ -563,7 +574,10 @@ def calculate_all_scores(adj_sparse, features_matrix=None, \
             print 'Found existing train-test split!'
     except: # Else, generate train-test split on the fly
         print 'Generating train-test split...'
-        train_test_split = mask_test_edges(adj_sparse, test_frac=test_frac, val_frac=val_frac)
+        if directed == False:
+            train_test_split = mask_test_edges(adj_sparse, test_frac=test_frac, val_frac=val_frac)
+        else:
+            train_test_split = mask_test_edges_directed(adj_sparse, test_frac=test_frac, val_frac=val_frac)
     
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack tuple
