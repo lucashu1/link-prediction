@@ -381,7 +381,7 @@ def mask_test_edges_directed(adj, test_frac=.1, val_frac=.05,
             print 'creating false test edges...'
 
         # FALSE TEST EDGES
-        while len(test_edges_false) < len(train_edges):
+        while len(test_edges_false) < len(test_edges):
             idx_i = np.random.randint(0, adj.shape[0])
             idx_j = np.random.randint(0, adj.shape[0])
             if idx_i == idx_j: # no self-loops
