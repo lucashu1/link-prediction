@@ -60,6 +60,7 @@ python setup.py install
 * `nx-graph-experiments.ipynb`: Run all link prediction tests on various types of random networks (Erdos-Renyi, Barabasi-Albert, etc.)
 * `fb-graph-experiments.ipynb`: Run all link prediction tests on each Facebook ego network
 * `run-all-experiments.py`: Run all link prediction experiments (on both Facebook networks and random networkx networks), save results as pickle dumps in `results`
+* `run-twitter-experiments.py`: Run all link prediction experiments on combined (directed) Twitter network. Warning: may take a while to run.
 
 ### Results
 * `results/`: Pickle dumps of experiment results, with results (ROC AUC, ROC Curve, Avg. Precision, Runtime) stored for each link prediction method in Python dictionary form
