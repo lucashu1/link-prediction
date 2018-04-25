@@ -1,4 +1,4 @@
-from __future__ import division
+from __future__ import print_function, division
 import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -342,6 +342,9 @@ def gae_scores(
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack train-test split
 
+    if verbose >= 1:
+        print 'GAE preprocessing...'
+
     start_time = time.time()
 
     # Train on CPU (hide GPU) due to memory constraints
@@ -389,6 +392,9 @@ def gae_scores(
     # normalize (scale) average weighted cost
     norm = adj_sparse.shape[0] * adj_sparse.shape[0] / float((adj_sparse.shape[0] * adj_sparse.shape[0] - adj_sparse.sum()) * 2)
 
+    if verbose >= 1:
+        print 'Initializing GAE model...'
+
     # Create VAE model
     model = GCNModelVAE(placeholders, num_features, num_nodes, features_nonzero,
                        HIDDEN1_DIM, HIDDEN2_DIM, flatten_output=False)
@@ -409,7 +415,29 @@ def gae_scores(
 
     # Initialize session
     sess = tf.Session()
+
+    if verbose >= 1:
+        # Print total # trainable variables 
+        total_parameters = 0
+        for variable in tf.trainable_variables():
+            # shape is an array of tf.Dimension
+            shape = variable.get_shape()
+            print("Variable shape: ", shape)
+            variable_parameters = 1
+            for dim in shape:
+                print("Current dimension: ", dim)
+                variable_parameters *= dim.value
+            print("Variable params: ", variable_parameters)
+            total_parameters += variable_parameters
+            print()
+        print("TOTAL TRAINABLE PARAMS: ", total_parameters)
+
+        print 'Initializing TF variables...'
+
     sess.run(tf.global_variables_initializer())
+
+    if verbose >= 1:
+        print 'Starting GAE training!'
 
     # Train model
     for epoch in range(EPOCHS):
