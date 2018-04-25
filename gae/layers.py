@@ -114,6 +114,7 @@ class InnerProductDecoder(Layer):
         super(InnerProductDecoder, self).__init__(**kwargs)
         self.dropout = dropout
         self.act = act
+        self.flatten = flatten
 
     # Reconstruct adjacency matrix from node embeddings:
         # A_pred = activation(Z*Z^T)
@@ -122,7 +123,7 @@ class InnerProductDecoder(Layer):
         inputs = tf.nn.dropout(inputs, 1-self.dropout)
         x = tf.transpose(inputs)
         x = tf.matmul(inputs, x)
-        if flatten == True:
+        if self.flatten == True:
             x = tf.reshape(x, [-1])
         outputs = self.act(x)
         return outputs
