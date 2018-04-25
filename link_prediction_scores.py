@@ -685,10 +685,10 @@ def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
 
     ### ---------- (VARIATIONAL) GRAPH AUTOENCODER ---------- ###
     # GAE hyperparameters
-    LEARNING_RATE = 0.01 # Default: 0.01
+    LEARNING_RATE = 0.001 # Default: 0.01
     EPOCHS = 200
-    HIDDEN1_DIM = 32
-    HIDDEN2_DIM = 16
+    HIDDEN1_DIM = 64
+    HIDDEN2_DIM = 32
     DROPOUT = 0
 
     # Use dot product
