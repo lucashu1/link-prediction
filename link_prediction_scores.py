@@ -644,29 +644,29 @@ def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
     ### ---------- NODE2VEC ---------- ###
     # node2vec settings
     # NOTE: When p = q = 1, this is equivalent to DeepWalk
-    P = 1 # Return hyperparameter
-    Q = 1 # In-out hyperparameter
-    WINDOW_SIZE = 10 # Context size for optimization
-    NUM_WALKS = 10 # Number of walks per source
-    WALK_LENGTH = 80 # Length of walk per source
-    DIMENSIONS = 128 # Embedding dimension
-    DIRECTED = False # Graph directed/undirected
-    WORKERS = 8 # Num. parallel workers
-    ITER = 1 # SGD epochs
+    # P = 1 # Return hyperparameter
+    # Q = 1 # In-out hyperparameter
+    # WINDOW_SIZE = 10 # Context size for optimization
+    # NUM_WALKS = 10 # Number of walks per source
+    # WALK_LENGTH = 80 # Length of walk per source
+    # DIMENSIONS = 128 # Embedding dimension
+    # DIRECTED = False # Graph directed/undirected
+    # WORKERS = 8 # Num. parallel workers
+    # ITER = 1 # SGD epochs
 
-    # Using bootstrapped edge embeddings + logistic regression
-    n2v_edge_emb_scores = node2vec_scores(g_train, train_test_split,
-        P, Q, WINDOW_SIZE, NUM_WALKS, WALK_LENGTH, DIMENSIONS, DIRECTED, WORKERS, ITER,
-        "edge-emb",
-        verbose)
-    lp_scores['n2v_edge_emb'] = n2v_edge_emb_scores
+    # # Using bootstrapped edge embeddings + logistic regression
+    # n2v_edge_emb_scores = node2vec_scores(g_train, train_test_split,
+    #     P, Q, WINDOW_SIZE, NUM_WALKS, WALK_LENGTH, DIMENSIONS, DIRECTED, WORKERS, ITER,
+    #     "edge-emb",
+    #     verbose)
+    # lp_scores['n2v_edge_emb'] = n2v_edge_emb_scores
 
-    if verbose >= 1:
-        print ''
-        print 'node2vec (Edge Embeddings) Validation ROC score: ', str(n2v_edge_emb_scores['val_roc'])
-        print 'node2vec (Edge Embeddings) Validation AP score: ', str(n2v_edge_emb_scores['val_ap'])
-        print 'node2vec (Edge Embeddings) Test ROC score: ', str(n2v_edge_emb_scores['test_roc'])
-        print 'node2vec (Edge Embeddings) Test AP score: ', str(n2v_edge_emb_scores['test_ap'])
+    # if verbose >= 1:
+    #     print ''
+    #     print 'node2vec (Edge Embeddings) Validation ROC score: ', str(n2v_edge_emb_scores['val_roc'])
+    #     print 'node2vec (Edge Embeddings) Validation AP score: ', str(n2v_edge_emb_scores['val_ap'])
+    #     print 'node2vec (Edge Embeddings) Test ROC score: ', str(n2v_edge_emb_scores['test_roc'])
+    #     print 'node2vec (Edge Embeddings) Test AP score: ', str(n2v_edge_emb_scores['test_ap'])
 
     # Using dot products to calculate edge scores
     # n2v_dot_prod_scores = node2vec_scores(g_train, train_test_split,
