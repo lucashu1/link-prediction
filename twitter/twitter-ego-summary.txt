@@ -1,0 +1,3894 @@
+Current file: 37170886.edges
+Number of nodes: 212
+Number of edges: 4372
+
+Current file: 16869298.edges
+Number of nodes: 218
+Number of edges: 2118
+
+Current file: 96907622.edges
+Number of nodes: 187
+Number of edges: 6246
+
+Current file: 54791004.edges
+Number of nodes: 80
+Number of edges: 985
+
+Current file: 111374622.edges
+Number of nodes: 188
+Number of edges: 3632
+
+Current file: 14045302.edges
+Number of nodes: 142
+Number of edges: 1973
+
+Current file: 17770689.edges
+Number of nodes: 83
+Number of edges: 400
+
+Current file: 240740059.edges
+Number of nodes: 179
+Number of edges: 4282
+
+Current file: 18486881.edges
+Number of nodes: 145
+Number of edges: 2146
+
+Current file: 18135029.edges
+Number of nodes: 55
+Number of edges: 759
+
+Current file: 11784842.edges
+Number of nodes: 84
+Number of edges: 656
+
+Current file: 374007416.edges
+Number of nodes: 126
+Number of edges: 638
+
+Current file: 39157827.edges
+Number of nodes: 84
+Number of edges: 406
+
+Current file: 117671022.edges
+Number of nodes: 147
+Number of edges: 3384
+
+Current file: 135895585.edges
+Number of nodes: 77
+Number of edges: 716
+
+Current file: 262310943.edges
+Number of nodes: 12
+Number of edges: 73
+
+Current file: 87798068.edges
+Number of nodes: 213
+Number of edges: 3867
+
+Current file: 86560711.edges
+Number of nodes: 238
+Number of edges: 4473
+
+Current file: 18068719.edges
+Number of nodes: 148
+Number of edges: 1937
+
+Current file: 30313925.edges
+Number of nodes: 157
+Number of edges: 4031
+
+Current file: 47673661.edges
+Number of nodes: 123
+Number of edges: 1225
+
+Current file: 37977732.edges
+Number of nodes: 93
+Number of edges: 703
+
+Current file: 612473.edges
+Number of nodes: 76
+Number of edges: 1195
+
+Current file: 25755158.edges
+Number of nodes: 115
+Number of edges: 1701
+
+Current file: 21363077.edges
+Number of nodes: 134
+Number of edges: 2061
+
+Current file: 18496986.edges
+Number of nodes: 205
+Number of edges: 1561
+
+Current file: 31610343.edges
+Number of nodes: 131
+Number of edges: 3432
+
+Current file: 356963.edges
+Number of nodes: 126
+Number of edges: 705
+
+Current file: 36475508.edges
+Number of nodes: 216
+Number of edges: 3167
+
+Current file: 250447400.edges
+Number of nodes: 156
+Number of edges: 5098
+
+Current file: 61781462.edges
+Number of nodes: 23
+Number of edges: 147
+
+Current file: 86775971.edges
+Number of nodes: 154
+Number of edges: 5811
+
+Current file: 18270489.edges
+Number of nodes: 114
+Number of edges: 693
+
+Current file: 39322973.edges
+Number of nodes: 153
+Number of edges: 2451
+
+Current file: 150402542.edges
+Number of nodes: 190
+Number of edges: 1088
+
+Current file: 355823615.edges
+Number of nodes: 50
+Number of edges: 463
+
+Current file: 219365298.edges
+Number of nodes: 94
+Number of edges: 1031
+
+Current file: 2589521.edges
+Number of nodes: 172
+Number of edges: 3417
+
+Current file: 35012599.edges
+Number of nodes: 240
+Number of edges: 3248
+
+Current file: 54107218.edges
+Number of nodes: 193
+Number of edges: 3655
+
+Current file: 53685618.edges
+Number of nodes: 163
+Number of edges: 1942
+
+Current file: 22745706.edges
+Number of nodes: 110
+Number of edges: 867
+
+Current file: 15329577.edges
+Number of nodes: 246
+Number of edges: 4251
+
+Current file: 94480069.edges
+Number of nodes: 159
+Number of edges: 5347
+
+Current file: 9524062.edges
+Number of nodes: 143
+Number of edges: 2856
+
+Current file: 232006900.edges
+Number of nodes: 151
+Number of edges: 1811
+
+Current file: 42676302.edges
+Number of nodes: 62
+Number of edges: 561
+
+Current file: 276843589.edges
+Number of nodes: 28
+Number of edges: 232
+
+Current file: 23334169.edges
+Number of nodes: 186
+Number of edges: 2689
+
+Current file: 92715435.edges
+Number of nodes: 66
+Number of edges: 899
+
+Current file: 18472735.edges
+Number of nodes: 158
+Number of edges: 995
+
+Current file: 18483115.edges
+Number of nodes: 119
+Number of edges: 540
+
+Current file: 238264600.edges
+Number of nodes: 188
+Number of edges: 1145
+
+Current file: 83883736.edges
+Number of nodes: 78
+Number of edges: 1067
+
+Current file: 48730516.edges
+Number of nodes: 44
+Number of edges: 341
+
+Current file: 75321229.edges
+Number of nodes: 92
+Number of edges: 533
+
+Current file: 7670202.edges
+Number of nodes: 98
+Number of edges: 1978
+
+Current file: 14147754.edges
+Number of nodes: 69
+Number of edges: 909
+
+Current file: 17658786.edges
+Number of nodes: 202
+Number of edges: 6981
+
+Current file: 17797990.edges
+Number of nodes: 116
+Number of edges: 5132
+
+Current file: 66100530.edges
+Number of nodes: 35
+Number of edges: 126
+
+Current file: 528575851.edges
+Number of nodes: 82
+Number of edges: 1659
+
+Current file: 16824073.edges
+Number of nodes: 145
+Number of edges: 1519
+
+Current file: 493138720.edges
+Number of nodes: 97
+Number of edges: 820
+
+Current file: 239141315.edges
+Number of nodes: 177
+Number of edges: 3268
+
+Current file: 24117694.edges
+Number of nodes: 246
+Number of edges: 9630
+
+Current file: 6018292.edges
+Number of nodes: 96
+Number of edges: 463
+
+Current file: 15347317.edges
+Number of nodes: 160
+Number of edges: 1731
+
+Current file: 742143.edges
+Number of nodes: 57
+Number of edges: 747
+
+Current file: 16027078.edges
+Number of nodes: 121
+Number of edges: 1108
+
+Current file: 36836787.edges
+Number of nodes: 164
+Number of edges: 2189
+
+Current file: 16613128.edges
+Number of nodes: 134
+Number of edges: 2418
+
+Current file: 82726142.edges
+Number of nodes: 126
+Number of edges: 1305
+
+Current file: 13811562.edges
+Number of nodes: 211
+Number of edges: 7728
+
+Current file: 21077642.edges
+Number of nodes: 68
+Number of edges: 316
+
+Current file: 18718580.edges
+Number of nodes: 188
+Number of edges: 2737
+
+Current file: 224581852.edges
+Number of nodes: 140
+Number of edges: 4738
+
+Current file: 68257605.edges
+Number of nodes: 114
+Number of edges: 1844
+
+Current file: 17135931.edges
+Number of nodes: 49
+Number of edges: 522
+
+Current file: 62985251.edges
+Number of nodes: 230
+Number of edges: 4422
+
+Current file: 37723441.edges
+Number of nodes: 133
+Number of edges: 1705
+
+Current file: 47854857.edges
+Number of nodes: 185
+Number of edges: 3863
+
+Current file: 132519763.edges
+Number of nodes: 162
+Number of edges: 1646
+
+Current file: 14630490.edges
+Number of nodes: 204
+Number of edges: 1538
+
+Current file: 52772629.edges
+Number of nodes: 214
+Number of edges: 2069
+
+Current file: 21339164.edges
+Number of nodes: 86
+Number of edges: 1656
+
+Current file: 397688944.edges
+Number of nodes: 69
+Number of edges: 690
+
+Current file: 122216533.edges
+Number of nodes: 68
+Number of edges: 335
+
+Current file: 9855382.edges
+Number of nodes: 15
+Number of edges: 67
+
+Current file: 19976791.edges
+Number of nodes: 31
+Number of edges: 216
+
+Current file: 215824411.edges
+Number of nodes: 10
+Number of edges: 40
+
+Current file: 199483163.edges
+Number of nodes: 109
+Number of edges: 1028
+
+Current file: 107511013.edges
+Number of nodes: 24
+Number of edges: 294
+
+Current file: 80479756.edges
+Number of nodes: 84
+Number of edges: 582
+
+Current file: 90072587.edges
+Number of nodes: 129
+Number of edges: 1630
+
+Current file: 163629705.edges
+Number of nodes: 171
+Number of edges: 2267
+
+Current file: 21061498.edges
+Number of nodes: 160
+Number of edges: 2515
+
+Current file: 15164892.edges
+Number of nodes: 162
+Number of edges: 1308
+
+Current file: 80660928.edges
+Number of nodes: 120
+Number of edges: 2808
+
+Current file: 128135741.edges
+Number of nodes: 99
+Number of edges: 450
+
+Current file: 120679977.edges
+Number of nodes: 119
+Number of edges: 622
+
+Current file: 254883790.edges
+Number of nodes: 205
+Number of edges: 1854
+
+Current file: 36629388.edges
+Number of nodes: 212
+Number of edges: 7053
+
+Current file: 48132655.edges
+Number of nodes: 95
+Number of edges: 2366
+
+Current file: 477094958.edges
+Number of nodes: 66
+Number of edges: 442
+
+Current file: 289738351.edges
+Number of nodes: 179
+Number of edges: 2530
+
+Current file: 11681802.edges
+Number of nodes: 123
+Number of edges: 971
+
+Current file: 187744415.edges
+Number of nodes: 221
+Number of edges: 9169
+
+Current file: 237049769.edges
+Number of nodes: 90
+Number of edges: 602
+
+Current file: 154701532.edges
+Number of nodes: 226
+Number of edges: 4616
+
+Current file: 7861312.edges
+Number of nodes: 220
+Number of edges: 4740
+
+Current file: 15477120.edges
+Number of nodes: 183
+Number of edges: 3871
+
+Current file: 13179562.edges
+Number of nodes: 216
+Number of edges: 3507
+
+Current file: 18846990.edges
+Number of nodes: 135
+Number of edges: 2524
+
+Current file: 18665800.edges
+Number of nodes: 212
+Number of edges: 5100
+
+Current file: 151175266.edges
+Number of nodes: 163
+Number of edges: 3486
+
+Current file: 100318079.edges
+Number of nodes: 220
+Number of edges: 8354
+
+Current file: 494538543.edges
+Number of nodes: 112
+Number of edges: 637
+
+Current file: 14827526.edges
+Number of nodes: 90
+Number of edges: 276
+
+Current file: 135605269.edges
+Number of nodes: 166
+Number of edges: 1582
+
+Current file: 61086747.edges
+Number of nodes: 191
+Number of edges: 4253
+
+Current file: 105398724.edges
+Number of nodes: 21
+Number of edges: 166
+
+Current file: 15859268.edges
+Number of nodes: 32
+Number of edges: 216
+
+Current file: 21028234.edges
+Number of nodes: 52
+Number of edges: 344
+
+Current file: 344966590.edges
+Number of nodes: 150
+Number of edges: 2626
+
+Current file: 15331855.edges
+Number of nodes: 122
+Number of edges: 1566
+
+Current file: 121685268.edges
+Number of nodes: 98
+Number of edges: 1982
+
+Current file: 345569115.edges
+Number of nodes: 69
+Number of edges: 792
+
+Current file: 252415267.edges
+Number of nodes: 198
+Number of edges: 3928
+
+Current file: 94147192.edges
+Number of nodes: 91
+Number of edges: 488
+
+Current file: 68179571.edges
+Number of nodes: 37
+Number of edges: 241
+
+Current file: 121202578.edges
+Number of nodes: 242
+Number of edges: 4026
+
+Current file: 113196940.edges
+Number of nodes: 125
+Number of edges: 1013
+
+Current file: 17137927.edges
+Number of nodes: 154
+Number of edges: 1764
+
+Current file: 143172151.edges
+Number of nodes: 142
+Number of edges: 1186
+
+Current file: 24542441.edges
+Number of nodes: 136
+Number of edges: 1702
+
+Current file: 40813518.edges
+Number of nodes: 122
+Number of edges: 3310
+
+Current file: 52442002.edges
+Number of nodes: 88
+Number of edges: 1091
+
+Current file: 198628427.edges
+Number of nodes: 70
+Number of edges: 779
+
+Current file: 23742633.edges
+Number of nodes: 237
+Number of edges: 6483
+
+Current file: 22252971.edges
+Number of nodes: 23
+Number of edges: 34
+
+Current file: 14791232.edges
+Number of nodes: 142
+Number of edges: 4168
+
+Current file: 16183380.edges
+Number of nodes: 238
+Number of edges: 5467
+
+Current file: 20436059.edges
+Number of nodes: 159
+Number of edges: 3867
+
+Current file: 16279105.edges
+Number of nodes: 94
+Number of edges: 731
+
+Current file: 31477674.edges
+Number of nodes: 165
+Number of edges: 4191
+
+Current file: 17111909.edges
+Number of nodes: 228
+Number of edges: 4713
+
+Current file: 18681592.edges
+Number of nodes: 30
+Number of edges: 71
+
+Current file: 26234692.edges
+Number of nodes: 73
+Number of edges: 307
+
+Current file: 239434259.edges
+Number of nodes: 184
+Number of edges: 2318
+
+Current file: 94915681.edges
+Number of nodes: 181
+Number of edges: 1544
+
+Current file: 248224845.edges
+Number of nodes: 168
+Number of edges: 3896
+
+Current file: 14528221.edges
+Number of nodes: 114
+Number of edges: 1606
+
+Current file: 258145892.edges
+Number of nodes: 177
+Number of edges: 1668
+
+Current file: 232706326.edges
+Number of nodes: 159
+Number of edges: 3865
+
+Current file: 134943586.edges
+Number of nodes: 247
+Number of edges: 8041
+
+Current file: 171202083.edges
+Number of nodes: 173
+Number of edges: 4901
+
+Current file: 66185823.edges
+Number of nodes: 99
+Number of edges: 1666
+
+Current file: 117809922.edges
+Number of nodes: 97
+Number of edges: 1227
+
+Current file: 158419434.edges
+Number of nodes: 194
+Number of edges: 7201
+
+Current file: 197903282.edges
+Number of nodes: 188
+Number of edges: 6838
+
+Current file: 31464977.edges
+Number of nodes: 30
+Number of edges: 156
+
+Current file: 96483973.edges
+Number of nodes: 232
+Number of edges: 7289
+
+Current file: 14365883.edges
+Number of nodes: 164
+Number of edges: 1378
+
+Current file: 21132431.edges
+Number of nodes: 94
+Number of edges: 585
+
+Current file: 14869783.edges
+Number of nodes: 201
+Number of edges: 1124
+
+Current file: 73298877.edges
+Number of nodes: 49
+Number of edges: 134
+
+Current file: 360025190.edges
+Number of nodes: 54
+Number of edges: 1065
+
+Current file: 59588845.edges
+Number of nodes: 179
+Number of edges: 2539
+
+Current file: 65360846.edges
+Number of nodes: 64
+Number of edges: 357
+
+Current file: 49414491.edges
+Number of nodes: 108
+Number of edges: 294
+
+Current file: 17918629.edges
+Number of nodes: 98
+Number of edges: 2647
+
+Current file: 183786731.edges
+Number of nodes: 156
+Number of edges: 4657
+
+Current file: 333881828.edges
+Number of nodes: 17
+Number of edges: 95
+
+Current file: 314316607.edges
+Number of nodes: 235
+Number of edges: 15957
+
+Current file: 65357070.edges
+Number of nodes: 180
+Number of edges: 1009
+
+Current file: 33794839.edges
+Number of nodes: 15
+Number of edges: 71
+
+Current file: 21337501.edges
+Number of nodes: 39
+Number of edges: 195
+
+Current file: 1775731.edges
+Number of nodes: 46
+Number of edges: 567
+
+Current file: 11928542.edges
+Number of nodes: 32
+Number of edges: 326
+
+Current file: 1367531.edges
+Number of nodes: 239
+Number of edges: 8120
+
+Current file: 14755105.edges
+Number of nodes: 149
+Number of edges: 2293
+
+Current file: 123684709.edges
+Number of nodes: 224
+Number of edges: 3790
+
+Current file: 83048001.edges
+Number of nodes: 90
+Number of edges: 822
+
+Current file: 135397331.edges
+Number of nodes: 188
+Number of edges: 3101
+
+Current file: 75343905.edges
+Number of nodes: 114
+Number of edges: 585
+
+Current file: 364664695.edges
+Number of nodes: 38
+Number of edges: 460
+
+Current file: 87004822.edges
+Number of nodes: 82
+Number of edges: 671
+
+Current file: 6297852.edges
+Number of nodes: 205
+Number of edges: 3257
+
+Current file: 926981.edges
+Number of nodes: 202
+Number of edges: 5620
+
+Current file: 71091272.edges
+Number of nodes: 26
+Number of edges: 97
+
+Current file: 18374320.edges
+Number of nodes: 187
+Number of edges: 2693
+
+Current file: 42098834.edges
+Number of nodes: 37
+Number of edges: 448
+
+Current file: 90998968.edges
+Number of nodes: 180
+Number of edges: 2058
+
+Current file: 69049114.edges
+Number of nodes: 173
+Number of edges: 3883
+
+Current file: 20446839.edges
+Number of nodes: 90
+Number of edges: 546
+
+Current file: 18996905.edges
+Number of nodes: 61
+Number of edges: 750
+
+Current file: 22915745.edges
+Number of nodes: 198
+Number of edges: 5234
+
+Current file: 14719129.edges
+Number of nodes: 93
+Number of edges: 456
+
+Current file: 15507297.edges
+Number of nodes: 233
+Number of edges: 5541
+
+Current file: 253863144.edges
+Number of nodes: 61
+Number of edges: 523
+
+Current file: 188102842.edges
+Number of nodes: 151
+Number of edges: 5023
+
+Current file: 45333725.edges
+Number of nodes: 80
+Number of edges: 371
+
+Current file: 2363991.edges
+Number of nodes: 214
+Number of edges: 4462
+
+Current file: 29034979.edges
+Number of nodes: 88
+Number of edges: 553
+
+Current file: 5471892.edges
+Number of nodes: 180
+Number of edges: 1918
+
+Current file: 191916463.edges
+Number of nodes: 69
+Number of edges: 474
+
+Current file: 303886358.edges
+Number of nodes: 122
+Number of edges: 3008
+
+Current file: 45753733.edges
+Number of nodes: 243
+Number of edges: 4413
+
+Current file: 14848513.edges
+Number of nodes: 128
+Number of edges: 2616
+
+Current file: 31153819.edges
+Number of nodes: 219
+Number of edges: 1948
+
+Current file: 158414847.edges
+Number of nodes: 77
+Number of edges: 1338
+
+Current file: 116808228.edges
+Number of nodes: 26
+Number of edges: 56
+
+Current file: 69548480.edges
+Number of nodes: 159
+Number of edges: 4164
+
+Current file: 26961048.edges
+Number of nodes: 194
+Number of edges: 2879
+
+Current file: 176589903.edges
+Number of nodes: 25
+Number of edges: 301
+
+Current file: 261973875.edges
+Number of nodes: 92
+Number of edges: 946
+
+Current file: 46533358.edges
+Number of nodes: 211
+Number of edges: 1904
+
+Current file: 227785045.edges
+Number of nodes: 54
+Number of edges: 408
+
+Current file: 53235381.edges
+Number of nodes: 28
+Number of edges: 275
+
+Current file: 434433610.edges
+Number of nodes: 144
+Number of edges: 4002
+
+Current file: 19213083.edges
+Number of nodes: 143
+Number of edges: 1218
+
+Current file: 21391704.edges
+Number of nodes: 146
+Number of edges: 2027
+
+Current file: 84473837.edges
+Number of nodes: 172
+Number of edges: 2090
+
+Current file: 311227912.edges
+Number of nodes: 35
+Number of edges: 276
+
+Current file: 326259198.edges
+Number of nodes: 179
+Number of edges: 2511
+
+Current file: 278181157.edges
+Number of nodes: 177
+Number of edges: 5968
+
+Current file: 44130462.edges
+Number of nodes: 207
+Number of edges: 3698
+
+Current file: 14077024.edges
+Number of nodes: 225
+Number of edges: 4227
+
+Current file: 333966373.edges
+Number of nodes: 182
+Number of edges: 1404
+
+Current file: 14353392.edges
+Number of nodes: 233
+Number of edges: 4750
+
+Current file: 18988524.edges
+Number of nodes: 29
+Number of edges: 157
+
+Current file: 21415375.edges
+Number of nodes: 215
+Number of edges: 4687
+
+Current file: 160237722.edges
+Number of nodes: 160
+Number of edges: 7359
+
+Current file: 159629146.edges
+Number of nodes: 192
+Number of edges: 4854
+
+Current file: 745823.edges
+Number of nodes: 242
+Number of edges: 6320
+
+Current file: 89032548.edges
+Number of nodes: 230
+Number of edges: 3658
+
+Current file: 15849055.edges
+Number of nodes: 222
+Number of edges: 4182
+
+Current file: 69193714.edges
+Number of nodes: 232
+Number of edges: 2126
+
+Current file: 18951737.edges
+Number of nodes: 197
+Number of edges: 3257
+
+Current file: 163491360.edges
+Number of nodes: 164
+Number of edges: 3393
+
+Current file: 15208246.edges
+Number of nodes: 202
+Number of edges: 7892
+
+Current file: 42522911.edges
+Number of nodes: 83
+Number of edges: 299
+
+Current file: 9460682.edges
+Number of nodes: 88
+Number of edges: 2003
+
+Current file: 151246522.edges
+Number of nodes: 30
+Number of edges: 442
+
+Current file: 30393917.edges
+Number of nodes: 61
+Number of edges: 862
+
+Current file: 114115460.edges
+Number of nodes: 96
+Number of edges: 1567
+
+Current file: 55928029.edges
+Number of nodes: 82
+Number of edges: 731
+
+Current file: 153245741.edges
+Number of nodes: 220
+Number of edges: 1665
+
+Current file: 255790981.edges
+Number of nodes: 199
+Number of edges: 6996
+
+Current file: 58427526.edges
+Number of nodes: 239
+Number of edges: 9105
+
+Current file: 66804457.edges
+Number of nodes: 88
+Number of edges: 285
+
+Current file: 58641627.edges
+Number of nodes: 228
+Number of edges: 1910
+
+Current file: 306445007.edges
+Number of nodes: 232
+Number of edges: 8180
+
+Current file: 155689319.edges
+Number of nodes: 193
+Number of edges: 3666
+
+Current file: 18558612.edges
+Number of nodes: 22
+Number of edges: 296
+
+Current file: 382110320.edges
+Number of nodes: 177
+Number of edges: 4481
+
+Current file: 124296976.edges
+Number of nodes: 131
+Number of edges: 1849
+
+Current file: 38761811.edges
+Number of nodes: 176
+Number of edges: 2846
+
+Current file: 144723379.edges
+Number of nodes: 209
+Number of edges: 2547
+
+Current file: 78944566.edges
+Number of nodes: 230
+Number of edges: 5254
+
+Current file: 17866414.edges
+Number of nodes: 228
+Number of edges: 6904
+
+Current file: 15001424.edges
+Number of nodes: 46
+Number of edges: 217
+
+Current file: 1608991.edges
+Number of nodes: 192
+Number of edges: 4569
+
+Current file: 49098552.edges
+Number of nodes: 50
+Number of edges: 164
+
+Current file: 35012277.edges
+Number of nodes: 185
+Number of edges: 2839
+
+Current file: 14129601.edges
+Number of nodes: 180
+Number of edges: 1149
+
+Current file: 23759573.edges
+Number of nodes: 96
+Number of edges: 1548
+
+Current file: 14371740.edges
+Number of nodes: 184
+Number of edges: 2827
+
+Current file: 15947217.edges
+Number of nodes: 88
+Number of edges: 458
+
+Current file: 321652589.edges
+Number of nodes: 57
+Number of edges: 733
+
+Current file: 20179628.edges
+Number of nodes: 97
+Number of edges: 2541
+
+Current file: 49253437.edges
+Number of nodes: 178
+Number of edges: 4179
+
+Current file: 111045742.edges
+Number of nodes: 149
+Number of edges: 3380
+
+Current file: 2097571.edges
+Number of nodes: 230
+Number of edges: 9407
+
+Current file: 57828817.edges
+Number of nodes: 183
+Number of edges: 4243
+
+Current file: 27595997.edges
+Number of nodes: 50
+Number of edges: 303
+
+Current file: 15924858.edges
+Number of nodes: 10
+Number of edges: 39
+
+Current file: 54460963.edges
+Number of nodes: 94
+Number of edges: 1028
+
+Current file: 19283723.edges
+Number of nodes: 54
+Number of edges: 532
+
+Current file: 15070932.edges
+Number of nodes: 207
+Number of edges: 4383
+
+Current file: 73024519.edges
+Number of nodes: 181
+Number of edges: 3965
+
+Current file: 16726878.edges
+Number of nodes: 198
+Number of edges: 2071
+
+Current file: 58930815.edges
+Number of nodes: 188
+Number of edges: 2813
+
+Current file: 15292446.edges
+Number of nodes: 229
+Number of edges: 7286
+
+Current file: 18895362.edges
+Number of nodes: 148
+Number of edges: 2207
+
+Current file: 296218728.edges
+Number of nodes: 80
+Number of edges: 1051
+
+Current file: 18630326.edges
+Number of nodes: 198
+Number of edges: 4853
+
+Current file: 40705032.edges
+Number of nodes: 80
+Number of edges: 392
+
+Current file: 190138306.edges
+Number of nodes: 143
+Number of edges: 2815
+
+Current file: 217796457.edges
+Number of nodes: 184
+Number of edges: 12105
+
+Current file: 279854450.edges
+Number of nodes: 46
+Number of edges: 443
+
+Current file: 33080832.edges
+Number of nodes: 103
+Number of edges: 366
+
+Current file: 117800618.edges
+Number of nodes: 120
+Number of edges: 1323
+
+Current file: 17723880.edges
+Number of nodes: 123
+Number of edges: 1891
+
+Current file: 91067832.edges
+Number of nodes: 180
+Number of edges: 3724
+
+Current file: 198327282.edges
+Number of nodes: 193
+Number of edges: 4569
+
+Current file: 72339761.edges
+Number of nodes: 140
+Number of edges: 3447
+
+Current file: 14984096.edges
+Number of nodes: 80
+Number of edges: 657
+
+Current file: 14313005.edges
+Number of nodes: 136
+Number of edges: 2704
+
+Current file: 336463060.edges
+Number of nodes: 217
+Number of edges: 4035
+
+Current file: 216843160.edges
+Number of nodes: 195
+Number of edges: 7155
+
+Current file: 114885421.edges
+Number of nodes: 145
+Number of edges: 3731
+
+Current file: 15797184.edges
+Number of nodes: 35
+Number of edges: 138
+
+Current file: 186909156.edges
+Number of nodes: 176
+Number of edges: 6745
+
+Current file: 202346485.edges
+Number of nodes: 98
+Number of edges: 816
+
+Current file: 87771546.edges
+Number of nodes: 78
+Number of edges: 1123
+
+Current file: 61158706.edges
+Number of nodes: 55
+Number of edges: 420
+
+Current file: 256497288.edges
+Number of nodes: 213
+Number of edges: 17930
+
+Current file: 22751884.edges
+Number of nodes: 106
+Number of edges: 488
+
+Current file: 170729553.edges
+Number of nodes: 247
+Number of edges: 7990
+
+Current file: 158874150.edges
+Number of nodes: 110
+Number of edges: 3372
+
+Current file: 11348722.edges
+Number of nodes: 128
+Number of edges: 3823
+
+Current file: 2576401.edges
+Number of nodes: 208
+Number of edges: 1198
+
+Current file: 301297627.edges
+Number of nodes: 121
+Number of edges: 5686
+
+Current file: 28205087.edges
+Number of nodes: 95
+Number of edges: 1376
+
+Current file: 67378554.edges
+Number of nodes: 90
+Number of edges: 2055
+
+Current file: 242073660.edges
+Number of nodes: 141
+Number of edges: 2539
+
+Current file: 19225156.edges
+Number of nodes: 89
+Number of edges: 441
+
+Current file: 64619842.edges
+Number of nodes: 171
+Number of edges: 2795
+
+Current file: 113509970.edges
+Number of nodes: 181
+Number of edges: 1193
+
+Current file: 163374693.edges
+Number of nodes: 164
+Number of edges: 1749
+
+Current file: 14555534.edges
+Number of nodes: 147
+Number of edges: 698
+
+Current file: 191896931.edges
+Number of nodes: 60
+Number of edges: 589
+
+Current file: 14836915.edges
+Number of nodes: 196
+Number of edges: 5638
+
+Current file: 407769660.edges
+Number of nodes: 135
+Number of edges: 2145
+
+Current file: 93006320.edges
+Number of nodes: 185
+Number of edges: 4120
+
+Current file: 54226675.edges
+Number of nodes: 102
+Number of edges: 1493
+
+Current file: 6351572.edges
+Number of nodes: 198
+Number of edges: 3085
+
+Current file: 35166642.edges
+Number of nodes: 76
+Number of edges: 622
+
+Current file: 12152402.edges
+Number of nodes: 139
+Number of edges: 1353
+
+Current file: 116388817.edges
+Number of nodes: 65
+Number of edges: 209
+
+Current file: 18338485.edges
+Number of nodes: 219
+Number of edges: 2842
+
+Current file: 287519521.edges
+Number of nodes: 36
+Number of edges: 201
+
+Current file: 437300342.edges
+Number of nodes: 180
+Number of edges: 5421
+
+Current file: 298038575.edges
+Number of nodes: 138
+Number of edges: 2477
+
+Current file: 40022380.edges
+Number of nodes: 57
+Number of edges: 321
+
+Current file: 204646586.edges
+Number of nodes: 76
+Number of edges: 1806
+
+Current file: 90880254.edges
+Number of nodes: 11
+Number of edges: 44
+
+Current file: 16674149.edges
+Number of nodes: 14
+Number of edges: 63
+
+Current file: 88639412.edges
+Number of nodes: 239
+Number of edges: 3018
+
+Current file: 19136295.edges
+Number of nodes: 118
+Number of edges: 2050
+
+Current file: 14840869.edges
+Number of nodes: 72
+Number of edges: 811
+
+Current file: 623623.edges
+Number of nodes: 106
+Number of edges: 521
+
+Current file: 85432934.edges
+Number of nodes: 137
+Number of edges: 3106
+
+Current file: 28490110.edges
+Number of nodes: 194
+Number of edges: 4864
+
+Current file: 124474025.edges
+Number of nodes: 225
+Number of edges: 5191
+
+Current file: 3338681.edges
+Number of nodes: 61
+Number of edges: 331
+
+Current file: 18486243.edges
+Number of nodes: 180
+Number of edges: 3042
+
+Current file: 276128869.edges
+Number of nodes: 111
+Number of edges: 2140
+
+Current file: 430313102.edges
+Number of nodes: 51
+Number of edges: 1646
+
+Current file: 23889102.edges
+Number of nodes: 71
+Number of edges: 345
+
+Current file: 112628165.edges
+Number of nodes: 186
+Number of edges: 3106
+
+Current file: 17922109.edges
+Number of nodes: 199
+Number of edges: 4825
+
+Current file: 51694885.edges
+Number of nodes: 196
+Number of edges: 3609
+
+Current file: 19110632.edges
+Number of nodes: 177
+Number of edges: 5749
+
+Current file: 2029971.edges
+Number of nodes: 143
+Number of edges: 2830
+
+Current file: 155976326.edges
+Number of nodes: 134
+Number of edges: 2261
+
+Current file: 15706128.edges
+Number of nodes: 80
+Number of edges: 1275
+
+Current file: 10985532.edges
+Number of nodes: 165
+Number of edges: 920
+
+Current file: 50145896.edges
+Number of nodes: 62
+Number of edges: 1115
+
+Current file: 110755733.edges
+Number of nodes: 105
+Number of edges: 712
+
+Current file: 33868543.edges
+Number of nodes: 82
+Number of edges: 857
+
+Current file: 115911638.edges
+Number of nodes: 120
+Number of edges: 4067
+
+Current file: 19948202.edges
+Number of nodes: 246
+Number of edges: 5963
+
+Current file: 16734718.edges
+Number of nodes: 127
+Number of edges: 2693
+
+Current file: 324201646.edges
+Number of nodes: 29
+Number of edges: 238
+
+Current file: 532617990.edges
+Number of nodes: 19
+Number of edges: 74
+
+Current file: 778446.edges
+Number of nodes: 187
+Number of edges: 3537
+
+Current file: 5747502.edges
+Number of nodes: 64
+Number of edges: 721
+
+Current file: 30207757.edges
+Number of nodes: 191
+Number of edges: 5502
+
+Current file: 117029850.edges
+Number of nodes: 73
+Number of edges: 557
+
+Current file: 165786567.edges
+Number of nodes: 237
+Number of edges: 2394
+
+Current file: 228270980.edges
+Number of nodes: 143
+Number of edges: 4032
+
+Current file: 77404713.edges
+Number of nodes: 202
+Number of edges: 2305
+
+Current file: 17403755.edges
+Number of nodes: 191
+Number of edges: 1312
+
+Current file: 14332288.edges
+Number of nodes: 134
+Number of edges: 1642
+
+Current file: 78813.edges
+Number of nodes: 231
+Number of edges: 2861
+
+Current file: 263224927.edges
+Number of nodes: 165
+Number of edges: 2096
+
+Current file: 35926608.edges
+Number of nodes: 152
+Number of edges: 5554
+
+Current file: 25649234.edges
+Number of nodes: 220
+Number of edges: 4173
+
+Current file: 23469247.edges
+Number of nodes: 46
+Number of edges: 413
+
+Current file: 89826562.edges
+Number of nodes: 216
+Number of edges: 9715
+
+Current file: 428333.edges
+Number of nodes: 65
+Number of edges: 1242
+
+Current file: 33097148.edges
+Number of nodes: 201
+Number of edges: 2502
+
+Current file: 190696559.edges
+Number of nodes: 186
+Number of edges: 1997
+
+Current file: 18886852.edges
+Number of nodes: 209
+Number of edges: 5293
+
+Current file: 230880104.edges
+Number of nodes: 78
+Number of edges: 3537
+
+Current file: 13809612.edges
+Number of nodes: 212
+Number of edges: 3324
+
+Current file: 13747362.edges
+Number of nodes: 72
+Number of edges: 672
+
+Current file: 40777046.edges
+Number of nodes: 25
+Number of edges: 39
+
+Current file: 22954430.edges
+Number of nodes: 215
+Number of edges: 2744
+
+Current file: 250340951.edges
+Number of nodes: 75
+Number of edges: 1783
+
+Current file: 184391654.edges
+Number of nodes: 170
+Number of edges: 3073
+
+Current file: 291403100.edges
+Number of nodes: 90
+Number of edges: 787
+
+Current file: 384761809.edges
+Number of nodes: 115
+Number of edges: 2068
+
+Current file: 14618160.edges
+Number of nodes: 75
+Number of edges: 583
+
+Current file: 54331626.edges
+Number of nodes: 41
+Number of edges: 250
+
+Current file: 308220010.edges
+Number of nodes: 128
+Number of edges: 1089
+
+Current file: 175529494.edges
+Number of nodes: 202
+Number of edges: 1570
+
+Current file: 62609430.edges
+Number of nodes: 45
+Number of edges: 787
+
+Current file: 61311054.edges
+Number of nodes: 143
+Number of edges: 2159
+
+Current file: 3253671.edges
+Number of nodes: 147
+Number of edges: 3942
+
+Current file: 65185224.edges
+Number of nodes: 104
+Number of edges: 858
+
+Current file: 18278524.edges
+Number of nodes: 218
+Number of edges: 2840
+
+Current file: 78138151.edges
+Number of nodes: 57
+Number of edges: 893
+
+Current file: 14917050.edges
+Number of nodes: 84
+Number of edges: 977
+
+Current file: 107418464.edges
+Number of nodes: 175
+Number of edges: 1739
+
+Current file: 353767514.edges
+Number of nodes: 133
+Number of edges: 1982
+
+Current file: 400867704.edges
+Number of nodes: 47
+Number of edges: 340
+
+Current file: 6408382.edges
+Number of nodes: 151
+Number of edges: 3379
+
+Current file: 6650612.edges
+Number of nodes: 40
+Number of edges: 115
+
+Current file: 78391198.edges
+Number of nodes: 102
+Number of edges: 610
+
+Current file: 297985585.edges
+Number of nodes: 48
+Number of edges: 552
+
+Current file: 13275962.edges
+Number of nodes: 143
+Number of edges: 4106
+
+Current file: 17045060.edges
+Number of nodes: 177
+Number of edges: 6143
+
+Current file: 202114894.edges
+Number of nodes: 221
+Number of edges: 5486
+
+Current file: 484991854.edges
+Number of nodes: 27
+Number of edges: 326
+
+Current file: 229969377.edges
+Number of nodes: 67
+Number of edges: 644
+
+Current file: 30824363.edges
+Number of nodes: 135
+Number of edges: 868
+
+Current file: 269559495.edges
+Number of nodes: 98
+Number of edges: 894
+
+Current file: 266464616.edges
+Number of nodes: 179
+Number of edges: 2038
+
+Current file: 15989218.edges
+Number of nodes: 228
+Number of edges: 4359
+
+Current file: 127912925.edges
+Number of nodes: 65
+Number of edges: 836
+
+Current file: 17767841.edges
+Number of nodes: 153
+Number of edges: 967
+
+Current file: 38703025.edges
+Number of nodes: 129
+Number of edges: 1217
+
+Current file: 12069912.edges
+Number of nodes: 215
+Number of edges: 4463
+
+Current file: 46160500.edges
+Number of nodes: 199
+Number of edges: 3225
+
+Current file: 19064433.edges
+Number of nodes: 200
+Number of edges: 4208
+
+Current file: 45857296.edges
+Number of nodes: 79
+Number of edges: 367
+
+Current file: 74264908.edges
+Number of nodes: 65
+Number of edges: 512
+
+Current file: 143661263.edges
+Number of nodes: 153
+Number of edges: 3045
+
+Current file: 98633794.edges
+Number of nodes: 141
+Number of edges: 2354
+
+Current file: 38108292.edges
+Number of nodes: 207
+Number of edges: 2977
+
+Current file: 86664924.edges
+Number of nodes: 48
+Number of edges: 441
+
+Current file: 12831.edges
+Number of nodes: 236
+Number of edges: 2478
+
+Current file: 103991905.edges
+Number of nodes: 81
+Number of edges: 615
+
+Current file: 230601773.edges
+Number of nodes: 185
+Number of edges: 5156
+
+Current file: 13317162.edges
+Number of nodes: 167
+Number of edges: 2184
+
+Current file: 77843323.edges
+Number of nodes: 87
+Number of edges: 1462
+
+Current file: 26346966.edges
+Number of nodes: 78
+Number of edges: 1928
+
+Current file: 338017544.edges
+Number of nodes: 191
+Number of edges: 3925
+
+Current file: 16247469.edges
+Number of nodes: 234
+Number of edges: 4780
+
+Current file: 63084853.edges
+Number of nodes: 54
+Number of edges: 993
+
+Current file: 22879382.edges
+Number of nodes: 175
+Number of edges: 1876
+
+Current file: 6253282.edges
+Number of nodes: 29
+Number of edges: 536
+
+Current file: 248523038.edges
+Number of nodes: 80
+Number of edges: 698
+
+Current file: 17874544.edges
+Number of nodes: 26
+Number of edges: 107
+
+Current file: 16465113.edges
+Number of nodes: 122
+Number of edges: 2245
+
+Current file: 19208450.edges
+Number of nodes: 179
+Number of edges: 2747
+
+Current file: 318760490.edges
+Number of nodes: 98
+Number of edges: 1123
+
+Current file: 225302763.edges
+Number of nodes: 85
+Number of edges: 1512
+
+Current file: 22121627.edges
+Number of nodes: 173
+Number of edges: 1923
+
+Current file: 168224294.edges
+Number of nodes: 191
+Number of edges: 4552
+
+Current file: 64496469.edges
+Number of nodes: 41
+Number of edges: 400
+
+Current file: 734493.edges
+Number of nodes: 9
+Number of edges: 54
+
+Current file: 51775432.edges
+Number of nodes: 89
+Number of edges: 488
+
+Current file: 14203895.edges
+Number of nodes: 215
+Number of edges: 3640
+
+Current file: 21816783.edges
+Number of nodes: 53
+Number of edges: 271
+
+Current file: 402970625.edges
+Number of nodes: 84
+Number of edges: 736
+
+Current file: 187569483.edges
+Number of nodes: 235
+Number of edges: 3678
+
+Current file: 11828432.edges
+Number of nodes: 75
+Number of edges: 2203
+
+Current file: 15741636.edges
+Number of nodes: 93
+Number of edges: 922
+
+Current file: 19725644.edges
+Number of nodes: 56
+Number of edges: 393
+
+Current file: 243267948.edges
+Number of nodes: 50
+Number of edges: 1458
+
+Current file: 58525541.edges
+Number of nodes: 14
+Number of edges: 126
+
+Current file: 66761133.edges
+Number of nodes: 171
+Number of edges: 4705
+
+Current file: 54168315.edges
+Number of nodes: 61
+Number of edges: 371
+
+Current file: 168537920.edges
+Number of nodes: 83
+Number of edges: 1132
+
+Current file: 19299909.edges
+Number of nodes: 153
+Number of edges: 956
+
+Current file: 152388029.edges
+Number of nodes: 128
+Number of edges: 2295
+
+Current file: 16652550.edges
+Number of nodes: 129
+Number of edges: 1637
+
+Current file: 14521330.edges
+Number of nodes: 64
+Number of edges: 476
+
+Current file: 191924526.edges
+Number of nodes: 79
+Number of edges: 1440
+
+Current file: 29514951.edges
+Number of nodes: 77
+Number of edges: 1684
+
+Current file: 2890961.edges
+Number of nodes: 53
+Number of edges: 554
+
+Current file: 40818894.edges
+Number of nodes: 73
+Number of edges: 861
+
+Current file: 68480165.edges
+Number of nodes: 45
+Number of edges: 207
+
+Current file: 5868402.edges
+Number of nodes: 93
+Number of edges: 2072
+
+Current file: 212642904.edges
+Number of nodes: 146
+Number of edges: 1848
+
+Current file: 7682452.edges
+Number of nodes: 220
+Number of edges: 6195
+
+Current file: 171536167.edges
+Number of nodes: 93
+Number of edges: 245
+
+Current file: 36618690.edges
+Number of nodes: 148
+Number of edges: 2761
+
+Current file: 198370650.edges
+Number of nodes: 36
+Number of edges: 264
+
+Current file: 196926575.edges
+Number of nodes: 146
+Number of edges: 1480
+
+Current file: 103431502.edges
+Number of nodes: 91
+Number of edges: 473
+
+Current file: 15481789.edges
+Number of nodes: 225
+Number of edges: 2854
+
+Current file: 269485905.edges
+Number of nodes: 147
+Number of edges: 1941
+
+Current file: 144211337.edges
+Number of nodes: 105
+Number of edges: 2515
+
+Current file: 167901620.edges
+Number of nodes: 34
+Number of edges: 325
+
+Current file: 16285517.edges
+Number of nodes: 164
+Number of edges: 1892
+
+Current file: 22958268.edges
+Number of nodes: 99
+Number of edges: 1021
+
+Current file: 87525002.edges
+Number of nodes: 227
+Number of edges: 3294
+
+Current file: 200214366.edges
+Number of nodes: 183
+Number of edges: 9451
+
+Current file: 309096216.edges
+Number of nodes: 137
+Number of edges: 1307
+
+Current file: 26103051.edges
+Number of nodes: 204
+Number of edges: 1378
+
+Current file: 14372763.edges
+Number of nodes: 156
+Number of edges: 1209
+
+Current file: 359791673.edges
+Number of nodes: 65
+Number of edges: 625
+
+Current file: 16212913.edges
+Number of nodes: 154
+Number of edges: 1119
+
+Current file: 14120151.edges
+Number of nodes: 112
+Number of edges: 4158
+
+Current file: 11136132.edges
+Number of nodes: 118
+Number of edges: 1364
+
+Current file: 7668362.edges
+Number of nodes: 244
+Number of edges: 3516
+
+Current file: 184594566.edges
+Number of nodes: 188
+Number of edges: 5721
+
+Current file: 14191254.edges
+Number of nodes: 134
+Number of edges: 1433
+
+Current file: 36544954.edges
+Number of nodes: 66
+Number of edges: 402
+
+Current file: 14843763.edges
+Number of nodes: 56
+Number of edges: 769
+
+Current file: 176872879.edges
+Number of nodes: 42
+Number of edges: 248
+
+Current file: 174285878.edges
+Number of nodes: 228
+Number of edges: 4045
+
+Current file: 15977848.edges
+Number of nodes: 94
+Number of edges: 1889
+
+Current file: 17600223.edges
+Number of nodes: 95
+Number of edges: 1870
+
+Current file: 29357507.edges
+Number of nodes: 85
+Number of edges: 496
+
+Current file: 30096240.edges
+Number of nodes: 169
+Number of edges: 653
+
+Current file: 40981798.edges
+Number of nodes: 117
+Number of edges: 2948
+
+Current file: 45690012.edges
+Number of nodes: 171
+Number of edges: 4985
+
+Current file: 47359057.edges
+Number of nodes: 219
+Number of edges: 3133
+
+Current file: 120459837.edges
+Number of nodes: 191
+Number of edges: 6195
+
+Current file: 63207451.edges
+Number of nodes: 212
+Number of edges: 8922
+
+Current file: 348851602.edges
+Number of nodes: 133
+Number of edges: 3068
+
+Current file: 14426892.edges
+Number of nodes: 225
+Number of edges: 3641
+
+Current file: 15445811.edges
+Number of nodes: 25
+Number of edges: 273
+
+Current file: 18836167.edges
+Number of nodes: 191
+Number of edges: 2179
+
+Current file: 12570812.edges
+Number of nodes: 135
+Number of edges: 1560
+
+Current file: 24903302.edges
+Number of nodes: 109
+Number of edges: 909
+
+Current file: 16437633.edges
+Number of nodes: 62
+Number of edges: 269
+
+Current file: 25650268.edges
+Number of nodes: 54
+Number of edges: 190
+
+Current file: 59676554.edges
+Number of nodes: 139
+Number of edges: 850
+
+Current file: 5539522.edges
+Number of nodes: 200
+Number of edges: 2408
+
+Current file: 74651704.edges
+Number of nodes: 239
+Number of edges: 7157
+
+Current file: 120157205.edges
+Number of nodes: 33
+Number of edges: 358
+
+Current file: 104991493.edges
+Number of nodes: 180
+Number of edges: 2419
+
+Current file: 166252256.edges
+Number of nodes: 95
+Number of edges: 1412
+
+Current file: 819800.edges
+Number of nodes: 91
+Number of edges: 2400
+
+Current file: 23503181.edges
+Number of nodes: 101
+Number of edges: 1824
+
+Current file: 187773078.edges
+Number of nodes: 122
+Number of edges: 3787
+
+Current file: 307458983.edges
+Number of nodes: 228
+Number of edges: 9938
+
+Current file: 96545499.edges
+Number of nodes: 13
+Number of edges: 38
+
+Current file: 14372486.edges
+Number of nodes: 62
+Number of edges: 1467
+
+Current file: 33806113.edges
+Number of nodes: 75
+Number of edges: 885
+
+Current file: 15527013.edges
+Number of nodes: 152
+Number of edges: 1092
+
+Current file: 32574761.edges
+Number of nodes: 98
+Number of edges: 556
+
+Current file: 21222922.edges
+Number of nodes: 63
+Number of edges: 245
+
+Current file: 20060293.edges
+Number of nodes: 243
+Number of edges: 7542
+
+Current file: 79797834.edges
+Number of nodes: 235
+Number of edges: 4089
+
+Current file: 20319646.edges
+Number of nodes: 214
+Number of edges: 2669
+
+Current file: 108205076.edges
+Number of nodes: 213
+Number of edges: 4339
+
+Current file: 1239671.edges
+Number of nodes: 55
+Number of edges: 934
+
+Current file: 227650565.edges
+Number of nodes: 201
+Number of edges: 5101
+
+Current file: 129093262.edges
+Number of nodes: 187
+Number of edges: 4207
+
+Current file: 16840742.edges
+Number of nodes: 61
+Number of edges: 1104
+
+Current file: 14505838.edges
+Number of nodes: 26
+Number of edges: 280
+
+Current file: 62740714.edges
+Number of nodes: 42
+Number of edges: 521
+
+Current file: 189875309.edges
+Number of nodes: 184
+Number of edges: 5656
+
+Current file: 292560337.edges
+Number of nodes: 96
+Number of edges: 2812
+
+Current file: 7888452.edges
+Number of nodes: 120
+Number of edges: 1244
+
+Current file: 73738774.edges
+Number of nodes: 79
+Number of edges: 883
+
+Current file: 15099384.edges
+Number of nodes: 102
+Number of edges: 894
+
+Current file: 17421011.edges
+Number of nodes: 13
+Number of edges: 52
+
+Current file: 13212502.edges
+Number of nodes: 170
+Number of edges: 2262
+
+Current file: 29016037.edges
+Number of nodes: 224
+Number of edges: 3186
+
+Current file: 137046366.edges
+Number of nodes: 131
+Number of edges: 2989
+
+Current file: 384685422.edges
+Number of nodes: 174
+Number of edges: 6563
+
+Current file: 80688804.edges
+Number of nodes: 122
+Number of edges: 639
+
+Current file: 37112942.edges
+Number of nodes: 94
+Number of edges: 719
+
+Current file: 32547856.edges
+Number of nodes: 166
+Number of edges: 2569
+
+Current file: 317313520.edges
+Number of nodes: 204
+Number of edges: 4204
+
+Current file: 88931752.edges
+Number of nodes: 75
+Number of edges: 204
+
+Current file: 31179985.edges
+Number of nodes: 92
+Number of edges: 578
+
+Current file: 21094279.edges
+Number of nodes: 174
+Number of edges: 4059
+
+Current file: 35726059.edges
+Number of nodes: 213
+Number of edges: 7799
+
+Current file: 333021748.edges
+Number of nodes: 94
+Number of edges: 2634
+
+Current file: 21578499.edges
+Number of nodes: 172
+Number of edges: 2512
+
+Current file: 141341662.edges
+Number of nodes: 182
+Number of edges: 1052
+
+Current file: 18191231.edges
+Number of nodes: 221
+Number of edges: 2295
+
+Current file: 169216507.edges
+Number of nodes: 211
+Number of edges: 6403
+
+Current file: 59359628.edges
+Number of nodes: 136
+Number of edges: 967
+
+Current file: 15129912.edges
+Number of nodes: 95
+Number of edges: 692
+
+Current file: 12771872.edges
+Number of nodes: 130
+Number of edges: 1676
+
+Current file: 17787399.edges
+Number of nodes: 177
+Number of edges: 1546
+
+Current file: 154648125.edges
+Number of nodes: 79
+Number of edges: 416
+
+Current file: 62759402.edges
+Number of nodes: 117
+Number of edges: 2376
+
+Current file: 19380307.edges
+Number of nodes: 123
+Number of edges: 1172
+
+Current file: 70123665.edges
+Number of nodes: 93
+Number of edges: 1026
+
+Current file: 101903164.edges
+Number of nodes: 14
+Number of edges: 51
+
+Current file: 197577781.edges
+Number of nodes: 137
+Number of edges: 2631
+
+Current file: 8079892.edges
+Number of nodes: 140
+Number of edges: 3153
+
+Current file: 20561154.edges
+Number of nodes: 159
+Number of edges: 2388
+
+Current file: 259288589.edges
+Number of nodes: 170
+Number of edges: 4440
+
+Current file: 155661154.edges
+Number of nodes: 203
+Number of edges: 6584
+
+Current file: 321620987.edges
+Number of nodes: 76
+Number of edges: 558
+
+Current file: 242479442.edges
+Number of nodes: 177
+Number of edges: 4212
+
+Current file: 17822419.edges
+Number of nodes: 164
+Number of edges: 3018
+
+Current file: 80297299.edges
+Number of nodes: 79
+Number of edges: 1434
+
+Current file: 7517222.edges
+Number of nodes: 144
+Number of edges: 4992
+
+Current file: 377662213.edges
+Number of nodes: 130
+Number of edges: 801
+
+Current file: 26604704.edges
+Number of nodes: 132
+Number of edges: 821
+
+Current file: 17503591.edges
+Number of nodes: 195
+Number of edges: 1920
+
+Current file: 33612973.edges
+Number of nodes: 216
+Number of edges: 4089
+
+Current file: 108159877.edges
+Number of nodes: 204
+Number of edges: 2134
+
+Current file: 185512077.edges
+Number of nodes: 97
+Number of edges: 3408
+
+Current file: 16878507.edges
+Number of nodes: 124
+Number of edges: 2196
+
+Current file: 17714569.edges
+Number of nodes: 190
+Number of edges: 2868
+
+Current file: 248916246.edges
+Number of nodes: 174
+Number of edges: 4882
+
+Current file: 19933035.edges
+Number of nodes: 62
+Number of edges: 1632
+
+Current file: 18917716.edges
+Number of nodes: 86
+Number of edges: 356
+
+Current file: 24907197.edges
+Number of nodes: 74
+Number of edges: 280
+
+Current file: 86799233.edges
+Number of nodes: 65
+Number of edges: 553
+
+Current file: 22106463.edges
+Number of nodes: 156
+Number of edges: 1815
+
+Current file: 245639401.edges
+Number of nodes: 179
+Number of edges: 2739
+
+Current file: 81938351.edges
+Number of nodes: 109
+Number of edges: 580
+
+Current file: 13460312.edges
+Number of nodes: 57
+Number of edges: 561
+
+Current file: 26286713.edges
+Number of nodes: 67
+Number of edges: 869
+
+Current file: 16616109.edges
+Number of nodes: 241
+Number of edges: 5508
+
+Current file: 14794851.edges
+Number of nodes: 223
+Number of edges: 2083
+
+Current file: 14422788.edges
+Number of nodes: 217
+Number of edges: 2224
+
+Current file: 104615636.edges
+Number of nodes: 48
+Number of edges: 506
+
+Current file: 148519842.edges
+Number of nodes: 184
+Number of edges: 2674
+
+Current file: 19898730.edges
+Number of nodes: 234
+Number of edges: 2243
+
+Current file: 19658936.edges
+Number of nodes: 105
+Number of edges: 2401
+
+Current file: 70620846.edges
+Number of nodes: 70
+Number of edges: 672
+
+Current file: 93787797.edges
+Number of nodes: 188
+Number of edges: 3183
+
+Current file: 33511585.edges
+Number of nodes: 159
+Number of edges: 3200
+
+Current file: 27853708.edges
+Number of nodes: 198
+Number of edges: 1480
+
+Current file: 33060624.edges
+Number of nodes: 44
+Number of edges: 196
+
+Current file: 24815332.edges
+Number of nodes: 230
+Number of edges: 4747
+
+Current file: 14256927.edges
+Number of nodes: 226
+Number of edges: 1831
+
+Current file: 145573135.edges
+Number of nodes: 72
+Number of edges: 1585
+
+Current file: 14150874.edges
+Number of nodes: 47
+Number of edges: 224
+
+Current file: 19492215.edges
+Number of nodes: 214
+Number of edges: 3877
+
+Current file: 312805417.edges
+Number of nodes: 226
+Number of edges: 3928
+
+Current file: 44524106.edges
+Number of nodes: 80
+Number of edges: 1072
+
+Current file: 166214735.edges
+Number of nodes: 237
+Number of edges: 6691
+
+Current file: 169780164.edges
+Number of nodes: 230
+Number of edges: 4166
+
+Current file: 85716069.edges
+Number of nodes: 195
+Number of edges: 5061
+
+Current file: 1548841.edges
+Number of nodes: 179
+Number of edges: 3155
+
+Current file: 324544865.edges
+Number of nodes: 155
+Number of edges: 2939
+
+Current file: 9298152.edges
+Number of nodes: 182
+Number of edges: 2398
+
+Current file: 14058831.edges
+Number of nodes: 204
+Number of edges: 2456
+
+Current file: 237019614.edges
+Number of nodes: 63
+Number of edges: 774
+
+Current file: 18687625.edges
+Number of nodes: 103
+Number of edges: 450
+
+Current file: 398994309.edges
+Number of nodes: 68
+Number of edges: 2015
+
+Current file: 43194901.edges
+Number of nodes: 51
+Number of edges: 313
+
+Current file: 93998005.edges
+Number of nodes: 111
+Number of edges: 1435
+
+Current file: 16505296.edges
+Number of nodes: 49
+Number of edges: 417
+
+Current file: 31246395.edges
+Number of nodes: 223
+Number of edges: 3510
+
+Current file: 204145356.edges
+Number of nodes: 98
+Number of edges: 1672
+
+Current file: 809864.edges
+Number of nodes: 235
+Number of edges: 3737
+
+Current file: 152435436.edges
+Number of nodes: 210
+Number of edges: 3348
+
+Current file: 36953510.edges
+Number of nodes: 77
+Number of edges: 795
+
+Current file: 121258930.edges
+Number of nodes: 25
+Number of edges: 245
+
+Current file: 759679.edges
+Number of nodes: 115
+Number of edges: 782
+
+Current file: 629863.edges
+Number of nodes: 159
+Number of edges: 1099
+
+Current file: 215328630.edges
+Number of nodes: 10
+Number of edges: 33
+
+Current file: 101859065.edges
+Number of nodes: 23
+Number of edges: 208
+
+Current file: 21420959.edges
+Number of nodes: 91
+Number of edges: 1787
+
+Current file: 20758393.edges
+Number of nodes: 121
+Number of edges: 921
+
+Current file: 96843721.edges
+Number of nodes: 136
+Number of edges: 2626
+
+Current file: 64441390.edges
+Number of nodes: 148
+Number of edges: 1028
+
+Current file: 14838506.edges
+Number of nodes: 119
+Number of edges: 774
+
+Current file: 104324908.edges
+Number of nodes: 13
+Number of edges: 77
+
+Current file: 790205.edges
+Number of nodes: 216
+Number of edges: 5498
+
+Current file: 6165372.edges
+Number of nodes: 205
+Number of edges: 2055
+
+Current file: 278311152.edges
+Number of nodes: 79
+Number of edges: 2261
+
+Current file: 21735280.edges
+Number of nodes: 210
+Number of edges: 1933
+
+Current file: 107172099.edges
+Number of nodes: 23
+Number of edges: 285
+
+Current file: 37103386.edges
+Number of nodes: 196
+Number of edges: 5914
+
+Current file: 212718048.edges
+Number of nodes: 85
+Number of edges: 414
+
+Current file: 441252694.edges
+Number of nodes: 137
+Number of edges: 583
+
+Current file: 549089429.edges
+Number of nodes: 14
+Number of edges: 125
+
+Current file: 102903198.edges
+Number of nodes: 226
+Number of edges: 4925
+
+Current file: 18734310.edges
+Number of nodes: 159
+Number of edges: 4319
+
+Current file: 54178513.edges
+Number of nodes: 116
+Number of edges: 1027
+
+Current file: 15642031.edges
+Number of nodes: 59
+Number of edges: 354
+
+Current file: 20689206.edges
+Number of nodes: 206
+Number of edges: 5926
+
+Current file: 73707412.edges
+Number of nodes: 209
+Number of edges: 4127
+
+Current file: 102765423.edges
+Number of nodes: 84
+Number of edges: 1070
+
+Current file: 176310143.edges
+Number of nodes: 225
+Number of edges: 5150
+
+Current file: 267383914.edges
+Number of nodes: 152
+Number of edges: 3423
+
+Current file: 44666348.edges
+Number of nodes: 202
+Number of edges: 6255
+
+Current file: 133663120.edges
+Number of nodes: 216
+Number of edges: 3741
+
+Current file: 170167167.edges
+Number of nodes: 129
+Number of edges: 2399
+
+Current file: 20999409.edges
+Number of nodes: 119
+Number of edges: 849
+
+Current file: 123287376.edges
+Number of nodes: 165
+Number of edges: 4973
+
+Current file: 378494343.edges
+Number of nodes: 203
+Number of edges: 1227
+
+Current file: 33617320.edges
+Number of nodes: 146
+Number of edges: 2400
+
+Current file: 290092792.edges
+Number of nodes: 239
+Number of edges: 3784
+
+Current file: 83478370.edges
+Number of nodes: 113
+Number of edges: 1061
+
+Current file: 396721965.edges
+Number of nodes: 9
+Number of edges: 21
+
+Current file: 107512718.edges
+Number of nodes: 138
+Number of edges: 2322
+
+Current file: 18226205.edges
+Number of nodes: 189
+Number of edges: 4721
+
+Current file: 360210947.edges
+Number of nodes: 81
+Number of edges: 1211
+
+Current file: 180540375.edges
+Number of nodes: 162
+Number of edges: 1413
+
+Current file: 779715.edges
+Number of nodes: 183
+Number of edges: 4200
+
+Current file: 119897041.edges
+Number of nodes: 38
+Number of edges: 569
+
+Current file: 26083291.edges
+Number of nodes: 174
+Number of edges: 1955
+
+Current file: 207936757.edges
+Number of nodes: 25
+Number of edges: 412
+
+Current file: 50189671.edges
+Number of nodes: 75
+Number of edges: 531
+
+Current file: 34805698.edges
+Number of nodes: 10
+Number of edges: 47
+
+Current file: 3245291.edges
+Number of nodes: 195
+Number of edges: 2373
+
+Current file: 18594420.edges
+Number of nodes: 191
+Number of edges: 1596
+
+Current file: 195475105.edges
+Number of nodes: 226
+Number of edges: 8124
+
+Current file: 16263665.edges
+Number of nodes: 188
+Number of edges: 1054
+
+Current file: 268425888.edges
+Number of nodes: 127
+Number of edges: 1523
+
+Current file: 17627996.edges
+Number of nodes: 96
+Number of edges: 283
+
+Current file: 64508047.edges
+Number of nodes: 68
+Number of edges: 1174
+
+Current file: 16421962.edges
+Number of nodes: 56
+Number of edges: 307
+
+Current file: 381688396.edges
+Number of nodes: 60
+Number of edges: 418
+
+Current file: 14957252.edges
+Number of nodes: 205
+Number of edges: 4029
+
+Current file: 129984134.edges
+Number of nodes: 214
+Number of edges: 6023
+
+Current file: 189111957.edges
+Number of nodes: 188
+Number of edges: 3195
+
+Current file: 18069824.edges
+Number of nodes: 148
+Number of edges: 1372
+
+Current file: 1422311.edges
+Number of nodes: 223
+Number of edges: 4481
+
+Current file: 43003845.edges
+Number of nodes: 105
+Number of edges: 3592
+
+Current file: 229741646.edges
+Number of nodes: 116
+Number of edges: 3114
+
+Current file: 16790036.edges
+Number of nodes: 185
+Number of edges: 2927
+
+Current file: 73025843.edges
+Number of nodes: 161
+Number of edges: 2640
+
+Current file: 43540843.edges
+Number of nodes: 141
+Number of edges: 2805
+
+Current file: 20950208.edges
+Number of nodes: 92
+Number of edges: 931
+
+Current file: 16606585.edges
+Number of nodes: 104
+Number of edges: 1146
+
+Current file: 115221382.edges
+Number of nodes: 209
+Number of edges: 2668
+
+Current file: 2257971.edges
+Number of nodes: 67
+Number of edges: 435
+
+Current file: 414334713.edges
+Number of nodes: 121
+Number of edges: 1269
+
+Current file: 250900294.edges
+Number of nodes: 148
+Number of edges: 1491
+
+Current file: 30970675.edges
+Number of nodes: 64
+Number of edges: 467
+
+Current file: 135704499.edges
+Number of nodes: 74
+Number of edges: 513
+
+Current file: 14922225.edges
+Number of nodes: 170
+Number of edges: 3017
+
+Current file: 197602850.edges
+Number of nodes: 134
+Number of edges: 2206
+
+Current file: 52405864.edges
+Number of nodes: 158
+Number of edges: 4135
+
+Current file: 14550962.edges
+Number of nodes: 133
+Number of edges: 1505
+
+Current file: 5774432.edges
+Number of nodes: 129
+Number of edges: 3407
+
+Current file: 351092905.edges
+Number of nodes: 233
+Number of edges: 5806
+
+Current file: 176936249.edges
+Number of nodes: 17
+Number of edges: 50
+
+Current file: 26585095.edges
+Number of nodes: 83
+Number of edges: 614
+
+Current file: 141488457.edges
+Number of nodes: 205
+Number of edges: 2498
+
+Current file: 31457243.edges
+Number of nodes: 40
+Number of edges: 303
+
+Current file: 179065820.edges
+Number of nodes: 107
+Number of edges: 819
+
+Current file: 70492333.edges
+Number of nodes: 90
+Number of edges: 987
+
+Current file: 21731779.edges
+Number of nodes: 33
+Number of edges: 64
+
+Current file: 28628055.edges
+Number of nodes: 101
+Number of edges: 1484
+
+Current file: 24541192.edges
+Number of nodes: 177
+Number of edges: 1988
+
+Current file: 44257374.edges
+Number of nodes: 148
+Number of edges: 2499
+
+Current file: 9215692.edges
+Number of nodes: 226
+Number of edges: 2317
+
+Current file: 200494218.edges
+Number of nodes: 186
+Number of edges: 3858
+
+Current file: 87114066.edges
+Number of nodes: 117
+Number of edges: 2050
+
+Current file: 15420650.edges
+Number of nodes: 55
+Number of edges: 815
+
+Current file: 143344048.edges
+Number of nodes: 62
+Number of edges: 444
+
+Current file: 73443014.edges
+Number of nodes: 84
+Number of edges: 1092
+
+Current file: 12415722.edges
+Number of nodes: 112
+Number of edges: 2114
+
+Current file: 126067398.edges
+Number of nodes: 14
+Number of edges: 51
+
+Current file: 315418321.edges
+Number of nodes: 62
+Number of edges: 487
+
+Current file: 99841247.edges
+Number of nodes: 93
+Number of edges: 619
+
+Current file: 35432497.edges
+Number of nodes: 230
+Number of edges: 1631
+
+Current file: 14807093.edges
+Number of nodes: 199
+Number of edges: 3522
+
+Current file: 37201612.edges
+Number of nodes: 172
+Number of edges: 1394
+
+Current file: 22863638.edges
+Number of nodes: 186
+Number of edges: 2436
+
+Current file: 613313.edges
+Number of nodes: 88
+Number of edges: 968
+
+Current file: 1435461.edges
+Number of nodes: 129
+Number of edges: 8037
+
+Current file: 16234125.edges
+Number of nodes: 140
+Number of edges: 1034
+
+Current file: 15419775.edges
+Number of nodes: 115
+Number of edges: 996
+
+Current file: 32289713.edges
+Number of nodes: 73
+Number of edges: 372
+
+Current file: 265077741.edges
+Number of nodes: 109
+Number of edges: 2881
+
+Current file: 34242979.edges
+Number of nodes: 208
+Number of edges: 4470
+
+Current file: 21648994.edges
+Number of nodes: 82
+Number of edges: 1026
+
+Current file: 17561785.edges
+Number of nodes: 143
+Number of edges: 2188
+
+Current file: 15533771.edges
+Number of nodes: 65
+Number of edges: 380
+
+Current file: 199039532.edges
+Number of nodes: 226
+Number of edges: 4237
+
+Current file: 285287229.edges
+Number of nodes: 185
+Number of edges: 4034
+
+Current file: 11027262.edges
+Number of nodes: 183
+Number of edges: 3499
+
+Current file: 40564708.edges
+Number of nodes: 111
+Number of edges: 522
+
+Current file: 15335809.edges
+Number of nodes: 202
+Number of edges: 5858
+
+Current file: 83285096.edges
+Number of nodes: 148
+Number of edges: 2916
+
+Current file: 48436259.edges
+Number of nodes: 145
+Number of edges: 818
+
+Current file: 300842571.edges
+Number of nodes: 189
+Number of edges: 5801
+
+Current file: 66136244.edges
+Number of nodes: 133
+Number of edges: 3069
+
+Current file: 20495756.edges
+Number of nodes: 152
+Number of edges: 1997
+
+Current file: 241635675.edges
+Number of nodes: 17
+Number of edges: 82
+
+Current file: 237845487.edges
+Number of nodes: 42
+Number of edges: 255
+
+Current file: 31631020.edges
+Number of nodes: 121
+Number of edges: 1518
+
+Current file: 242013901.edges
+Number of nodes: 120
+Number of edges: 3658
+
+Current file: 15944663.edges
+Number of nodes: 218
+Number of edges: 3321
+
+Current file: 253751053.edges
+Number of nodes: 133
+Number of edges: 928
+
+Current file: 14338082.edges
+Number of nodes: 215
+Number of edges: 3237
+
+Current file: 184755890.edges
+Number of nodes: 91
+Number of edges: 572
+
+Current file: 18201401.edges
+Number of nodes: 112
+Number of edges: 461
+
+Current file: 130734452.edges
+Number of nodes: 66
+Number of edges: 91
+
+Current file: 80681990.edges
+Number of nodes: 166
+Number of edges: 3664
+
+Current file: 17912917.edges
+Number of nodes: 110
+Number of edges: 523
+
+Current file: 229425177.edges
+Number of nodes: 113
+Number of edges: 4948
+
+Current file: 84114921.edges
+Number of nodes: 32
+Number of edges: 309
+
+Current file: 64253854.edges
+Number of nodes: 36
+Number of edges: 81
+
+Current file: 165598423.edges
+Number of nodes: 177
+Number of edges: 3999
+
+Current file: 137527381.edges
+Number of nodes: 34
+Number of edges: 455
+
+Current file: 21318259.edges
+Number of nodes: 78
+Number of edges: 1068
+
+Current file: 16476088.edges
+Number of nodes: 39
+Number of edges: 350
+
+Current file: 13872872.edges
+Number of nodes: 150
+Number of edges: 3529
+
+Current file: 151495845.edges
+Number of nodes: 194
+Number of edges: 8972
+
+Current file: 521489919.edges
+Number of nodes: 56
+Number of edges: 150
+
+Current file: 159588456.edges
+Number of nodes: 211
+Number of edges: 4825
+
+Current file: 14849487.edges
+Number of nodes: 212
+Number of edges: 1693
+
+Current file: 7875912.edges
+Number of nodes: 177
+Number of edges: 5753
+
+Current file: 30031265.edges
+Number of nodes: 147
+Number of edges: 1543
+
+Current file: 14120253.edges
+Number of nodes: 141
+Number of edges: 1038
+
+Current file: 19760380.edges
+Number of nodes: 220
+Number of edges: 2213
+
+Current file: 249829509.edges
+Number of nodes: 135
+Number of edges: 2075
+
+Current file: 31317273.edges
+Number of nodes: 161
+Number of edges: 2231
+
+Current file: 15589323.edges
+Number of nodes: 30
+Number of edges: 176
+
+Current file: 23790454.edges
+Number of nodes: 116
+Number of edges: 1252
+
+Current file: 24479656.edges
+Number of nodes: 238
+Number of edges: 7379
+
+Current file: 283732062.edges
+Number of nodes: 170
+Number of edges: 5374
+
+Current file: 15647676.edges
+Number of nodes: 189
+Number of edges: 4294
+
+Current file: 197731654.edges
+Number of nodes: 40
+Number of edges: 138
+
+Current file: 203868162.edges
+Number of nodes: 69
+Number of edges: 648
+
+Current file: 18470775.edges
+Number of nodes: 32
+Number of edges: 427
+
+Current file: 789071.edges
+Number of nodes: 138
+Number of edges: 1128
+
+Current file: 17022544.edges
+Number of nodes: 76
+Number of edges: 651
+
+Current file: 258955239.edges
+Number of nodes: 14
+Number of edges: 57
+
+Current file: 64931560.edges
+Number of nodes: 196
+Number of edges: 4560
+
+Current file: 160839015.edges
+Number of nodes: 72
+Number of edges: 791
+
+Current file: 186354564.edges
+Number of nodes: 73
+Number of edges: 1128
+
+Current file: 22970486.edges
+Number of nodes: 79
+Number of edges: 613
+
+Current file: 25179170.edges
+Number of nodes: 59
+Number of edges: 327
+
+Current file: 22977196.edges
+Number of nodes: 205
+Number of edges: 2554
+
+Current file: 18571832.edges
+Number of nodes: 93
+Number of edges: 788
+
+Current file: 16193542.edges
+Number of nodes: 145
+Number of edges: 1212
+
+Current file: 24636631.edges
+Number of nodes: 83
+Number of edges: 544
+
+Current file: 31949053.edges
+Number of nodes: 200
+Number of edges: 2880
+
+Current file: 7424642.edges
+Number of nodes: 34
+Number of edges: 661
+
+Current file: 15665127.edges
+Number of nodes: 121
+Number of edges: 2222
+
+Current file: 248883350.edges
+Number of nodes: 184
+Number of edges: 9042
+
+Current file: 37899473.edges
+Number of nodes: 119
+Number of edges: 940
+
+Current file: 18788502.edges
+Number of nodes: 147
+Number of edges: 2331
+
+Current file: 5506012.edges
+Number of nodes: 87
+Number of edges: 760
+
+Current file: 18119683.edges
+Number of nodes: 150
+Number of edges: 4647
+
+Current file: 30310904.edges
+Number of nodes: 98
+Number of edges: 1083
+
+Current file: 52498113.edges
+Number of nodes: 228
+Number of edges: 2948
+
+Current file: 70160230.edges
+Number of nodes: 89
+Number of edges: 1910
+
+Current file: 40580577.edges
+Number of nodes: 190
+Number of edges: 3421
+
+Current file: 116798290.edges
+Number of nodes: 212
+Number of edges: 4069
+
+Current file: 52330027.edges
+Number of nodes: 162
+Number of edges: 6493
+
+Current file: 125098615.edges
+Number of nodes: 110
+Number of edges: 811
+
+Current file: 134208594.edges
+Number of nodes: 100
+Number of edges: 2639
+
+Current file: 21437537.edges
+Number of nodes: 222
+Number of edges: 3994
+
+Current file: 69624952.edges
+Number of nodes: 89
+Number of edges: 734
+
+Current file: 14199378.edges
+Number of nodes: 133
+Number of edges: 4577
+
+Current file: 19563357.edges
+Number of nodes: 151
+Number of edges: 3193
+
+Current file: 234169190.edges
+Number of nodes: 230
+Number of edges: 3931
+
+Current file: 14404235.edges
+Number of nodes: 77
+Number of edges: 557
+
+Current file: 233598791.edges
+Number of nodes: 166
+Number of edges: 5465
+
+Current file: 189253902.edges
+Number of nodes: 106
+Number of edges: 2291
+
+Current file: 313359626.edges
+Number of nodes: 175
+Number of edges: 1874
+
+Current file: 17636894.edges
+Number of nodes: 90
+Number of edges: 568
+
+Current file: 39695043.edges
+Number of nodes: 21
+Number of edges: 139
+
+Current file: 165580617.edges
+Number of nodes: 58
+Number of edges: 719
+
+Current file: 356897757.edges
+Number of nodes: 28
+Number of edges: 52
+
+Current file: 17602896.edges
+Number of nodes: 161
+Number of edges: 2974
+
+Current file: 280329780.edges
+Number of nodes: 85
+Number of edges: 1833
+
+Current file: 211933541.edges
+Number of nodes: 131
+Number of edges: 3775
+
+Current file: 93906304.edges
+Number of nodes: 125
+Number of edges: 1676
+
+Current file: 152062126.edges
+Number of nodes: 173
+Number of edges: 2087
+
+Current file: 189592841.edges
+Number of nodes: 79
+Number of edges: 505
+
+Current file: 207594668.edges
+Number of nodes: 51
+Number of edges: 223
+
+Current file: 16305227.edges
+Number of nodes: 132
+Number of edges: 823
+
+Current file: 372765570.edges
+Number of nodes: 173
+Number of edges: 1037
+
+Current file: 202195505.edges
+Number of nodes: 193
+Number of edges: 7909
+
+Current file: 19668026.edges
+Number of nodes: 134
+Number of edges: 2560
+
+Current file: 44394333.edges
+Number of nodes: 58
+Number of edges: 475
+
+Current file: 320527944.edges
+Number of nodes: 65
+Number of edges: 162
+
+Current file: 259884200.edges
+Number of nodes: 41
+Number of edges: 675
+
+Current file: 16591188.edges
+Number of nodes: 130
+Number of edges: 1331
+
+Current file: 34416153.edges
+Number of nodes: 148
+Number of edges: 3062
+
+Current file: 314038032.edges
+Number of nodes: 103
+Number of edges: 1321
+
+Current file: 103865085.edges
+Number of nodes: 118
+Number of edges: 2484
+
+Current file: 358845982.edges
+Number of nodes: 51
+Number of edges: 888
+
+Current file: 2841151.edges
+Number of nodes: 127
+Number of edges: 1391
+
+Current file: 54695584.edges
+Number of nodes: 105
+Number of edges: 1209
+
+Current file: 14134942.edges
+Number of nodes: 240
+Number of edges: 4767
+
+Current file: 45310286.edges
+Number of nodes: 176
+Number of edges: 3351
+
+Current file: 10798802.edges
+Number of nodes: 170
+Number of edges: 1888
+
+Current file: 368018677.edges
+Number of nodes: 80
+Number of edges: 438
+
+Current file: 18731347.edges
+Number of nodes: 211
+Number of edges: 4720
+
+Current file: 13837812.edges
+Number of nodes: 164
+Number of edges: 5132
+
+Current file: 120971873.edges
+Number of nodes: 185
+Number of edges: 2669
+
+Current file: 39070445.edges
+Number of nodes: 67
+Number of edges: 654
+
+Current file: 13274152.edges
+Number of nodes: 210
+Number of edges: 1189
+
+Current file: 63787760.edges
+Number of nodes: 166
+Number of edges: 5093
+
+Current file: 275686563.edges
+Number of nodes: 69
+Number of edges: 1839
+
+Current file: 9254272.edges
+Number of nodes: 155
+Number of edges: 1779
+
+Current file: 18534908.edges
+Number of nodes: 185
+Number of edges: 3304
+
+Current file: 110536616.edges
+Number of nodes: 38
+Number of edges: 429
+
+Current file: 14060856.edges
+Number of nodes: 186
+Number of edges: 2642
+
+Current file: 18690700.edges
+Number of nodes: 107
+Number of edges: 364
+
+Current file: 15864197.edges
+Number of nodes: 149
+Number of edges: 1054
+
+Current file: 41945050.edges
+Number of nodes: 71
+Number of edges: 1155
+
+Current file: 258447233.edges
+Number of nodes: 63
+Number of edges: 950
+
+Current file: 105150583.edges
+Number of nodes: 210
+Number of edges: 4795
+
+Current file: 49536244.edges
+Number of nodes: 204
+Number of edges: 1400
+
+Current file: 1046661.edges
+Number of nodes: 128
+Number of edges: 1642
+
+Current file: 18957524.edges
+Number of nodes: 125
+Number of edges: 1522
+
+Current file: 4258591.edges
+Number of nodes: 106
+Number of edges: 837
+
+Current file: 20119746.edges
+Number of nodes: 41
+Number of edges: 208
+
+Current file: 7890392.edges
+Number of nodes: 238
+Number of edges: 4489
+
+Current file: 88456842.edges
+Number of nodes: 222
+Number of edges: 5364
+
+Current file: 16685316.edges
+Number of nodes: 146
+Number of edges: 1309
+
+Current file: 42912024.edges
+Number of nodes: 86
+Number of edges: 1752
+
+Current file: 222090651.edges
+Number of nodes: 175
+Number of edges: 3581
+
+Current file: 15473958.edges
+Number of nodes: 150
+Number of edges: 3612
+
+Current file: 175553601.edges
+Number of nodes: 201
+Number of edges: 8888
+
+Current file: 16297193.edges
+Number of nodes: 13
+Number of edges: 111
+
+Current file: 163674521.edges
+Number of nodes: 219
+Number of edges: 5286
+
+Current file: 235219400.edges
+Number of nodes: 125
+Number of edges: 1950
+
+Current file: 8914942.edges
+Number of nodes: 236
+Number of edges: 5791
+
+Current file: 107516840.edges
+Number of nodes: 221
+Number of edges: 7160
+
+Current file: 66841215.edges
+Number of nodes: 83
+Number of edges: 545
+
+Current file: 14893314.edges
+Number of nodes: 154
+Number of edges: 1298
+
+Current file: 5773532.edges
+Number of nodes: 101
+Number of edges: 1090
+
+Current file: 30345417.edges
+Number of nodes: 152
+Number of edges: 2603
+
+Current file: 14711172.edges
+Number of nodes: 6
+Number of edges: 8
+
+Current file: 43858661.edges
+Number of nodes: 11
+Number of edges: 37
+
+Current file: 17384099.edges
+Number of nodes: 154
+Number of edges: 3134
+
+Current file: 16105942.edges
+Number of nodes: 51
+Number of edges: 594
+
+Current file: 16610683.edges
+Number of nodes: 97
+Number of edges: 554
+
+Current file: 15053535.edges
+Number of nodes: 18
+Number of edges: 26
+
+Current file: 1271901.edges
+Number of nodes: 236
+Number of edges: 4416
+
+Current file: 18481292.edges
+Number of nodes: 77
+Number of edges: 1732
+
+Current file: 18252740.edges
+Number of nodes: 153
+Number of edges: 4104
+
+Current file: 14677919.edges
+Number of nodes: 233
+Number of edges: 6687
+
+Current file: 105918870.edges
+Number of nodes: 170
+Number of edges: 2849
+
+Current file: 19454519.edges
+Number of nodes: 54
+Number of edges: 841
+
+Current file: 253360762.edges
+Number of nodes: 219
+Number of edges: 1807
+
+Current file: 14327149.edges
+Number of nodes: 42
+Number of edges: 111
+
+Current file: 16987303.edges
+Number of nodes: 193
+Number of edges: 13538
+
+Current file: 136341512.edges
+Number of nodes: 28
+Number of edges: 348
+
+Current file: 45145944.edges
+Number of nodes: 49
+Number of edges: 199
+
+Current file: 206923844.edges
+Number of nodes: 232
+Number of edges: 8896
+
+Current file: 16809036.edges
+Number of nodes: 215
+Number of edges: 4894
+
+Current file: 16834201.edges
+Number of nodes: 94
+Number of edges: 529
+
+Current file: 15012486.edges
+Number of nodes: 198
+Number of edges: 8638
+
+Current file: 15938936.edges
+Number of nodes: 235
+Number of edges: 4276
+
+Current file: 21364753.edges
+Number of nodes: 51
+Number of edges: 732
+
+Current file: 55019615.edges
+Number of nodes: 230
+Number of edges: 7218
+
+Current file: 259365099.edges
+Number of nodes: 30
+Number of edges: 122
+
+Current file: 14936377.edges
+Number of nodes: 59
+Number of edges: 667
+
+Current file: 37792861.edges
+Number of nodes: 87
+Number of edges: 1119
+
+Current file: 31313454.edges
+Number of nodes: 71
+Number of edges: 461
+
+Current file: 26335321.edges
+Number of nodes: 93
+Number of edges: 627
+
+Current file: 13649212.edges
+Number of nodes: 173
+Number of edges: 2232
+
+Current file: 7144422.edges
+Number of nodes: 18
+Number of edges: 127
+
+Current file: 37992666.edges
+Number of nodes: 119
+Number of edges: 1463
+
+Current file: 312284236.edges
+Number of nodes: 169
+Number of edges: 3553
+
+Current file: 11348282.edges
+Number of nodes: 171
+Number of edges: 5001
+
+Current file: 20347014.edges
+Number of nodes: 231
+Number of edges: 4712
+
+Current file: 157488488.edges
+Number of nodes: 35
+Number of edges: 105
+
+Current file: 423567032.edges
+Number of nodes: 238
+Number of edges: 2567
+
+Current file: 80317145.edges
+Number of nodes: 206
+Number of edges: 2011
+
+Current file: 68732646.edges
+Number of nodes: 199
+Number of edges: 1582
+
+Current file: 307478701.edges
+Number of nodes: 28
+Number of edges: 126
+
+Current file: 17396702.edges
+Number of nodes: 119
+Number of edges: 5063
+
+Current file: 242024994.edges
+Number of nodes: 149
+Number of edges: 5034
+
+Current file: 18923866.edges
+Number of nodes: 245
+Number of edges: 2903
+
+Current file: 179138862.edges
+Number of nodes: 130
+Number of edges: 1832
+
+Current file: 182609394.edges
+Number of nodes: 30
+Number of edges: 272
+
+Current file: 25344777.edges
+Number of nodes: 51
+Number of edges: 653
+
+Current file: 211547273.edges
+Number of nodes: 177
+Number of edges: 5198
+
+Current file: 75370828.edges
+Number of nodes: 177
+Number of edges: 4160
+
+Current file: 10146102.edges
+Number of nodes: 95
+Number of edges: 951
+
+Current file: 249831237.edges
+Number of nodes: 38
+Number of edges: 249
+
+Current file: 61890555.edges
+Number of nodes: 33
+Number of edges: 152
+
+Current file: 98345808.edges
+Number of nodes: 32
+Number of edges: 139
+
+Current file: 7098022.edges
+Number of nodes: 97
+Number of edges: 851
+
+Current file: 98801140.edges
+Number of nodes: 5
+Number of edges: 5
+
+Current file: 121569946.edges
+Number of nodes: 144
+Number of edges: 1465
+
+Current file: 4387041.edges
+Number of nodes: 107
+Number of edges: 620
+
+Current file: 8768832.edges
+Number of nodes: 129
+Number of edges: 868
+
+Current file: 198941747.edges
+Number of nodes: 215
+Number of edges: 8166
+
+Most nodes: 134943586.edges (247) nodes
+Most edges: 256497288.edges (17930) edges
