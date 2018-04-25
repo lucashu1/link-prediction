@@ -27,8 +27,8 @@ class OptimizerVAE(object):
         labels_sub = labels
 
         print 'Creating GAE optimizer...'
-        print 'Labels shape: ', label_sub.shape
-        print 'Preds shape: ', preds_sub.shape
+        print 'Labels shape: ', tf.shape(labels_sub)
+        print 'Preds shape: ', tf.shape(preds_sub)
 
         self.cost = norm * tf.reduce_mean(tf.nn.weighted_cross_entropy_with_logits(logits=preds_sub, targets=labels_sub, pos_weight=pos_weight))
         self.optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)  # Adam Optimizer
