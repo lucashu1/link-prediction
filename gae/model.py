@@ -96,6 +96,7 @@ class GCNModelVAE(Model):
         self.dropout = placeholders['dropout']
         self.hidden1_dim = hidden1_dim
         self.hidden2_dim = hidden2_dim
+        self.flatten_output=flatten_output
         self.build()
 
     def _build(self):
@@ -130,5 +131,5 @@ class GCNModelVAE(Model):
         # Inner-Product Decoder: Z (embeddings) --> A (reconstructed adj.)
         self.reconstructions = InnerProductDecoder(input_dim=self.hidden2_dim,
                                       act=lambda x: x,
-                                      flatten=flatten_output,
+                                      flatten=self.flatten_output,
                                       logging=self.logging)(self.z)
