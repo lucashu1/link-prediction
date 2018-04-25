@@ -85,7 +85,7 @@ class GCNModelAE(Model):
 # Graph Variational Auto-Encoder model
 class GCNModelVAE(Model):
     def __init__(self, placeholders, num_features, num_nodes, features_nonzero, 
-      hidden1_dim=32, hidden2_dim=16, **kwargs):
+      hidden1_dim=32, hidden2_dim=16, flatten_output=True, **kwargs):
         super(GCNModelVAE, self).__init__(**kwargs)
 
         self.inputs = placeholders['features']
@@ -130,4 +130,5 @@ class GCNModelVAE(Model):
         # Inner-Product Decoder: Z (embeddings) --> A (reconstructed adj.)
         self.reconstructions = InnerProductDecoder(input_dim=self.hidden2_dim,
                                       act=lambda x: x,
+                                      flatten=flatten_output,
                                       logging=self.logging)(self.z)

@@ -391,11 +391,11 @@ def gae_scores(
 
     # Create VAE model
     model = GCNModelVAE(placeholders, num_features, num_nodes, features_nonzero,
-                       HIDDEN1_DIM, HIDDEN2_DIM)
+                       HIDDEN1_DIM, HIDDEN2_DIM, flatten_output=False)
 
     opt = OptimizerVAE(preds=model.reconstructions,
-                               labels=tf.reshape(tf.sparse_tensor_to_dense(placeholders['adj_orig'],
-                                                                           validate_indices=False), [-1]),
+                               labels=tf.sparse_tensor_to_dense(placeholders['adj_orig'],
+                                                                           validate_indices=False),
                                model=model, num_nodes=num_nodes,
                                pos_weight=pos_weight,
                                norm=norm,

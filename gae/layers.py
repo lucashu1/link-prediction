@@ -110,7 +110,7 @@ class GraphConvolutionSparse(Layer):
 
 class InnerProductDecoder(Layer):
     """Decoder model layer for link prediction."""
-    def __init__(self, input_dim, dropout=0., act=tf.nn.sigmoid, **kwargs):
+    def __init__(self, input_dim, dropout=0., act=tf.nn.sigmoid, flatten=True, **kwargs):
         super(InnerProductDecoder, self).__init__(**kwargs)
         self.dropout = dropout
         self.act = act
@@ -122,6 +122,7 @@ class InnerProductDecoder(Layer):
         inputs = tf.nn.dropout(inputs, 1-self.dropout)
         x = tf.transpose(inputs)
         x = tf.matmul(inputs, x)
-        x = tf.reshape(x, [-1])
+        if flatten == True:
+            x = tf.reshape(x, [-1])
         outputs = self.act(x)
         return outputs
