@@ -27,8 +27,8 @@ class OptimizerVAE(object):
         labels_sub = labels
 
         print 'Creating GAE optimizer...'
-        print 'Labels shape: ', tf.shape(labels_sub)
-        print 'Preds shape: ', tf.shape(preds_sub)
+        print 'Labels shape: ', labels_sub.shape
+        print 'Preds shape: ', preds_sub.shape
 
         self.cost = norm * tf.reduce_mean(tf.nn.weighted_cross_entropy_with_logits(logits=preds_sub, targets=labels_sub, pos_weight=pos_weight))
         self.optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)  # Adam Optimizer
@@ -39,7 +39,7 @@ class OptimizerVAE(object):
                                                                    tf.square(tf.exp(model.z_log_std)), 1))
         self.cost -= self.kl
 
-        print 'CE+KL loss shape: ', tf.shape(self.cost)
+        print 'CE+KL loss shape: ', self.cost.shape
 
         self.opt_op = self.optimizer.minimize(self.cost)
         self.grads_vars = self.optimizer.compute_gradients(self.cost)
