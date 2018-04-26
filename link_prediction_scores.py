@@ -378,9 +378,9 @@ def gae_scores(
 
     # Define placeholders
     placeholders = {
-        'features': tf.sparse_placeholder(tf.float32),
-        'adj': tf.sparse_placeholder(tf.float32),
-        'adj_orig': tf.sparse_placeholder(tf.float32),
+        'features': tf.sparse_placeholder(tf.float16),
+        'adj': tf.sparse_placeholder(tf.float16),
+        'adj_orig': tf.sparse_placeholder(tf.float16),
         'dropout': tf.placeholder_with_default(0., shape=())
     }
 
@@ -400,8 +400,8 @@ def gae_scores(
                        HIDDEN1_DIM, HIDDEN2_DIM, flatten_output=False)
 
     opt = OptimizerVAE(preds=model.reconstructions,
-                               # labels=tf.sparse_tensor_to_dense(placeholders['adj_orig'], validate_indices=False),
-                               labels=placeholders['adj_orig'],
+                               labels=tf.sparse_tensor_to_dense(placeholders['adj_orig'], validate_indices=False),
+                               # labels=placeholders['adj_orig'],
                                model=model, num_nodes=num_nodes,
                                pos_weight=pos_weight,
                                norm=norm,
