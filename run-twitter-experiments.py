@@ -50,7 +50,7 @@ for i in range(NUM_REPEATS):
                                                      test_frac=test_frac, val_frac=val_frac, \
                                                      random_state=RANDOM_SEED, verbose=2,
                                                      train_test_split_file=train_test_split_file,
-                                                     tf_dype=tf.float16)
+                                                     tf_dtype=tf.float16)
 
         # Save experiment results at each iteration
         with open(twitter_results_dir, 'wb') as f:
