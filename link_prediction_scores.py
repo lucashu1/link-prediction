@@ -1,4 +1,4 @@
-from __future__ import print_function, division
+from __future__ import division
 import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -422,15 +422,15 @@ def gae_scores(
         for variable in tf.trainable_variables():
             # shape is an array of tf.Dimension
             shape = variable.get_shape()
-            print("Variable shape: ", shape)
+            print "Variable shape: ", shape
             variable_parameters = 1
             for dim in shape:
-                print("Current dimension: ", dim)
+                print "Current dimension: ", dim
                 variable_parameters *= dim.value
-            print("Variable params: ", variable_parameters)
+            print "Variable params: ", variable_parameters
             total_parameters += variable_parameters
-            print()
-        print("TOTAL TRAINABLE PARAMS: ", total_parameters)
+            print ''
+        print "TOTAL TRAINABLE PARAMS: ", total_parameters
 
         print 'Initializing TF variables...'
 
