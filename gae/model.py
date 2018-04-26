@@ -85,7 +85,7 @@ class GCNModelAE(Model):
 # Graph Variational Auto-Encoder model
 class GCNModelVAE(Model):
     def __init__(self, placeholders, num_features, num_nodes, features_nonzero, 
-      hidden1_dim=32, hidden2_dim=16, flatten_output=True, **kwargs):
+      hidden1_dim=32, hidden2_dim=16, flatten_output=True, dtype=tf.float32, **kwargs):
         super(GCNModelVAE, self).__init__(**kwargs)
 
         self.inputs = placeholders['features']
@@ -97,6 +97,7 @@ class GCNModelVAE(Model):
         self.hidden1_dim = hidden1_dim
         self.hidden2_dim = hidden2_dim
         self.flatten_output=flatten_output
+        self.dtype=dtype
         self.build()
 
     def _build(self):
@@ -107,6 +108,7 @@ class GCNModelVAE(Model):
                                               features_nonzero=self.features_nonzero,
                                               act=tf.nn.relu,
                                               dropout=self.dropout,
+                                              dtype=self.dtype,
                                               logging=self.logging)(self.inputs)
 
         # Second GCN Layer: (A, H) --> Z_mean (node embeddings)
@@ -115,6 +117,7 @@ class GCNModelVAE(Model):
                                        adj=self.adj,
                                        act=lambda x: x,
                                        dropout=self.dropout,
+                                       dtype=self.dtype,
                                        logging=self.logging)(self.hidden1)
 
         # Also second GCN Layer: (A, H) --> Z_log_stddev (for VAE noise)
@@ -123,10 +126,11 @@ class GCNModelVAE(Model):
                                           adj=self.adj,
                                           act=lambda x: x,
                                           dropout=self.dropout,
+                                          dtype=self.dtype,
                                           logging=self.logging)(self.hidden1)
 
         # Sampling operation: z = z_mean + (random_noise_factor) * z_stddev
-        self.z = self.z_mean + tf.random_normal([self.n_samples, self.hidden2_dim]) * tf.exp(self.z_log_std)
+        self.z = self.z_mean + tf.random_normal([self.n_samples, self.hidden2_dim], dtype=self.dtype) * tf.exp(self.z_log_std)
 
         # Inner-Product Decoder: Z (embeddings) --> A (reconstructed adj.)
         self.reconstructions = InnerProductDecoder(input_dim=self.hidden2_dim,

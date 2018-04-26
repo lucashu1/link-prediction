@@ -337,7 +337,8 @@ def gae_scores(
     HIDDEN2_DIM = 16,
     DROPOUT = 0,
     edge_score_mode="dot-product",
-    verbose=1
+    verbose=1,
+    dtype=tf.float32
     ):
     adj_train, train_edges, train_edges_false, val_edges, val_edges_false, \
         test_edges, test_edges_false = train_test_split # Unpack train-test split
@@ -397,7 +398,7 @@ def gae_scores(
 
     # Create VAE model
     model = GCNModelVAE(placeholders, num_features, num_nodes, features_nonzero,
-                       HIDDEN1_DIM, HIDDEN2_DIM, flatten_output=False)
+                       HIDDEN1_DIM, HIDDEN2_DIM, dtype=dtype, flatten_output=False)
 
     opt = OptimizerVAE(preds=model.reconstructions,
                                labels=tf.sparse_tensor_to_dense(placeholders['adj_orig'], validate_indices=False),
@@ -591,7 +592,8 @@ def gae_scores(
 # Returns: Dictionary of results (ROC AUC, ROC Curve, AP, Runtime) for each link prediction method
 def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
         test_frac=.3, val_frac=.1, random_state=0, verbose=1, \
-        train_test_split_file=None):
+        train_test_split_file=None,
+        tf_dtype=tf.float32):
     np.random.seed(random_state) # Guarantee consistent train/test split
     tf.set_random_seed(random_state) # Consistent GAE training
 
@@ -726,7 +728,8 @@ def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
     gae_results = gae_scores(adj_sparse, train_test_split, features_matrix,
         LEARNING_RATE, EPOCHS, HIDDEN1_DIM, HIDDEN2_DIM, DROPOUT,
         "dot-product",
-        verbose)
+        verbose,
+        dtype=tf.float16)
     lp_scores['gae'] = gae_results
 
     if verbose >= 1:
