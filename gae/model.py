@@ -57,10 +57,10 @@ class GCNModelAE(Model):
 
     def _build(self):
         # First GCN Layer: (A, X) --> H (hidden layer features)
-        self.hidden1 = GraphConvolutionSparse(input_dim=self.input_dim,
+        self.hidden1 = GraphConvolution(input_dim=self.input_dim,
                                               output_dim=self.hidden1_dim,
                                               adj=self.adj,
-                                              features_nonzero=self.features_nonzero,
+                                              # features_nonzero=self.features_nonzero,
                                               act=tf.nn.relu,
                                               dropout=self.dropout,
                                               logging=self.logging)(self.inputs)
@@ -102,10 +102,10 @@ class GCNModelVAE(Model):
 
     def _build(self):
         # First GCN Layer: (A, X) --> H (hidden layer features)
-        self.hidden1 = GraphConvolutionSparse(input_dim=self.input_dim,
+        self.hidden1 = GraphConvolution(input_dim=self.input_dim,
                                               output_dim=self.hidden1_dim,
                                               adj=self.adj,
-                                              features_nonzero=self.features_nonzero,
+                                              # features_nonzero=self.features_nonzero,
                                               act=tf.nn.relu,
                                               dropout=self.dropout,
                                               dtype=self.dtype,

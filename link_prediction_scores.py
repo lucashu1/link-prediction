@@ -378,7 +378,7 @@ def gae_scores(
     adj_label = sparse_to_tuple(adj_label)
 
     # Define placeholders
-    placeholders = {
+    placeholders = { # TODO: try making these dense from the get-go
         'features': tf.sparse_placeholder(tf.float16),
         'adj': tf.sparse_placeholder(tf.float16),
         'adj_orig': tf.sparse_placeholder(tf.float16),
@@ -406,9 +406,8 @@ def gae_scores(
                                model=model, num_nodes=num_nodes,
                                pos_weight=pos_weight,
                                norm=norm,
-                               learning_rate=LEARNING_RATE)
-
-
+                               learning_rate=LEARNING_RATE,
+                               dtype=tf.float16)
 
     cost_val = []
     acc_val = []

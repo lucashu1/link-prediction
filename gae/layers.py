@@ -72,6 +72,8 @@ class GraphConvolution(Layer):
             self.vars['weights'] = weight_variable_glorot(input_dim, output_dim, dtype=dtype, name="weights")
         self.dropout = dropout
         self.adj = adj
+        if type(self.adj) == tf.SparseTensor: # convert to dense if necessary
+            self.adj = tf.sparse_tensor_to_dense(self.adj, validate_indices=False)
         self.act = act
         self.dtype=dtype
 
@@ -79,9 +81,11 @@ class GraphConvolution(Layer):
         # H_1 = activation(A_norm * X * W)
     def _call(self, inputs):
         x = tf.cast(inputs, self.dtype)
+        if type(x) == tf.SparseTensor: # convert to dense if necessary
+            x = tf.sparse_tensor_to_dense(x, validate_indices=False)
         x = tf.nn.dropout(x, tf.cast(1-self.dropout, self.dtype))
         x = tf.matmul(x, self.vars['weights'])
-        x = tf.sparse_tensor_dense_matmul(self.adj, x)
+        x = tf.matmul(self.adj, x)
         outputs = self.act(x)
         return outputs
 
@@ -103,8 +107,8 @@ class GraphConvolutionSparse(Layer):
         # H_1 = activation(A_norm * X * W)
     def _call(self, inputs):
         x = inputs
-        if self.dropout > 0:
-            x = dropout_sparse(x, 1-self.dropout, self.features_nonzero, dtype=self.dtype)
+        # if self.dropout > 0:
+        x = dropout_sparse(x, 1-self.dropout, self.features_nonzero, dtype=self.dtype)
         x = tf.sparse_tensor_dense_matmul(tf.cast(x, tf.float32), tf.cast(self.vars['weights'], tf.float32))
         x = tf.sparse_tensor_dense_matmul(tf.cast(self.adj, tf.float32), tf.cast(x, tf.float32))
         outputs = tf.cast(self.act(x), self.dtype)

@@ -22,7 +22,7 @@ class OptimizerAE(object):
 
 # Graph VAE: use weighted-cross-entropy loss + KL Divergence
 class OptimizerVAE(object):
-    def __init__(self, preds, labels, model, num_nodes, pos_weight, norm, learning_rate=0.001):
+    def __init__(self, preds, labels, model, num_nodes, pos_weight, norm, learning_rate=0.001, dtype=tf.float32):
         preds_sub = preds
         labels_sub = labels
 
@@ -44,6 +44,12 @@ class OptimizerVAE(object):
         self.opt_op = self.optimizer.minimize(self.cost)
         self.grads_vars = self.optimizer.compute_gradients(self.cost)
 
-        self.correct_prediction = tf.equal(tf.cast(tf.greater_equal(tf.sigmoid(preds_sub), 0.5), tf.int32),
-                                           tf.cast(labels_sub, tf.int32))
-        self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
+        if dtype == tf.float32:
+            self.correct_prediction = tf.equal(tf.cast(tf.greater_equal(tf.sigmoid(preds_sub), 0.5), tf.int32),
+                                            tf.cast(labels_sub, tf.int32))
+            self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
+
+        elif dtype == tf.float16:
+            self.correct_prediction = tf.equal(tf.cast(tf.greater_equal(tf.sigmoid(preds_sub), 0.5), tf.int16),
+                                            tf.cast(labels_sub, tf.int16))
+            self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float16))
