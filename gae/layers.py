@@ -73,12 +73,13 @@ class GraphConvolution(Layer):
         self.dropout = dropout
         self.adj = adj
         self.act = act
+        self.dtype=dtype
 
     # Apply Graph Convolution operation:
         # H_1 = activation(A_norm * X * W)
     def _call(self, inputs):
-        x = inputs
-        x = tf.nn.dropout(x, 1-self.dropout)
+        x = tf.cast(inputs, self.dtype)
+        x = tf.nn.dropout(x, tf.cast(1-self.dropout, self.dtype))
         x = tf.matmul(x, self.vars['weights'])
         x = tf.sparse_tensor_dense_matmul(self.adj, x)
         outputs = self.act(x)
