@@ -19,12 +19,12 @@ def get_layer_uid(layer_name=''):
         return _LAYER_UIDS[layer_name]
 
 
-def dropout_sparse(x, keep_prob, num_nonzero_elems):
+def dropout_sparse(x, keep_prob, num_nonzero_elems, dtype=tf.float32):
     """Dropout for sparse tensors. Currently fails for very large sparse tensors (>1M elements)
     """
     noise_shape = [num_nonzero_elems]
     random_tensor = keep_prob
-    random_tensor += tf.random_uniform(noise_shape)
+    random_tensor += tf.random_uniform(noise_shape, dtype=dtype)
     dropout_mask = tf.cast(tf.floor(random_tensor), dtype=tf.bool)
     pre_out = tf.sparse_retain(x, dropout_mask)
     return pre_out * (1./keep_prob)
@@ -101,7 +101,7 @@ class GraphConvolutionSparse(Layer):
         # H_1 = activation(A_norm * X * W)
     def _call(self, inputs):
         x = inputs
-        x = dropout_sparse(x, 1-self.dropout, self.features_nonzero)
+        x = dropout_sparse(x, 1-self.dropout, self.features_nonzero, dtype=dtype)
         x = tf.sparse_tensor_dense_matmul(x, self.vars['weights'])
         x = tf.sparse_tensor_dense_matmul(self.adj, x)
         outputs = self.act(x)
