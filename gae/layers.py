@@ -23,7 +23,7 @@ def dropout_sparse(x, keep_prob, num_nonzero_elems, dtype=tf.float32):
     """Dropout for sparse tensors. Currently fails for very large sparse tensors (>1M elements)
     """
     noise_shape = [num_nonzero_elems]
-    random_tensor = keep_prob
+    random_tensor = tf.cast(keep_prob, dtype=dtype)
     random_tensor += tf.random_uniform(noise_shape, dtype=dtype)
     dropout_mask = tf.cast(tf.floor(random_tensor), dtype=tf.bool)
     pre_out = tf.sparse_retain(x, dropout_mask)
