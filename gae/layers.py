@@ -103,7 +103,7 @@ class GraphConvolutionSparse(Layer):
         # H_1 = activation(A_norm * X * W)
     def _call(self, inputs):
         x = inputs
-        if dropout > 0:
+        if self.dropout > 0:
             x = dropout_sparse(x, 1-self.dropout, self.features_nonzero, dtype=self.dtype)
         x = tf.sparse_tensor_dense_matmul(tf.cast(x, tf.float32), tf.cast(self.vars['weights'], tf.float32))
         x = tf.sparse_tensor_dense_matmul(tf.cast(self.adj, tf.float32), tf.cast(x, tf.float32))
