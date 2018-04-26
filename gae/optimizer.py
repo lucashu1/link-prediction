@@ -50,6 +50,12 @@ class OptimizerVAE(object):
             self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
         elif dtype == tf.float16:
-            self.correct_prediction = tf.equal(tf.cast(tf.greater_equal(tf.sigmoid(preds_sub), 0.5), tf.int16),
-                                            tf.cast(labels_sub, tf.int16))
-            self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float16))
+            # self.correct_prediction = tf.equal(tf.cast(tf.greater_equal(tf.sigmoid(preds_sub), 0.5), tf.int16),
+            #                                 tf.cast(labels_sub, tf.int16))
+            self.accuracy = tf.reduce_mean(tf.cast(
+                    tf.equal(
+                        tf.cast(
+                            tf.greater_equal(tf.sigmoid(preds_sub), 0.5), tf.int16),
+                            tf.cast(labels_sub, 
+                        tf.int16)), 
+                    tf.float16))
