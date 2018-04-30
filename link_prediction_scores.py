@@ -684,7 +684,7 @@ def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
 
 
     ## ---------- NODE2VEC ---------- ###
-    node2vec settings
+    # node2vec settings
     NOTE: When p = q = 1, this is equivalent to DeepWalk
     P = 1 # Return hyperparameter
     Q = 1 # In-out hyperparameter
@@ -710,7 +710,7 @@ def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
         print 'node2vec (Edge Embeddings) Test ROC score: ', str(n2v_edge_emb_scores['test_roc'])
         print 'node2vec (Edge Embeddings) Test AP score: ', str(n2v_edge_emb_scores['test_ap'])
 
-    Using dot products to calculate edge scores
+    # Using dot products to calculate edge scores
     n2v_dot_prod_scores = node2vec_scores(g_train, train_test_split,
         P, Q, WINDOW_SIZE, NUM_WALKS, WALK_LENGTH, DIMENSIONS, DIRECTED, WORKERS, ITER,
         "dot-product",
