@@ -685,7 +685,7 @@ def calculate_all_scores(adj_sparse, features_matrix=None, directed=False, \
 
     ## ---------- NODE2VEC ---------- ###
     # node2vec settings
-    NOTE: When p = q = 1, this is equivalent to DeepWalk
+    # NOTE: When p = q = 1, this is equivalent to DeepWalk
     P = 1 # Return hyperparameter
     Q = 1 # In-out hyperparameter
     WINDOW_SIZE = 10 # Context size for optimization
