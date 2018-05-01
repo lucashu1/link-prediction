@@ -27,7 +27,7 @@ for i in range(NUM_REPEATS):
     # Check existing experiment results, increment file number by 1
     past_results = os.listdir('./results/')
     experiment_num = 0
-    experiment_file_name = 'twitter-experiment-{}-results.pkl'.format(experiment_num)
+    experiment_file_name = 'twitter-experiment-{}-results.json'.format(experiment_num)
     while (experiment_file_name in past_results):
         experiment_num += 1
         experiment_file_name = 'twitter-experiment-{}-results.json'.format(experiment_num)
