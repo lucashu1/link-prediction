@@ -53,10 +53,11 @@ def get_roc_score(edges_pos, edges_neg, score_matrix, apply_sigmoid=False):
     preds_all = np.hstack([preds_pos, preds_neg])
     labels_all = np.hstack([np.ones(len(preds_pos)), np.zeros(len(preds_neg))])
     roc_score = roc_auc_score(labels_all, preds_all)
-    roc_curve_tuple = roc_curve(labels_all, preds_all)
+    # roc_curve_tuple = roc_curve(labels_all, preds_all)
     ap_score = average_precision_score(labels_all, preds_all)
     
-    return roc_score, roc_curve_tuple, ap_score
+    # return roc_score, roc_curve_tuple, ap_score
+    return roc_score, ap_score
 
 # Return a list of tuples (node1, node2) for networkx link prediction evaluation
 def get_ebunch(train_test_split):
@@ -90,10 +91,10 @@ def adamic_adar_scores(g_train, train_test_split):
     aa_matrix = aa_matrix / aa_matrix.max() # Normalize matrix
 
     runtime = time.time() - start_time
-    aa_roc, aa_roc_curve, aa_ap = get_roc_score(test_edges, test_edges_false, aa_matrix)
+    aa_roc, aa_ap = get_roc_score(test_edges, test_edges_false, aa_matrix)
 
     aa_scores['test_roc'] = aa_roc
-    aa_scores['test_roc_curve'] = aa_roc_curve
+    # aa_scores['test_roc_curve'] = aa_roc_curve
     aa_scores['test_ap'] = aa_ap
     aa_scores['runtime'] = runtime
     return aa_scores
@@ -119,10 +120,10 @@ def jaccard_coefficient_scores(g_train, train_test_split):
     jc_matrix = jc_matrix / jc_matrix.max() # Normalize matrix
 
     runtime = time.time() - start_time
-    jc_roc, jc_roc_curve, jc_ap = get_roc_score(test_edges, test_edges_false, jc_matrix)
+    jc_roc, jc_ap = get_roc_score(test_edges, test_edges_false, jc_matrix)
 
     jc_scores['test_roc'] = jc_roc
-    jc_scores['test_roc_curve'] = jc_roc_curve
+    # jc_scores['test_roc_curve'] = jc_roc_curve
     jc_scores['test_ap'] = jc_ap
     jc_scores['runtime'] = runtime
     return jc_scores
@@ -148,10 +149,10 @@ def preferential_attachment_scores(g_train, train_test_split):
     pa_matrix = pa_matrix / pa_matrix.max() # Normalize matrix
 
     runtime = time.time() - start_time
-    pa_roc, pa_roc_curve, pa_ap = get_roc_score(test_edges, test_edges_false, pa_matrix)
+    pa_roc, pa_ap = get_roc_score(test_edges, test_edges_false, pa_matrix)
 
     pa_scores['test_roc'] = pa_roc
-    pa_scores['test_roc_curve'] = pa_roc_curve
+    # pa_scores['test_roc_curve'] = pa_roc_curve
     pa_scores['test_ap'] = pa_ap
     pa_scores['runtime'] = runtime
     return pa_scores
@@ -171,16 +172,16 @@ def spectral_clustering_scores(train_test_split, random_state=0):
     sc_score_matrix = np.dot(spectral_emb, spectral_emb.T)
 
     runtime = time.time() - start_time
-    sc_test_roc, sc_test_roc_curve, sc_test_ap = get_roc_score(test_edges, test_edges_false, sc_score_matrix, apply_sigmoid=True)
-    sc_val_roc, sc_val_roc_curve, sc_val_ap = get_roc_score(val_edges, val_edges_false, sc_score_matrix, apply_sigmoid=True)
+    sc_test_roc, sc_test_ap = get_roc_score(test_edges, test_edges_false, sc_score_matrix, apply_sigmoid=True)
+    sc_val_roc, sc_val_ap = get_roc_score(val_edges, val_edges_false, sc_score_matrix, apply_sigmoid=True)
 
     # Record scores
     sc_scores['test_roc'] = sc_test_roc
-    sc_scores['test_roc_curve'] = sc_test_roc_curve
+    # sc_scores['test_roc_curve'] = sc_test_roc_curve
     sc_scores['test_ap'] = sc_test_ap
 
     sc_scores['val_roc'] = sc_val_roc
-    sc_scores['val_roc_curve'] = sc_val_roc_curve
+    # sc_scores['val_roc_curve'] = sc_val_roc_curve
     sc_scores['val_ap'] = sc_val_ap
 
     sc_scores['runtime'] = runtime
@@ -289,7 +290,7 @@ def node2vec_scores(
         # Calculate scores
         if len(val_edges) > 0 and len(val_edges_false) > 0:
             n2v_val_roc = roc_auc_score(val_edge_labels, val_preds)
-            n2v_val_roc_curve = roc_curve(val_edge_labels, val_preds)
+            # n2v_val_roc_curve = roc_curve(val_edge_labels, val_preds)
             n2v_val_ap = average_precision_score(val_edge_labels, val_preds)
         else:
             n2v_val_roc = None
@@ -297,7 +298,7 @@ def node2vec_scores(
             n2v_val_ap = None
         
         n2v_test_roc = roc_auc_score(test_edge_labels, test_preds)
-        n2v_test_roc_curve = roc_curve(test_edge_labels, test_preds)
+        # n2v_test_roc_curve = roc_curve(test_edge_labels, test_preds)
         n2v_test_ap = average_precision_score(test_edge_labels, test_preds)
 
 
@@ -308,14 +309,14 @@ def node2vec_scores(
 
         # Val set scores
         if len(val_edges) > 0:
-            n2v_val_roc, n2v_val_roc_curve, n2v_val_ap = get_roc_score(val_edges, val_edges_false, score_matrix, apply_sigmoid=True)
+            n2v_val_roc, n2v_val_ap = get_roc_score(val_edges, val_edges_false, score_matrix, apply_sigmoid=True)
         else:
             n2v_val_roc = None
             n2v_val_roc_curve = None
             n2v_val_ap = None
         
         # Test set scores
-        n2v_test_roc, n2v_test_roc_curve, n2v_test_ap = get_roc_score(test_edges, test_edges_false, score_matrix, apply_sigmoid=True)
+        n2v_test_roc, n2v_test_ap = get_roc_score(test_edges, test_edges_false, score_matrix, apply_sigmoid=True)
 
     else:
         print "Invalid edge_score_mode! Either use edge-emb or dot-product."
@@ -324,11 +325,11 @@ def node2vec_scores(
     n2v_scores = {}
 
     n2v_scores['test_roc'] = n2v_test_roc
-    n2v_scores['test_roc_curve'] = n2v_test_roc_curve
+    # n2v_scores['test_roc_curve'] = n2v_test_roc_curve
     n2v_scores['test_ap'] = n2v_test_ap
 
     n2v_scores['val_roc'] = n2v_val_roc
-    n2v_scores['val_roc_curve'] = n2v_val_roc_curve
+    # n2v_scores['val_roc_curve'] = n2v_val_roc_curve
     n2v_scores['val_ap'] = n2v_val_ap
 
     n2v_scores['runtime'] = runtime
@@ -491,7 +492,7 @@ def gae_scores(
         # # END TODO
 
 
-        roc_curr, roc_curve_curr, ap_curr = get_roc_score(val_edges, val_edges_false, gae_score_matrix, apply_sigmoid=True)
+        roc_curr, ap_curr = get_roc_score(val_edges, val_edges_false, gae_score_matrix, apply_sigmoid=True)
         val_roc_score.append(roc_curr)
 
         # Print results for this epoch
@@ -515,8 +516,8 @@ def gae_scores(
         runtime = time.time() - start_time
 
         # Calculate final scores
-        gae_val_roc, gae_val_roc_curve, gae_val_ap = get_roc_score(val_edges, val_edges_false, gae_score_matrix)
-        gae_test_roc, gae_test_roc_curve, gae_test_ap = get_roc_score(test_edges, test_edges_false, gae_score_matrix)
+        gae_val_roc, gae_val_ap = get_roc_score(val_edges, val_edges_false, gae_score_matrix)
+        gae_test_roc, gae_test_ap = get_roc_score(test_edges, test_edges_false, gae_score_matrix)
     
     # Take bootstrapped edge embeddings (via hadamard product)
     elif edge_score_mode == "edge-emb":
@@ -569,7 +570,7 @@ def gae_scores(
         # Calculate scores
         if len(val_edges) > 0 and len(val_edges_false) > 0:
             gae_val_roc = roc_auc_score(val_edge_labels, val_preds)
-            gae_val_roc_curve = roc_curve(val_edge_labels, val_preds)
+            # gae_val_roc_curve = roc_curve(val_edge_labels, val_preds)
             gae_val_ap = average_precision_score(val_edge_labels, val_preds)
         else:
             gae_val_roc = None
@@ -577,18 +578,18 @@ def gae_scores(
             gae_val_ap = None
         
         gae_test_roc = roc_auc_score(test_edge_labels, test_preds)
-        gae_test_roc_curve = roc_curve(test_edge_labels, test_preds)
+        # gae_test_roc_curve = roc_curve(test_edge_labels, test_preds)
         gae_test_ap = average_precision_score(test_edge_labels, test_preds)
 
     # Record scores
     gae_scores = {}
 
     gae_scores['test_roc'] = gae_test_roc
-    gae_scores['test_roc_curve'] = gae_test_roc_curve
+    # gae_scores['test_roc_curve'] = gae_test_roc_curve
     gae_scores['test_ap'] = gae_test_ap
 
     gae_scores['val_roc'] = gae_val_roc
-    gae_scores['val_roc_curve'] = gae_val_roc_curve
+    # gae_scores['val_roc_curve'] = gae_val_roc_curve
     gae_scores['val_ap'] = gae_val_ap
 
     gae_scores['val_roc_per_epoch'] = val_roc_score
