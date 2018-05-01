@@ -2,12 +2,12 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 import link_prediction_scores as lp
-import pickle
+import pickle, json
 import os
 import tensorflow as tf
 
 # Runtime parameters
-NUM_REPEATS = 1
+NUM_REPEATS = 3
 RANDOM_SEED = 0
 FRAC_EDGES_HIDDEN = [0.25, 0.5, 0.75]
 
@@ -30,7 +30,7 @@ for i in range(NUM_REPEATS):
     experiment_file_name = 'twitter-experiment-{}-results.pkl'.format(experiment_num)
     while (experiment_file_name in past_results):
         experiment_num += 1
-        experiment_file_name = 'twitter-experiment-{}-results.pkl'.format(experiment_num)
+        experiment_file_name = 'twitter-experiment-{}-results.json'.format(experiment_num)
 
     twitter_results_dir = './results/' + experiment_file_name
 
@@ -53,9 +53,9 @@ for i in range(NUM_REPEATS):
                                                      tf_dtype=tf.float16)
 
         # Save experiment results at each iteration
-        with open(twitter_results_dir, 'wb') as f:
-            pickle.dump(twitter_results, f, protocol=2)
+        with open(twitter_results_dir, 'w') as fp:
+            json.dump(twitter_results, fp, indent=4)
 
     # Save final experiment results
-    with open(twitter_results_dir, 'wb') as f:
-        pickle.dump(twitter_results, f, protocol=2)
+    with open(twitter_results_dir, 'w') as fp:
+        json.dump(twitter_results, fp, indent=4)
