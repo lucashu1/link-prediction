@@ -7,7 +7,7 @@ We first implement and apply a variety of link prediction methods to each of the
 
 **If you use this repository in your work, please cite the corresponding DOI:**
 
-[![DOI](https://zenodo.org/badge/96486645.svg)](https://zenodo.org/badge/latestdoi/96486645)
+[![DOI](https://zenodo.org/badge/111464159.svg)](https://zenodo.org/badge/latestdoi/111464159)
 
 ### Link Prediction Methods Tested:
 * [(Variational) Graph Auto-Encoders](https://arxiv.org/abs/1611.07308): An end-to-end trainable convolutional neural network model for unsupervised learning on graphs
